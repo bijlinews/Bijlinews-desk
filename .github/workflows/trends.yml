@@ -1,0 +1,69 @@
+name: Bijli trend articles
+
+on:
+  schedule:
+    - cron: "23 1-17 * * *"   # every hour at :23, 06:53 to 22:53 IST (no posts at night)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (write files only, no Blogger, no email)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # to commit cover images and state
+
+concurrency:
+  group: bijli-trends
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libraqm0 > /dev/null
+          pip install -q -r requirements.txt
+          mkdir -p fonts
+          [ -f fonts/Mukta-ExtraBold.ttf ] || curl -sSL -o fonts/Mukta-ExtraBold.ttf https://github.com/google/fonts/raw/main/ofl/mukta/Mukta-ExtraBold.ttf
+          [ -f fonts/Mukta-Medium.ttf ] || curl -sSL -o fonts/Mukta-Medium.ttf https://github.com/google/fonts/raw/main/ofl/mukta/Mukta-Medium.ttf
+          python -c "from PIL import features; print('raqm:', features.check('raqm'))"
+
+      - name: Git identity
+        run: |
+          git config user.name "bijli-bot"
+          git config user.email "bijli-bot@users.noreply.github.com"
+
+      - name: Run
+        env:
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          NOTIFY_TO: ${{ secrets.NOTIFY_TO }}
+          PUBLISH_MODE: ${{ vars.PUBLISH_MODE || 'draft' }}
+          MAX_PER_RUN: ${{ vars.MAX_PER_RUN || '2' }}
+          MAX_PER_DAY: ${{ vars.MAX_PER_DAY || '8' }}
+          MIN_TRAFFIC: ${{ vars.MIN_TRAFFIC || '500' }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL || 'gemini-2.5-flash' }}
+          CHECKER_MODEL: ${{ vars.CHECKER_MODEL || 'gemini-2.5-flash' }}
+        run: python -m pipeline.run
+
+      - name: Keep dry-run output
+        if: ${{ inputs.dry_run }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dry-run-articles
+          path: out/
