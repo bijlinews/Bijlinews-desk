@@ -57,8 +57,8 @@ jobs:
           MAX_PER_RUN: ${{ vars.MAX_PER_RUN || '2' }}
           MAX_PER_DAY: ${{ vars.MAX_PER_DAY || '8' }}
           MIN_TRAFFIC: ${{ vars.MIN_TRAFFIC || '500' }}
-          WRITER_MODEL: ${{ vars.WRITER_MODEL || 'gemini-2.5-flash' }}
-          CHECKER_MODEL: ${{ vars.CHECKER_MODEL || 'gemini-2.5-flash' }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL || 'gemini-flash-latest' }}
+          CHECKER_MODEL: ${{ vars.CHECKER_MODEL || 'gemini-flash-latest' }}
         run: python -m pipeline.run
 
       - name: Keep dry-run output
