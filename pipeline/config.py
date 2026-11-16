@@ -16,8 +16,8 @@ GOOGLE_REFRESH_TOKEN = env("GOOGLE_REFRESH_TOKEN")
 
 # --- AI (Gemini) ---
 GEMINI_API_KEY = env("GEMINI_API_KEY")
-WRITER_MODEL = env("WRITER_MODEL", "gemini-2.5-flash")
-CHECKER_MODEL = env("CHECKER_MODEL", "gemini-2.5-flash")
+WRITER_MODEL = env("WRITER_MODEL", "gemini-flash-latest")
+CHECKER_MODEL = env("CHECKER_MODEL", "gemini-flash-latest")
 # Let the fact-checker run its own Google searches (uses the Gemini "grounding" quota).
 CHECKER_WEB_SEARCH = env("CHECKER_WEB_SEARCH", "1") == "1"
 
