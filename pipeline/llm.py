@@ -34,7 +34,7 @@ def ask(prompt, model=None, web_search=False, temperature=0.4, retries=3):
     last = None
     for attempt in range(retries):
         try:
-            r = requests.post(API.format(model=model), params={"key": config.GEMINI_API_KEY},
+            r = requests.post(API.format(model=model), headers={"x-goog-api-key": config.GEMINI_API_KEY},
                               json=body, timeout=180)
             if r.status_code in (429, 500, 503):
                 last = f"HTTP {r.status_code}: {r.text[:200]}"
