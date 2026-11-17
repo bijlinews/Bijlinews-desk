@@ -2,7 +2,7 @@ name: Bijli trend articles
 
 on:
   schedule:
-    - cron: "23 1-17 * * *"   # every hour at :23, 06:53 to 22:53 IST (no posts at night)
+    - cron: "23 * * * *"   # every hour at :23, 06:53 to 22:53 IST (no posts at night)
   workflow_dispatch:
     inputs:
       dry_run:
