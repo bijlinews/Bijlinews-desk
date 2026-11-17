@@ -6,7 +6,7 @@ import re
 import subprocess
 import traceback
 
-from . import blogger, compose, config, editorial, image, llm, notify, sources
+from . import blogger, compose, config, editorial, image, llm, notify, search, sources
 
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 NOW = dt.datetime.now(IST)
@@ -50,15 +50,22 @@ def git_push(paths, message):
 
 
 def research(trend, query):
-    """Writer set = articles linked from Google Trends + Hindi Google News.
-    Checker set = English Google News (different outlets where possible)."""
+    """Writer sources: articles linked from Google Trends + a live web search (Tavily).
+    Falls back to Google News when web search is unavailable."""
+    q = query or trend["title"]
     writer, checker = [], []
     for n in trend["news"][:3]:
         writer.append({**n, "text": sources.article_text(n["url"])})
-    for n in sources.google_news(query or trend["title"], "hi", 8):
-        writer.append(n)
-    for n in sources.google_news(query or trend["title"], "en", 10):
-        checker.append(n)
+    found = False
+    if search.enabled():
+        try:
+            writer += search.tavily(q, topic="news", days=7, max_results=7, raw=True)
+            found = True
+        except search.SearchUnavailable as e:
+            print(f"  ! web search unavailable ({e}); using Google News")
+    if not found:
+        writer += sources.google_news(q, "hi", 8)
+        checker += sources.google_news(q, "en", 10)
     outlets = {sources.outlet_key(s["source"]) for s in writer + checker if s.get("source")}
     return writer[:10], checker[:10], len(outlets)
 
@@ -140,8 +147,10 @@ def main():
 
             # ---- image (committed to the repo and served by jsDelivr)
             slug = compose.slug(article.get("slug_en") or trend["title"])
-            img_rel = f"{config.IMAGE_DIR}/{NOW:%Y/%m}/{slug}-{NOW:%H%M}.png"
-            image.make_card(article.get("image_text") or article["title_hi"], p["section"], img_rel)
+            img_rel = f"{config.IMAGE_DIR}/{NOW:%Y/%m}/{slug}-{NOW:%H%M}.jpg"
+            bg = image.ai_illustration(article.get("image_prompt_en"))
+            image.make_card(article.get("image_text") or article["title_hi"], p["section"], img_rel, bg=bg)
+            article["_ai_image"] = bool(bg)
             sha = git_push([img_rel], f"image: {slug}") or "main"
             img_url = f"https://cdn.jsdelivr.net/gh/{config.REPO}@{sha}/{img_rel}"
 

@@ -21,9 +21,21 @@ MISTRAL_API_KEY = env("MISTRAL_API_KEY")   # optional (Mistral's API is paid-onl
 GROQ_MODEL = env("GROQ_MODEL", "openai/gpt-oss-120b")
 OPENROUTER_MODEL = env("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")
 MISTRAL_MODEL = env("MISTRAL_MODEL", "mistral-medium-latest")
-WRITER = env("WRITER", "openrouter")      # who writes the article; Groq is the backup writer
+WRITER = env("WRITER", "groq")            # who writes the article; OpenRouter is the backup writer
 TRIAGE = env("TRIAGE", "groq")            # who picks topics every hour (Groq has the bigger daily limit)
 # Both AIs fact-check every article independently. Publish only if BOTH say PASS.
+
+# --- Gemini with Google Search: first-choice fact-checker ---
+GEMINI_API_KEY = env("GEMINI_API_KEY")
+GEMINI_MODEL = env("GEMINI_MODEL", "gemini-flash-latest")
+
+# --- Web search (Tavily, free 4,000 searches/month): research + fact-check ---
+TAVILY_API_KEY = env("TAVILY_API_KEY")
+
+# --- AI cover images (Cloudflare Workers AI, free ~170 images/day) ---
+CLOUDFLARE_ACCOUNT_ID = env("CLOUDFLARE_ACCOUNT_ID")
+CLOUDFLARE_API_TOKEN = env("CLOUDFLARE_API_TOKEN")
+IMAGE_MODEL = env("IMAGE_MODEL", "@cf/black-forest-labs/flux-1-schnell")
 
 # --- Email (Gmail SMTP with an App Password) ---
 SMTP_HOST = env("SMTP_HOST", "smtp.gmail.com")

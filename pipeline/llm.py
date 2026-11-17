@@ -86,6 +86,8 @@ def _call(p, prompt, temperature, max_tokens):
         "max_tokens": max_tokens,
         "response_format": {"type": "json_object"},
     }
+    if p == "openrouter":
+        body.pop("response_format")   # many free OpenRouter models return an empty reply in JSON mode
     last = ""
     for attempt in range(3):
         try:
@@ -112,7 +114,11 @@ def _call(p, prompt, temperature, max_tokens):
         if r.status_code >= 400:
             raise AIUnavailable(f"{p}: HTTP {r.status_code}: {r.text[:300]}")
         try:
-            text = r.json()["choices"][0]["message"]["content"]
+            msg = r.json()["choices"][0]["message"]
+            # "thinking" models sometimes leave content empty and put the answer in a reasoning field
+            text = msg.get("content") or msg.get("reasoning") or msg.get("reasoning_content") or ""
+            if not text.strip():
+                raise json.JSONDecodeError("empty reply", "", 0)
             return _extract_json(text)
         except (KeyError, IndexError, json.JSONDecodeError) as e:
             last = f"bad JSON: {e}"

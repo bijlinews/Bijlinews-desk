@@ -1,6 +1,7 @@
 """Fetch trends and news from free public feeds."""
 import html
 import re
+import time
 import urllib.parse
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
@@ -50,6 +51,7 @@ def google_news(query, lang="hi", limit=10):
     else:
         params = {"q": query, "hl": "en-IN", "gl": "IN", "ceid": "IN:en"}
     url = "https://news.google.com/rss/search?" + urllib.parse.urlencode(params)
+    time.sleep(3)   # Google News rate-limits fast repeated requests from GitHub's servers (HTTP 429)
     try:
         root = ET.fromstring(_get(url))
     except Exception as e:  # noqa: BLE001

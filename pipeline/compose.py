@@ -29,6 +29,7 @@ def build_post(article, image_url, sources):
     return f"""<div class="bn-summary"><b class="t">⚡ 30 सेकंड में समझें</b><ul>{bullets}</ul></div>
 <!--more-->
 <div class="separator"><img src="{e(image_url)}" alt="{e(article['image_alt'])}" width="1200" height="675" /></div>
+{'<p class="bn-caption" style="font-size:13px;color:#888;text-align:center;margin-top:6px">प्रतीकात्मक चित्र: AI द्वारा बनाया गया</p>' if article.get('_ai_image') else ''}
 {clean_html(article['body_html'])}
 <p class="bn-source"><strong>स्रोत:</strong> {' · '.join(links[:5])}</p>
 <p class="bn-ai">यह लेख AI की मदद से कई समाचार स्रोतों के आधार पर तैयार किया गया है और प्रकाशन से पहले अन्य स्रोतों से स्वचालित रूप से जाँचा गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
