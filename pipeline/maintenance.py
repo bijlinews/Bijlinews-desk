@@ -307,6 +307,55 @@ def apply(preview=False, push=None):
     return [ACTIONS, RESULTS], json.dumps(redirects)
 
 
+UNSPLASH_IMG = re.compile(r'<img\b[^>]*?src="(https://images\.unsplash\.com/[^"]+)"[^>]*>', re.I)
+
+
+def rebrand_all(push):
+    """Every post that still shows a photo from images.unsplash.com gets our branded copy (hosted on GitHub)."""
+    bl = blogger.Blogger()
+    posts = [p for p in all_posts(bl) if UNSPLASH_IMG.search(p.get("content", ""))]
+    print(f"{len(posts)} post(s) still use images.unsplash.com")
+    log = []
+    for post in posts:
+        pid, body = post["id"], post.get("content", "")
+        try:
+            src = html.unescape(UNSPLASH_IMG.search(body).group(1))
+            base = src.split("?")[0]
+            q = dict(kv.split("=", 1) for kv in src.split("?", 1)[1].split("&") if "=" in kv) if "?" in src else {}
+            dl = base + ("?ixid=" + q["ixid"] + "&" if "ixid" in q else "?") + "w=1600&q=85&fm=jpg"
+            section = next((l for l in post.get("labels", []) if l in config.SECTIONS), "")
+            rel = f"{config.IMAGE_DIR}/rebrand/{pid}.jpg"
+            if not brand.branded_photo(dl, section, rel):
+                log.append(f"- rebrand {pid}: photo download failed, skipped")
+                continue
+            sha = push([rel], f"image: rebrand {pid}")
+            if not sha:
+                log.append(f"- rebrand {pid}: could not save image, skipped")
+                continue
+            url = f"https://cdn.jsdelivr.net/gh/{config.REPO}@{sha}/{rel}"
+            new = re.sub(r'<div class="bn-share" style="display:none">.*?</div>\s*', "", body, count=1, flags=re.S)
+            m = UNSPLASH_IMG.search(new)
+            tag = m.group(0).replace(m.group(1), html.escape(url))
+            new = new[:m.start()] + tag + new[m.end():]
+            # the wrapper becomes "bn-branded" so the theme doesn't add a second badge
+            head, tail = new[:m.start()], new[m.start():]
+            k = head.rfind('<div class="separator')
+            if k >= 0 and "</div>" not in head[k:]:
+                close = head.find(">", k)
+                head = head[:k] + '<div class="separator bn-branded">' + head[close + 1:]
+            new = head + tail
+            requests.patch(f"{bl.base}/{pid}", headers=bl.h, timeout=60, json={"content": new}).raise_for_status()
+            log.append(f"- rebrand {pid}: {post.get('title', '')[:60]} -> branded photo")
+        except Exception as ex:  # noqa: BLE001
+            log.append(f"- rebrand {pid}: FAILED: {str(ex)[:200]}")
+    stamp = dt.datetime.now(IST).strftime("%Y-%m-%d %H:%M")
+    os.makedirs(DIR, exist_ok=True)
+    with open(RESULTS, "a", encoding="utf-8") as f:
+        f.write(f"\n## {stamp} IST (rebrand)\n" + "\n".join(log or ["- nothing to do"]) + "\n")
+    print("\n".join(log))
+    return [RESULTS]
+
+
 def main():
     mode = (sys.argv[1] if len(sys.argv) > 1 else "audit").strip().lower()
     from .run import git_push, NOW
@@ -317,6 +366,9 @@ def main():
         notify.send(f"[Bijli] Audit: {k} of {n} posts need attention",
                     "<p>GitHub repo -> maintenance/report.html (open with 'Raw' or download) and maintenance/actions.txt.</p>"
                     "<p>Remove the # from the actions you want, commit, then run 'Bijli maintenance' in apply mode.</p>")
+    elif mode == "rebrand":
+        paths = rebrand_all(push=git_push)
+        git_push(paths, f"maintenance: rebrand {NOW:%Y-%m-%d %H:%M}")
     elif mode in ("apply", "preview"):
         paths, _ = apply(preview=(mode == "preview"), push=git_push)
         if paths:
