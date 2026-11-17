@@ -15,17 +15,16 @@ GOOGLE_CLIENT_SECRET = env("GOOGLE_CLIENT_SECRET")
 GOOGLE_REFRESH_TOKEN = env("GOOGLE_REFRESH_TOKEN")
 
 # --- AI ---
-# GitHub Models: free, no key to create (uses the Action's own GITHUB_TOKEN). Writes the articles.
-GITHUB_TOKEN = env("GITHUB_TOKEN")
-GITHUB_MODEL = env("GITHUB_MODEL", "openai/gpt-4.1")
-# Groq: backup writer, picks topics, and does the final fact-check.
+# Groq (free): "groq" writes, "groq_alt" (a different model, same key) is the backup writer and the
+# independent fact-checker, so the article is never checked by the model that wrote it.
 GROQ_API_KEY = env("GROQ_API_KEY")
 OPENROUTER_API_KEY = env("OPENROUTER_API_KEY")
 MISTRAL_API_KEY = env("MISTRAL_API_KEY")   # optional (Mistral's API is paid-only now)
 GROQ_MODEL = env("GROQ_MODEL", "openai/gpt-oss-120b")
+GROQ_ALT_MODEL = env("GROQ_ALT_MODEL", "llama-3.3-70b-versatile")
 OPENROUTER_MODEL = env("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")
 MISTRAL_MODEL = env("MISTRAL_MODEL", "mistral-medium-latest")
-WRITER = env("WRITER", "github")          # who writes; Groq is the backup writer
+WRITER = env("WRITER", "groq")            # who writes; the other Groq model is the backup
 TRIAGE = env("TRIAGE", "groq")            # who picks topics every hour (Groq has the bigger daily limit)
 
 # --- Cover photos (Unsplash, free) ---

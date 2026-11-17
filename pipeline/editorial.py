@@ -33,7 +33,7 @@ Mark "sensitive": true if the story involves ANY of these:
 
 
 def _backup(p):
-    return "groq" if p != "groq" else "github"
+    return "groq_alt" if p != "groq_alt" else "groq"
 
 
 # ---------------------------------------------------------------- 1. triage
@@ -83,7 +83,7 @@ def extract_facts(topic, sources):
     """Returns (verified_facts, rejected_facts, provider)."""
     last = None
     for p in (config.WRITER, _backup(config.WRITER)):
-        for budget in ((14000, 9000, 6000) if p == "github" else (7000, 5000)):
+        for budget in (7000, 5000, 3500):
             prompt = f"""Today is {today()}. Read the news reports below about "{topic}" and list the facts they state.
 
 RULES
@@ -184,10 +184,10 @@ def fact_check(article, facts, sources):
         web.append((q, search.web(q, max_results=3)))
     web_text = "\n".join(f"SEARCH: {q}\n" + "\n".join(f"- {h['source']}: {h['title'][:90]} — {h['snippet'][:220]}"
                                                     for h in hits) for q, hits in web)
-    writer = article.get("_writer")
-    order = ("groq", "github") if writer != "groq" else ("github", "groq")
+    writer = article.get("_writer") or config.WRITER
+    order = (_backup(writer), writer)      # a different model checks first
     result, judge = None, None
-    for fbudget, wbudget in ((5000, 2600), (3200, 1500)):
+    for fbudget, wbudget in ((4500, 2400), (3000, 1400)):
         prompt = f"""You are a strict fact-checker for a Hindi news website. Today is {today()}.
 Another AI wrote the article below. Find every mistake BEFORE it is published.
 

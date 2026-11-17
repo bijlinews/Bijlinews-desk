@@ -1,4 +1,4 @@
-"""AI client for GitHub Models (no key: uses the Action's own token), Groq, and optional OpenRouter/Mistral.
+"""AI client for Groq (two different models on one free key), and optional OpenRouter/Mistral.
 All are OpenAI-compatible.
 
 ask(prompt, providers=["openrouter", "groq"]) tries each provider in order and returns
@@ -23,19 +23,19 @@ class TooLarge(AIUnavailable):
 
 
 PROVIDERS = {
-    "github": {
-        "base": "https://models.github.ai/inference",
-        "catalog": "https://models.github.ai/catalog/models",
-        "key": lambda: config.GITHUB_TOKEN,
-        "model": lambda: config.GITHUB_MODEL,
-        "prefer": ["openai/gpt-4.1", "openai/gpt-4o", "openai/gpt-4.1-mini", "openai/gpt-4o-mini"],
-    },
     "groq": {
         "base": "https://api.groq.com/openai/v1",
         "key": lambda: config.GROQ_API_KEY,
         "model": lambda: config.GROQ_MODEL,
         # best first; used only if the configured model no longer exists
         "prefer": ["openai/gpt-oss-120b", "qwen/qwen3", "llama-3.3-70b", "llama-4", "gpt-oss-20b"],
+    },
+    # a second, different model on the same Groq key: backup writer and independent fact-checker
+    "groq_alt": {
+        "base": "https://api.groq.com/openai/v1",
+        "key": lambda: config.GROQ_API_KEY,
+        "model": lambda: config.GROQ_ALT_MODEL,
+        "prefer": ["llama-3.3-70b", "qwen/qwen3", "llama-4", "kimi", "gpt-oss-20b"],
     },
     "openrouter": {
         "base": "https://openrouter.ai/api/v1",
@@ -57,8 +57,6 @@ _resolved = {}
 
 def _headers(p):
     h = {"Authorization": f"Bearer {PROVIDERS[p]['key']()}", "Content-Type": "application/json"}
-    if p == "github":
-        h.update({"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"})
     if p == "openrouter":
         h.update({"HTTP-Referer": "https://www.bijlinews.com", "X-Title": "Bijlinews Desk"})
     return h
@@ -145,7 +143,7 @@ def _call(p, prompt, temperature, max_tokens):
     raise AIUnavailable(f"{p}: {last}")
 
 
-def ask(prompt, providers=("github", "groq"), temperature=0.4, max_tokens=4000):
+def ask(prompt, providers=("groq", "groq_alt"), temperature=0.4, max_tokens=4000):
     """Try providers in order. Returns (result_dict, provider_used)."""
     errors = []
     for p in providers:
