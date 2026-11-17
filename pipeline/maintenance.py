@@ -15,7 +15,6 @@ import json
 import os
 import re
 import sys
-from difflib import SequenceMatcher
 
 import requests
 
@@ -48,22 +47,63 @@ def bad_url(url):
 
 
 def all_posts(bl):
-    out = []
+    """Every post (live, draft, scheduled). Guards against Blogger repeating page tokens."""
+    out, seen_ids = [], set()
     for status in ("live", "draft", "scheduled"):
-        token = None
-        while True:
+        token, seen_tokens = None, set()
+        for page in range(60):                      # hard cap: 60 x 100 posts per status
             params = {"status": status, "fetchBodies": "true", "maxResults": 100, "view": "ADMIN"}
             if token:
                 params["pageToken"] = token
             r = requests.get(bl.base, headers=bl.h, params=params, timeout=90)
             r.raise_for_status()
             j = r.json()
-            for p in j.get("items", []):
+            items = j.get("items", [])
+            new = [p for p in items if p["id"] not in seen_ids]
+            for p in new:
                 p["_status"] = status
+                seen_ids.add(p["id"])
                 out.append(p)
             token = j.get("nextPageToken")
-            if not token:
+            print(f"  {status}: page {page + 1}, {len(items)} posts ({len(new)} new)", flush=True)
+            if not token or not new or token in seen_tokens:
                 break
+            seen_tokens.add(token)
+    print(f"  total: {len(out)} posts", flush=True)
+    return out
+
+
+def find_duplicates(titles, threshold=0.8):
+    """Near-duplicate titles by word overlap, using an index so big blogs stay fast."""
+    words = {i: set(t.split()) for i, t in titles if t}
+    df = {}
+    for ws in words.values():
+        for w in ws:
+            df[w] = df.get(w, 0) + 1
+    limit = max(20, int(0.05 * len(words)))          # ignore very common words (में, की, ...)
+    index = {}
+    for i, ws in words.items():
+        for w in ws:
+            if df[w] <= limit:
+                index.setdefault(w, []).append(i)
+    out = {}
+    same = {}
+    for i, t in titles:                               # identical titles (after cleanup)
+        if t:
+            same.setdefault(t, []).append(i)
+    for ids in same.values():
+        for i in ids:
+            out[i] = [j for j in ids if j != i]
+    for i, ws in words.items():
+        cand = {}
+        for w in ws:
+            for j in index.get(w, ()):
+                if j != i:
+                    cand[j] = cand.get(j, 0) + 1
+        for j, shared in cand.items():
+            union = len(ws | words[j])
+            if union and len(ws & words[j]) / union >= threshold and j not in out.get(i, []):
+                out.setdefault(i, []).append(j)
     return out
 
 
@@ -72,7 +112,7 @@ def audit():
     posts = all_posts(bl)
     rows = []
     norm = lambda t: re.sub(r"[^\w]+", " ", (t or "").lower()).strip()
-    titles = [(p["id"], norm(p.get("title"))) for p in posts]
+    dups = find_duplicates([(p["id"], norm(p.get("title"))) for p in posts])
     for p in posts:
         body = p.get("content", "")
         words = len(_text(body).split())
@@ -88,7 +128,7 @@ def audit():
             suggest.append("add-image")
         if not p.get("labels"):
             flags.append("लेबल नहीं")
-        dup = [i for i, t in titles if i != p["id"] and t and SequenceMatcher(None, t, norm(p.get("title"))).ratio() > 0.85]
+        dup = dups.get(p["id"], [])
         if dup:
             flags.append("डुप्लिकेट? " + ", ".join(dup[:2]))
         made_by_bot = 'class="bn-ai"' in body
