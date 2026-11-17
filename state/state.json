@@ -1,1 +1,37 @@
-{"seen": {}, "posts": []}
+{
+ "seen": {
+  "शेयर बाज़ार": "2026-11-17",
+  "సాయిపల్లవి": "2026-11-17",
+  "tata motors share price": "2026-11-17",
+  "sl बनाम pak": "2026-11-17",
+  "rbi": "2026-11-17",
+  "census 2027": "2026-11-17"
+ },
+ "posts": [
+  {
+   "date": "2026-11-17",
+   "trend": "tata motors share price",
+   "title": "टाटा मोटर्स पीवी के शेयरों में 9% गिरावट, क्वार्टरली नुकसान और JLR की नई मार्जिन दिशा",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft",
+    "संवेदनशील विषय",
+    "fact-check UNAVAILABLE",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "sl बनाम pak",
+   "title": "स्मॉग के कारण लाहौर से रावलपिंडी, पाकिस्तान‑श्रीलंका दूसरा टेस्ट 17‑21 नवम्बर 2026",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft",
+    "fact-check FAIL",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
+  }
+ ]
+}
