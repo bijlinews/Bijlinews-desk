@@ -21,7 +21,14 @@
   "നെടുമ്പാശ്ശേരി": "2026-11-17",
   "adelaide strikers vs sydney sixers": "2026-11-17",
   "स्वर्ण कांता शर्मा": "2026-11-17",
-  "ഇറാന്": "2026-11-17"
+  "ഇറാന്": "2026-11-17",
+  "singapore vs brazil": "2026-11-17",
+  "marvel avengers doomsday": "2026-11-17",
+  "एशिया कप": "2026-11-17",
+  "kea": "2026-11-17",
+  "अभिषेक बच्चन": "2026-11-17",
+  "fcs": "2026-11-17",
+  "miguel ángel félix gallardo": "2026-11-17"
  },
  "posts": [
   {
@@ -93,10 +100,33 @@
     "safe mode: PUBLISH_MODE=draft",
     "संवेदनशील विषय"
    ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "एशिया कप",
+   "title": "भारत ने पाकिस्तान को एक विकेट से हराया, वेंगसरकर ने खिलाड़ियों के बर्ताव की की आलोचना",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft",
+    "संवेदनशील विषय"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "marvel avengers doomsday",
+   "title": "एवेंजर्स: डूमसडे की एडवांस बुकिंग शुरू, बड़े शहरों में सॉल-आउट",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft"
+   ]
   }
  ],
  "photos": [
   "PunFiEOn8BY",
-  "kcqrda2VwjI"
+  "kcqrda2VwjI",
+  "K3cI9zl79Bg",
+  "sSd85nlmy8M"
  ]
 }
