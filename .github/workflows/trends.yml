@@ -2,7 +2,7 @@ name: Bijli trend articles
 
 on:
   schedule:
-    - cron: "23 * * * *"   # every hour at :23, 06:53 to 22:53 IST (no posts at night)
+    - cron: "23 1-17 * * *"   # every hour at :23, 06:53 to 22:53 IST (no posts at night)
   workflow_dispatch:
     inputs:
       dry_run:
@@ -11,7 +11,9 @@ on:
         default: false
 
 permissions:
-  contents: write   # to commit cover images and state
+  contents: write   # to commit cards, stories and state
+  pages: write      # to publish Web Stories on GitHub Pages
+  id-token: write
 
 concurrency:
   group: bijli-trends
@@ -21,6 +23,8 @@ jobs:
   run:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
+    outputs:
+      docs: ${{ steps.bot.outputs.docs }}
     steps:
       - uses: actions/checkout@v4
 
@@ -44,6 +48,7 @@ jobs:
           git config user.email "bijli-bot@users.noreply.github.com"
 
       - name: Run
+        id: bot
         env:
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -72,3 +77,21 @@ jobs:
         with:
           name: dry-run-articles
           path: out/
+
+  pages:
+    needs: run
+    if: ${{ needs.run.outputs.docs == '1' }}
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4

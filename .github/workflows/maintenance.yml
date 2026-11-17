@@ -1,0 +1,61 @@
+name: Bijli maintenance
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "audit = read-only report | preview = show what apply would do | apply = run un-commented lines in maintenance/actions.txt"
+        type: choice
+        options: [audit, preview, apply]
+        default: audit
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bijli-trends      # never at the same time as the hourly bot
+  cancel-in-progress: false
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libraqm0 > /dev/null
+          pip install -q -r requirements.txt
+          mkdir -p fonts
+          [ -f fonts/Mukta-ExtraBold.ttf ] || curl -sSL -o fonts/Mukta-ExtraBold.ttf https://github.com/google/fonts/raw/main/ofl/mukta/Mukta-ExtraBold.ttf
+          [ -f fonts/Mukta-Medium.ttf ] || curl -sSL -o fonts/Mukta-Medium.ttf https://github.com/google/fonts/raw/main/ofl/mukta/Mukta-Medium.ttf
+      - name: Git identity
+        run: |
+          git config user.name "bijli-bot"
+          git config user.email "bijli-bot@users.noreply.github.com"
+      - name: Maintenance
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_API_KEY_FRIEND1: ${{ secrets.GROQ_API_KEY_FRIEND1 }}
+          GROQ_API_KEY_FRIEND2: ${{ secrets.GROQ_API_KEY_FRIEND2 }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          NOTIFY_TO: ${{ secrets.NOTIFY_TO }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-120b' }}
+          GROQ_ALT_MODEL: ${{ vars.GROQ_ALT_MODEL || 'llama-3.3-70b-versatile' }}
+        run: python -m pipeline.maintenance "${{ inputs.mode }}"
+      - name: Keep report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maintenance-report
+          path: maintenance/
+          if-no-files-found: ignore
