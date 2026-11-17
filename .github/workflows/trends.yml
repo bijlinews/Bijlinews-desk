@@ -47,7 +47,7 @@ jobs:
         env:
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
@@ -58,9 +58,10 @@ jobs:
           MAX_PER_RUN: ${{ vars.MAX_PER_RUN || '2' }}
           MAX_PER_DAY: ${{ vars.MAX_PER_DAY || '8' }}
           MIN_TRAFFIC: ${{ vars.MIN_TRAFFIC || '500' }}
-          WRITER: ${{ vars.WRITER || 'mistral' }}
+          WRITER: ${{ vars.WRITER || 'openrouter' }}
+          TRIAGE: ${{ vars.TRIAGE || 'groq' }}
           GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-120b' }}
-          MISTRAL_MODEL: ${{ vars.MISTRAL_MODEL || 'mistral-medium-latest' }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'nvidia/nemotron-3-ultra-550b-a55b:free' }}
         run: python -m pipeline.run
 
       - name: Keep dry-run output
