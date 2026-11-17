@@ -28,7 +28,13 @@
   "kea": "2026-11-17",
   "अभिषेक बच्चन": "2026-11-17",
   "fcs": "2026-11-17",
-  "miguel ángel félix gallardo": "2026-11-17"
+  "miguel ángel félix gallardo": "2026-11-17",
+  "আগামীকালের আবহাওয়া": "2026-11-17",
+  "operation mole movie": "2026-11-17",
+  "nvidia results": "2026-11-17",
+  "kenya vs south africa": "2026-11-17",
+  "togo vs algeria": "2026-11-17",
+  "sierra leone vs dr congo": "2026-11-17"
  },
  "posts": [
   {
@@ -121,12 +127,36 @@
    "why": [
     "safe mode: PUBLISH_MODE=draft"
    ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "আগামীকালের আবহাওয়া",
+   "title": "अकवान चक्रवात 20 नवंबर को अंध्र प्रदेश के तट पर उतरने की संभावना, 145 किमी/घंटा तेज़ हवाएँ",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "nvidia results",
+   "title": "Nvidia के शेयर 3% से अधिक गिरे, कोलेट क्रेस अंतरिम CEO के तहत आय रिपोर्ट का इंतजार",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft",
+    "संवेदनशील विषय"
+   ]
   }
  ],
  "photos": [
   "PunFiEOn8BY",
   "kcqrda2VwjI",
   "K3cI9zl79Bg",
-  "sSd85nlmy8M"
- ]
+  "sSd85nlmy8M",
+  "q-DJ9XhKkhA",
+  "fiXLQXAhCfk"
+ ],
+ "groq_turn": 1
 }
