@@ -98,6 +98,13 @@ def main():
         print("Daily limit reached; nothing to do.")
         return
 
+    # Groq keys take turns: this run starts with the next key in line (the others are backups)
+    keys = config.GROQ_KEYS
+    if keys:
+        turn = int(st.get("groq_turn", 0)) % len(keys)
+        llm.use_groq_keys(keys[turn:] + keys[:turn])
+        st["groq_turn"] = turn + 1
+
     trends = [t for t in sources.fetch_trends()
               if t["traffic"] >= config.MIN_TRAFFIC and norm(t["title"]) not in st["seen"]]
     print(f"{len(trends)} fresh trends above {config.MIN_TRAFFIC}+ searches")

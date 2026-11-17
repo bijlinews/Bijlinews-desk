@@ -18,6 +18,10 @@ class AIUnavailable(RuntimeError):
     """Every provider failed (outage, rate limit, missing key)."""
 
 
+class KeyProblem(AIUnavailable):
+    """This Groq key is invalid or has used up its daily allowance: try the next key."""
+
+
 class TooLarge(AIUnavailable):
     """The prompt is bigger than the free plan allows; retry with fewer sources."""
 
@@ -121,12 +125,16 @@ def _call(p, prompt, temperature, max_tokens):
         if r.status_code in (429, 500, 502, 503, 529):
             last = f"HTTP {r.status_code}: {r.text[:160]}"
             wait = float(r.headers.get("retry-after", 0) or 0) or 15 * (attempt + 1)
-            if wait > 120:          # daily limit reached: don't wait, let the backup AI take over
+            if wait > 120 or "per day" in r.text.lower():   # daily limit reached: switch key / backup AI
+                if p.startswith("groq"):
+                    raise KeyProblem(f"{p}: daily limit reached for this key")
                 raise AIUnavailable(f"{p}: rate limit, retry after {int(wait)}s")
             time.sleep(min(wait, 60))
             continue
         if r.status_code == 413 or "too large" in r.text.lower() or "tokens_limit_reached" in r.text:
             raise TooLarge(f"{p}: prompt too large for free limits")
+        if r.status_code in (401, 403) and p.startswith("groq"):
+            raise KeyProblem(f"{p}: key rejected (HTTP {r.status_code})")
         if r.status_code >= 400:
             raise AIUnavailable(f"{p}: HTTP {r.status_code}: {r.text[:300]}")
         try:
@@ -143,16 +151,53 @@ def _call(p, prompt, temperature, max_tokens):
     raise AIUnavailable(f"{p}: {last}")
 
 
+# ---- Groq key rotation -------------------------------------------------
+_pool = {"keys": [], "i": 0, "dead": set()}
+
+
+def use_groq_keys(keys):
+    """keys: [(label, key), ...] in the order to try them this run."""
+    _pool.update(keys=list(keys), i=0, dead=set())
+    if keys:
+        config.GROQ_API_KEY = keys[0][1]
+        print(f"Groq key this run: {keys[0][0]}")
+
+
+def _next_groq_key():
+    """Mark the current key as used up and switch to the next one. False if none left."""
+    keys = _pool["keys"]
+    if not keys:
+        return False
+    _pool["dead"].add(_pool["i"])
+    for j in range(len(keys)):
+        if j not in _pool["dead"]:
+            _pool["i"] = j
+            config.GROQ_API_KEY = keys[j][1]
+            print(f"  ! switching to Groq key: {keys[j][0]}")
+            return True
+    return False
+
+
 def ask(prompt, providers=("groq", "groq_alt"), temperature=0.4, max_tokens=4000):
     """Try providers in order. Returns (result_dict, provider_used)."""
     errors = []
     for p in providers:
-        if not PROVIDERS[p]["key"]():
-            errors.append(f"{p}: no API key")
-            continue
-        try:
-            return _call(p, prompt, temperature, max_tokens), p
-        except AIUnavailable as e:
-            print(f"  ! {e}")
-            errors.append(str(e))
+        while True:
+            if not PROVIDERS[p]["key"]():
+                errors.append(f"{p}: no API key")
+                break
+            try:
+                return _call(p, prompt, temperature, max_tokens), p
+            except KeyProblem as e:
+                print(f"  ! {e}")
+                if _next_groq_key():
+                    continue                     # same step, next friend's key
+                errors.append(str(e))
+                break
+            except AIUnavailable as e:
+                if isinstance(e, TooLarge):
+                    raise
+                print(f"  ! {e}")
+                errors.append(str(e))
+                break
     raise AIUnavailable(" | ".join(errors))

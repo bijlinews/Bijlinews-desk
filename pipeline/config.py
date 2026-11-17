@@ -17,7 +17,13 @@ GOOGLE_REFRESH_TOKEN = env("GOOGLE_REFRESH_TOKEN")
 # --- AI ---
 # Groq (free): "groq" writes, "groq_alt" (a different model, same key) is the backup writer and the
 # independent fact-checker, so the article is never checked by the model that wrote it.
-GROQ_API_KEY = env("GROQ_API_KEY")
+GROQ_API_KEY = env("GROQ_API_KEY")          # your key (the active key is switched at run time)
+# Groq keys used in turn, one run each: Friend 1 -> Friend 2 -> yours -> Friend 1 ...
+GROQ_KEYS = [(label, key) for label, key in (
+    ("Friend 1", env("GROQ_API_KEY_FRIEND1")),
+    ("Friend 2", env("GROQ_API_KEY_FRIEND2")),
+    ("Mine", env("GROQ_API_KEY")),
+) if key]
 OPENROUTER_API_KEY = env("OPENROUTER_API_KEY")
 MISTRAL_API_KEY = env("MISTRAL_API_KEY")   # optional (Mistral's API is paid-only now)
 GROQ_MODEL = env("GROQ_MODEL", "openai/gpt-oss-120b")
