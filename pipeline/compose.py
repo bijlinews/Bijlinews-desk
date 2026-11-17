@@ -16,10 +16,19 @@ def clean_html(s):
     return re.sub(r"<(/?)([a-zA-Z0-9]+)[^>]*>", tag, s).strip()
 
 
+def _caption(photo):
+    if not photo:
+        return ""
+    e = html.escape
+    return ('<p class="bn-caption" style="font-size:13px;color:#888;text-align:center;margin-top:6px">'
+            f'प्रतीकात्मक चित्र · फोटो: <a href="{e(photo["credit_url"])}" rel="nofollow noopener" target="_blank">{e(photo["credit_name"])}</a>'
+            f' / <a href="{e(photo["unsplash_url"])}" rel="nofollow noopener" target="_blank">Unsplash</a></p>')
+
+
 def build_post(article, image_url, sources):
     e = html.escape
     bullets = "".join(f"<li>{e(b)}</li>" for b in article["summary"][:3])
-    used = [sources[i - 1] for i in article.get("sources_used", []) if 0 < i <= len(sources)] or sources[:3]
+    used = [s for s in sources if s.get("text")] or sources[:5]
     seen, links = set(), []
     for s in used:
         if s["source"] in seen or not s.get("url"):
@@ -29,10 +38,10 @@ def build_post(article, image_url, sources):
     return f"""<div class="bn-summary"><b class="t">⚡ 30 सेकंड में समझें</b><ul>{bullets}</ul></div>
 <!--more-->
 <div class="separator"><img src="{e(image_url)}" alt="{e(article['image_alt'])}" width="1200" height="675" /></div>
-{'<p class="bn-caption" style="font-size:13px;color:#888;text-align:center;margin-top:6px">प्रतीकात्मक चित्र: AI द्वारा बनाया गया</p>' if article.get('_ai_image') else ''}
+{_caption(article.get('_photo'))}
 {clean_html(article['body_html'])}
 <p class="bn-source"><strong>स्रोत:</strong> {' · '.join(links[:5])}</p>
-<p class="bn-ai">यह लेख AI की मदद से कई समाचार स्रोतों के आधार पर तैयार किया गया है और प्रकाशन से पहले अन्य स्रोतों से स्वचालित रूप से जाँचा गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
+<p class="bn-ai">यह लेख AI की मदद से ऊपर दिए गए समाचार स्रोतों के आधार पर तैयार किया गया है और प्रकाशन से पहले स्वचालित रूप से जाँचा गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
 
 
 def slug(s):

@@ -1,9 +1,8 @@
-"""1200x675 cover image.
-With Cloudflare keys: a free AI illustration (never real people) behind the Hindi headline.
-Without them (or if generation fails): the branded dark card. No third-party photos = no copyright risk."""
-import base64
+"""Cover image.
+1) Unsplash photo (free; Unsplash's rules: show it from Unsplash's own URL, ping the download link,
+   credit the photographer). Generic photos only (objects, places), shown as a symbolic image.
+2) If Unsplash has no key or no match: a branded headline card made here and committed to the repo."""
 import datetime as dt
-import io
 import os
 
 import requests
@@ -14,30 +13,34 @@ from . import config
 W, H = 1200, 675
 INK, PAPER, VOLT, MUTED = (14, 13, 17), (246, 242, 233), (255, 208, 0), (150, 145, 135)
 BOLT = [(13, 2), (4, 14), (10, 14), (9, 22), (18, 10), (12, 10), (13, 2)]
-STYLE = (", editorial news illustration, cinematic lighting, rich colours, high detail, "
-         "no text, no letters, no words, no numbers, no logos, no watermark, no recognizable faces")
+UTM = "utm_source=bijlinews&utm_medium=referral"
 
 
-def ai_illustration(prompt):
-    """Return a PIL image from Cloudflare Workers AI, or None."""
-    if not (prompt and config.CLOUDFLARE_ACCOUNT_ID and config.CLOUDFLARE_API_TOKEN):
+def unsplash_photo(query, used=()):
+    """Returns {url, credit_name, credit_url, unsplash_url, id} or None."""
+    if not (query and config.UNSPLASH_ACCESS_KEY):
         return None
-    url = (f"https://api.cloudflare.com/client/v4/accounts/{config.CLOUDFLARE_ACCOUNT_ID}"
-           f"/ai/run/{config.IMAGE_MODEL}")
+    h = {"Authorization": f"Client-ID {config.UNSPLASH_ACCESS_KEY}", "Accept-Version": "v1"}
     try:
-        r = requests.post(url, headers={"Authorization": f"Bearer {config.CLOUDFLARE_API_TOKEN}"},
-                          json={"prompt": (prompt.strip().rstrip(".") + STYLE)[:2000], "steps": 6}, timeout=120)
+        r = requests.get("https://api.unsplash.com/search/photos", headers=h, timeout=20,
+                         params={"query": query, "orientation": "landscape", "per_page": 10, "content_filter": "high"})
         if r.status_code >= 400:
-            print(f"  ! AI image failed: HTTP {r.status_code} {r.text[:160]}")
+            print(f"  ! Unsplash search failed: HTTP {r.status_code} {r.text[:120]}")
             return None
-        data = r.json()
-        b64 = (data.get("result") or {}).get("image") or data.get("image")
-        if not b64:
-            print("  ! AI image failed: empty response")
+        photos = [p for p in r.json().get("results", []) if p.get("id") not in used]
+        if not photos:
+            print(f"  ! Unsplash: no photo for '{query}'")
             return None
-        return Image.open(io.BytesIO(base64.b64decode(b64))).convert("RGB")
+        p = photos[0]
+        # Unsplash requires this "download" ping whenever a photo is used
+        requests.get(p["links"]["download_location"], headers=h, timeout=20)
+        return {"id": p["id"],
+                "url": p["urls"]["raw"] + "&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+                "credit_name": p["user"]["name"],
+                "credit_url": f"{p['user']['links']['html']}?{UTM}",
+                "unsplash_url": f"https://unsplash.com/?{UTM}"}
     except Exception as e:  # noqa: BLE001  — an image problem must never stop an article
-        print(f"  ! AI image failed: {e}")
+        print(f"  ! Unsplash failed: {e}")
         return None
 
 
@@ -72,7 +75,8 @@ def _logo(d, x, y, bold_mid, reg, on_photo):
         d.text((x + 82, y + 44), "खबर भी, वजह भी", font=reg, fill=MUTED)
 
 
-def make_card(text, section, out_path, when=None, bg=None):
+def make_card(text, section, out_path, when=None, bg=None):  # bg kept for compatibility (unused)
+    bg = None
     if not features.check("raqm"):
         print("  ! Pillow has no raqm: Hindi letters may render incorrectly")
     when = when or dt.datetime.now(dt.timezone(dt.timedelta(hours=5, minutes=30)))

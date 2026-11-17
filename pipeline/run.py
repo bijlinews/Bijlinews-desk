@@ -1,4 +1,4 @@
-"""Hourly job: trends -> pick -> research -> write -> fact-check -> image -> publish or draft -> email."""
+"""Hourly job: trends -> pick -> research -> verified fact sheet -> write -> fact-check -> photo -> publish or draft -> email."""
 import datetime as dt
 import json
 import os
@@ -50,24 +50,36 @@ def git_push(paths, message):
 
 
 def research(trend, query):
-    """Writer sources: articles linked from Google Trends + a live web search (Tavily).
-    Falls back to Google News when web search is unavailable."""
+    """Full-text news reports (no API keys): the articles Google Trends links to, plus DuckDuckGo news
+    search. Google News headlines are used only to count outlets if search finds too few."""
     q = query or trend["title"]
-    writer, checker = [], []
-    for n in trend["news"][:3]:
-        writer.append({**n, "text": sources.article_text(n["url"])})
-    found = False
-    if search.enabled():
-        try:
-            writer += search.tavily(q, topic="news", days=7, max_results=7, raw=True)
-            found = True
-        except search.SearchUnavailable as e:
-            print(f"  ! web search unavailable ({e}); using Google News")
-    if not found:
-        writer += sources.google_news(q, "hi", 8)
-        checker += sources.google_news(q, "en", 10)
-    outlets = {sources.outlet_key(s["source"]) for s in writer + checker if s.get("source")}
-    return writer[:10], checker[:10], len(outlets)
+    found, seen = [], set()
+
+    def add(item):
+        u = item.get("url", "")
+        if u and u not in seen and "news.google.com" not in u:
+            seen.add(u)
+            found.append(item)
+
+    for n in trend["news"][:4]:
+        add({**n, "snippet": ""})
+    for h in search.news(q, timelimit="w", max_results=10) + search.news(trend["title"], timelimit="d", max_results=6):
+        add(h)
+    fetched = 0
+    for item in found:
+        if fetched >= 8 or sum(1 for x in found if x.get("text")) >= 6:
+            break
+        item["text"] = search.article_text(item["url"])
+        fetched += 1
+    full = [x for x in found if len(x.get("text") or "") >= 400]
+    rest = [x for x in found if x not in full and x.get("snippet")]
+    srcs = (full + rest)[:10]
+    outlets = {sources.outlet_key(x["source"]) for x in found if x.get("source")}
+    if len(outlets) < config.MIN_OUTLETS:
+        outlets |= {sources.outlet_key(x["source"]) for x in sources.google_news(q, "en", 10) if x.get("source")}
+    full_outlets = {sources.outlet_key(x["source"]) for x in full}
+    print(f"  research: {len(full)} full articles from {len(full_outlets)} outlets, {len(outlets)} outlets in all")
+    return srcs, len(outlets), len(full_outlets)
 
 
 def similar_exists(title, recent):
@@ -116,22 +128,27 @@ def main():
         trend = trends[p["index"]]
         print(f"\n=== {trend['title']} ({trend['traffic']}+) -> {p['section']}")
         try:
-            writer_src, checker_src, n_outlets = research(trend, p.get("query"))
-            if n_outlets < config.MIN_OUTLETS:
-                print(f"  skip: only {n_outlets} outlets")
+            srcs, n_outlets, n_full = research(trend, p.get("query"))
+            if n_outlets < config.MIN_OUTLETS or n_full < config.MIN_FULLTEXT:
+                print(f"  skip: {n_outlets} outlets, {n_full} readable in full (need {config.MIN_OUTLETS}/{config.MIN_FULLTEXT})")
                 continue
 
-            article = editorial.write(trend["title"], p["section"], writer_src)
+            facts, rejected, event_en, _ = editorial.extract_facts(trend["title"], srcs)
+            if len(facts) < config.MIN_FACTS:
+                print(f"  skip: only {len(facts)} verified facts")
+                continue
+
+            article = editorial.write(trend["title"], p["section"], facts, event_en)
             if similar_exists(article["title_hi"], recent):
                 print("  skip: we already have a similar post")
                 continue
 
-            all_src = writer_src + checker_src
-            check = editorial.fact_check(article, all_src)
-            if check.get("verdict") == "FIX" and check.get("corrections"):
-                article = editorial.revise(article, check)
-                check = editorial.fact_check(article, all_src)
-            print(f"  fact-check: {check.get('verdict')} | {check.get('notes','')[:120]}")
+            check = editorial.fact_check(article, facts, srcs)
+            if check.get("verdict") == "FIX":
+                article = editorial.revise(article, check, facts)
+                check = editorial.fact_check(article, facts, srcs)
+            print(f"  fact-check: {check.get('verdict')} | {check.get('notes','')[:160]}")
+            check["facts_rejected"] = len(rejected)
 
             # ---- decide: publish or hold as draft
             reasons = []
@@ -143,25 +160,33 @@ def main():
                 reasons.append(f"fact-check {check.get('verdict')}")
             if any(c.get("status") != "supported" for c in check.get("claims", [])):
                 reasons.append("कुछ दावे पुष्ट नहीं हुए")
+            if check.get("numbers_not_in_sources"):
+                reasons.append("कुछ संख्याएँ स्रोतों में नहीं मिलीं")
             publish = not reasons
 
-            # ---- image (committed to the repo and served by jsDelivr)
+            # ---- image: Unsplash photo (shown from Unsplash), else a branded card committed to the repo
             slug = compose.slug(article.get("slug_en") or trend["title"])
-            img_rel = f"{config.IMAGE_DIR}/{NOW:%Y/%m}/{slug}-{NOW:%H%M}.jpg"
-            bg = image.ai_illustration(article.get("image_prompt_en"))
-            image.make_card(article.get("image_text") or article["title_hi"], p["section"], img_rel, bg=bg)
-            article["_ai_image"] = bool(bg)
-            sha = git_push([img_rel], f"image: {slug}") or "main"
-            img_url = f"https://cdn.jsdelivr.net/gh/{config.REPO}@{sha}/{img_rel}"
+            photo = image.unsplash_photo(article.get("image_query_en"), used=st.setdefault("photos", [])[-200:])
+            if photo:
+                img_url = photo["url"]
+                article["_photo"] = photo
+                st["photos"].append(photo["id"])
+            else:
+                img_rel = f"{config.IMAGE_DIR}/{NOW:%Y/%m}/{slug}-{NOW:%H%M}.jpg"
+                image.make_card(article["title_hi"], p["section"], img_rel)
+                sha = git_push([img_rel], f"image: {slug}") or "main"
+                img_url = f"https://cdn.jsdelivr.net/gh/{config.REPO}@{sha}/{img_rel}"
 
-            html = compose.build_post(article, img_url, writer_src)
+            html = compose.build_post(article, img_url, srcs)
             labels = [p["section"], config.TREND_LABEL]
             if config.DRY_RUN:
                 os.makedirs("out", exist_ok=True)
                 with open(f"out/{slug}.html", "w", encoding="utf-8") as f:
                     f.write(f"<h1>{article['title_hi']}</h1>\n<!-- publish={publish} reasons={reasons} -->\n{html}")
                 with open(f"out/{slug}.check.json", "w", encoding="utf-8") as f:
-                    json.dump(check, f, ensure_ascii=False, indent=1)
+                    json.dump({"check": check, "facts": facts, "rejected_facts": rejected,
+                               "sources": [{k: x.get(k) for k in ("source", "title", "url")} for x in srcs]},
+                              f, ensure_ascii=False, indent=1)
                 post = {"url": "", "edit_url": f"out/{slug}.html"}
             else:
                 post = bl.create(slug.replace("-", " "), article["title_hi"], html, labels, publish)

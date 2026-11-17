@@ -1,56 +1,53 @@
-"""Web search via Tavily (free plan: 4,000 searches a month). Used for research and fact-checking."""
-import time
-import urllib.parse
+"""Keyless research: DuckDuckGo news/web search (ddgs) + full article text (trafilatura).
+No API keys. Any failure returns an empty list so the pipeline can fall back."""
+import re
 
 import requests
 
-from . import config
-
-
-class SearchUnavailable(RuntimeError):
-    pass
-
-
-def enabled():
-    return bool(config.TAVILY_API_KEY)
+UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                    "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
 
 
 def _domain(url):
-    host = urllib.parse.urlparse(url).netloc.lower()
-    return host[4:] if host.startswith("www.") else host
+    m = re.match(r"https?://(?:www\.)?([^/]+)", url or "")
+    return m.group(1) if m else ""
 
 
-def tavily(query, topic="news", days=None, max_results=5, raw=False):
-    """Returns a list of {title, url, source, text, published}."""
-    if not enabled():
-        raise SearchUnavailable("no TAVILY_API_KEY")
-    body = {"query": query[:380], "topic": topic, "search_depth": "basic",
-            "max_results": max_results, "include_raw_content": bool(raw)}
-    if days and topic == "news":
-        body["days"] = days
-    for attempt in range(3):
-        try:
-            r = requests.post("https://api.tavily.com/search", json=body, timeout=45,
-                              headers={"Authorization": f"Bearer {config.TAVILY_API_KEY}"})
-        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
-            last = str(e)
-            time.sleep(5)
-            continue
-        if r.status_code in (429, 500, 502, 503):
-            last = f"HTTP {r.status_code}"
-            time.sleep(10 * (attempt + 1))
-            continue
-        if r.status_code >= 400:   # 401 bad key, 432/433 monthly limit reached, etc.
-            raise SearchUnavailable(f"Tavily HTTP {r.status_code}: {r.text[:200]}")
-        out = []
-        for x in r.json().get("results", []):
-            text = (x.get("raw_content") or "") if raw else ""
-            out.append({
-                "title": x.get("title", ""),
-                "url": x.get("url", ""),
-                "source": _domain(x.get("url", "")),
-                "text": (text or x.get("content") or "")[:3500],
-                "published": x.get("published_date", ""),
-            })
-        return out
-    raise SearchUnavailable(f"Tavily failed: {last}")
+def news(query, timelimit="w", max_results=10):
+    """Recent news results: [{title, url, source, snippet, published}]."""
+    try:
+        from ddgs import DDGS
+        hits = DDGS().news(query, region="in-en", timelimit=timelimit, max_results=max_results) or []
+    except Exception as e:  # noqa: BLE001
+        print(f"  ! news search failed ({query[:50]}): {str(e)[:120]}")
+        return []
+    return [{"title": h.get("title", ""), "url": h.get("url", ""),
+             "source": h.get("source") or _domain(h.get("url")), "snippet": h.get("body", ""),
+             "published": h.get("date", "")} for h in hits if h.get("url")]
+
+
+def web(query, max_results=4):
+    """General web results for fact-checking: [{title, url, source, snippet}]."""
+    try:
+        from ddgs import DDGS
+        hits = DDGS().text(query, region="in-en", max_results=max_results) or []
+    except Exception as e:  # noqa: BLE001
+        print(f"  ! web search failed ({query[:50]}): {str(e)[:120]}")
+        return []
+    return [{"title": h.get("title", ""), "url": h.get("href", ""), "source": _domain(h.get("href")),
+             "snippet": h.get("body", "")} for h in hits if h.get("href")]
+
+
+def article_text(url, max_chars=6000):
+    """Main text of a news article, or '' if it can't be read."""
+    if not url or "news.google.com" in url:
+        return ""
+    try:
+        import trafilatura
+        r = requests.get(url, headers=UA, timeout=15)
+        r.raise_for_status()
+        text = trafilatura.extract(r.text, include_comments=False, include_tables=False, favor_precision=True) or ""
+        return re.sub(r"\n{2,}", "\n", text).strip()[:max_chars]
+    except Exception as e:  # noqa: BLE001
+        print(f"  ! could not read {url[:80]}: {str(e)[:100]}")
+        return ""

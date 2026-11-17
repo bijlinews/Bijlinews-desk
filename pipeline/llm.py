@@ -1,4 +1,5 @@
-"""AI client for Groq, OpenRouter (and Mistral if ever paid for). All are OpenAI-compatible.
+"""AI client for GitHub Models (no key: uses the Action's own token), Groq, and optional OpenRouter/Mistral.
+All are OpenAI-compatible.
 
 ask(prompt, providers=["openrouter", "groq"]) tries each provider in order and returns
 (json_result, provider_name). If a model name has been retired, it picks the best available
@@ -17,7 +18,18 @@ class AIUnavailable(RuntimeError):
     """Every provider failed (outage, rate limit, missing key)."""
 
 
+class TooLarge(AIUnavailable):
+    """The prompt is bigger than the free plan allows; retry with fewer sources."""
+
+
 PROVIDERS = {
+    "github": {
+        "base": "https://models.github.ai/inference",
+        "catalog": "https://models.github.ai/catalog/models",
+        "key": lambda: config.GITHUB_TOKEN,
+        "model": lambda: config.GITHUB_MODEL,
+        "prefer": ["openai/gpt-4.1", "openai/gpt-4o", "openai/gpt-4.1-mini", "openai/gpt-4o-mini"],
+    },
     "groq": {
         "base": "https://api.groq.com/openai/v1",
         "key": lambda: config.GROQ_API_KEY,
@@ -45,15 +57,19 @@ _resolved = {}
 
 def _headers(p):
     h = {"Authorization": f"Bearer {PROVIDERS[p]['key']()}", "Content-Type": "application/json"}
+    if p == "github":
+        h.update({"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"})
     if p == "openrouter":
         h.update({"HTTP-Referer": "https://www.bijlinews.com", "X-Title": "Bijlinews Desk"})
     return h
 
 
 def _pick_model(p):
-    r = requests.get(f"{PROVIDERS[p]['base']}/models", headers=_headers(p), timeout=60)
+    url = PROVIDERS[p].get("catalog") or f"{PROVIDERS[p]['base']}/models"
+    r = requests.get(url, headers=_headers(p), timeout=60)
     r.raise_for_status()
-    ids = [m.get("id", "") for m in r.json().get("data", [])]
+    data = r.json()
+    ids = [m.get("id", "") for m in (data if isinstance(data, list) else data.get("data", []))]
     if PROVIDERS[p].get("free_only"):
         ids = [i for i in ids if i.endswith(":free")]
     for want in PROVIDERS[p]["prefer"]:
@@ -107,10 +123,12 @@ def _call(p, prompt, temperature, max_tokens):
         if r.status_code in (429, 500, 502, 503, 529):
             last = f"HTTP {r.status_code}: {r.text[:160]}"
             wait = float(r.headers.get("retry-after", 0) or 0) or 15 * (attempt + 1)
+            if wait > 120:          # daily limit reached: don't wait, let the backup AI take over
+                raise AIUnavailable(f"{p}: rate limit, retry after {int(wait)}s")
             time.sleep(min(wait, 60))
             continue
-        if r.status_code == 413 or "too large" in r.text.lower():
-            raise AIUnavailable(f"{p}: prompt too large for free limits")
+        if r.status_code == 413 or "too large" in r.text.lower() or "tokens_limit_reached" in r.text:
+            raise TooLarge(f"{p}: prompt too large for free limits")
         if r.status_code >= 400:
             raise AIUnavailable(f"{p}: HTTP {r.status_code}: {r.text[:300]}")
         try:
@@ -127,7 +145,7 @@ def _call(p, prompt, temperature, max_tokens):
     raise AIUnavailable(f"{p}: {last}")
 
 
-def ask(prompt, providers=("openrouter", "groq"), temperature=0.4, max_tokens=4000):
+def ask(prompt, providers=("github", "groq"), temperature=0.4, max_tokens=4000):
     """Try providers in order. Returns (result_dict, provider_used)."""
     errors = []
     for p in providers:

@@ -14,28 +14,22 @@ GOOGLE_CLIENT_ID = env("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = env("GOOGLE_CLIENT_SECRET")
 GOOGLE_REFRESH_TOKEN = env("GOOGLE_REFRESH_TOKEN")
 
-# --- AI (Groq + OpenRouter, both free) ---
+# --- AI ---
+# GitHub Models: free, no key to create (uses the Action's own GITHUB_TOKEN). Writes the articles.
+GITHUB_TOKEN = env("GITHUB_TOKEN")
+GITHUB_MODEL = env("GITHUB_MODEL", "openai/gpt-4.1")
+# Groq: backup writer, picks topics, and does the final fact-check.
 GROQ_API_KEY = env("GROQ_API_KEY")
 OPENROUTER_API_KEY = env("OPENROUTER_API_KEY")
 MISTRAL_API_KEY = env("MISTRAL_API_KEY")   # optional (Mistral's API is paid-only now)
 GROQ_MODEL = env("GROQ_MODEL", "openai/gpt-oss-120b")
 OPENROUTER_MODEL = env("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")
 MISTRAL_MODEL = env("MISTRAL_MODEL", "mistral-medium-latest")
-WRITER = env("WRITER", "groq")            # who writes the article; OpenRouter is the backup writer
+WRITER = env("WRITER", "github")          # who writes; Groq is the backup writer
 TRIAGE = env("TRIAGE", "groq")            # who picks topics every hour (Groq has the bigger daily limit)
-# Both AIs fact-check every article independently. Publish only if BOTH say PASS.
 
-# --- Gemini with Google Search: first-choice fact-checker ---
-GEMINI_API_KEY = env("GEMINI_API_KEY")
-GEMINI_MODEL = env("GEMINI_MODEL", "gemini-flash-latest")
-
-# --- Web search (Tavily, free 4,000 searches/month): research + fact-check ---
-TAVILY_API_KEY = env("TAVILY_API_KEY")
-
-# --- AI cover images (Cloudflare Workers AI, free ~170 images/day) ---
-CLOUDFLARE_ACCOUNT_ID = env("CLOUDFLARE_ACCOUNT_ID")
-CLOUDFLARE_API_TOKEN = env("CLOUDFLARE_API_TOKEN")
-IMAGE_MODEL = env("IMAGE_MODEL", "@cf/black-forest-labs/flux-1-schnell")
+# --- Cover photos (Unsplash, free) ---
+UNSPLASH_ACCESS_KEY = env("UNSPLASH_ACCESS_KEY")
 
 # --- Email (Gmail SMTP with an App Password) ---
 SMTP_HOST = env("SMTP_HOST", "smtp.gmail.com")
@@ -53,6 +47,8 @@ MAX_PER_RUN = int(env("MAX_PER_RUN", "2"))
 MAX_PER_DAY = int(env("MAX_PER_DAY", "8"))
 MIN_TRAFFIC = int(env("MIN_TRAFFIC", "500"))  # Google Trends "approx traffic" threshold
 MIN_OUTLETS = int(env("MIN_OUTLETS", "3"))    # independent news outlets needed before writing
+MIN_FULLTEXT = int(env("MIN_FULLTEXT", "2"))  # articles we could actually read in full
+MIN_FACTS = int(env("MIN_FACTS", "6"))        # verified facts needed before writing
 REPO = env("GITHUB_REPOSITORY", "")           # owner/repo, set automatically by GitHub Actions
 
 # Labels the live theme reads. The writer must pick exactly one of these.
