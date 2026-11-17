@@ -15,7 +15,13 @@
   "chase bank outages": "2026-11-17",
   "libra horoscope today": "2026-11-17",
   "बातमी": "2026-11-17",
-  "नरेन्द्र मोदी": "2026-11-17"
+  "नरेन्द्र मोदी": "2026-11-17",
+  "mars rover": "2026-11-17",
+  "திரைப்படம்": "2026-11-17",
+  "നെടുമ്പാശ്ശേരി": "2026-11-17",
+  "adelaide strikers vs sydney sixers": "2026-11-17",
+  "स्वर्ण कांता शर्मा": "2026-11-17",
+  "ഇറാന്": "2026-11-17"
  },
  "posts": [
   {
@@ -65,6 +71,32 @@
     "safe mode: PUBLISH_MODE=draft",
     "fact-check UNAVAILABLE"
    ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "mars rover",
+   "title": "मंगल पर क्यूरियोसिटी ने शुद्ध सल्फर क्रिस्टल की खोज की",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft",
+    "fact-check FIX"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "നെടുമ്പാശ്ശേരി",
+   "title": "नेडुम्बासेरी हवाई अड्डे के पास मिनी कूपर दुर्घटना में 3 मृत, 19 वर्षीय सुहैल को 6 नवंबर को जमानत",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft",
+    "संवेदनशील विषय"
+   ]
   }
+ ],
+ "photos": [
+  "PunFiEOn8BY",
+  "kcqrda2VwjI"
  ]
 }
