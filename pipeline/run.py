@@ -145,7 +145,7 @@ def publish_approved(st):
                 try:
                     res, _ = llm.ask("Write a short English URL slug (lowercase words joined by hyphens, max 6 words, "
                                      "no dates) for this Hindi news headline. Return JSON {\"slug\": \"...\"}.\n"
-                                     + post.get("title", ""), temperature=0.0, max_tokens=300)
+                                     + post.get("title", ""), temperature=0.0, max_tokens=1500)
                     slug_ = compose.slug(res.get("slug", ""))
                 except llm.AIUnavailable:
                     slug_ = ""

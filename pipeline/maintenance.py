@@ -176,7 +176,7 @@ def _slug_for(post):
     try:
         res, _ = llm.ask("Write a short English URL slug (lowercase words joined by hyphens, max 6 words, no dates) "
                          'for this Hindi news headline. Return JSON {"slug": "..."}.\n' + post.get("title", ""),
-                         temperature=0.0, max_tokens=300)
+                         temperature=0.0, max_tokens=1500)
         s = compose.slug(res.get("slug", ""))
         if s and s != "news":
             return s
@@ -244,7 +244,7 @@ def apply(preview=False, push=None):
                 try:
                     res, _ = llm.ask("Give 2-4 English words for a GENERIC stock photo (objects or places only, no people "
                                      'names, brands or parties) for this Hindi headline. JSON {"q": "..."}.\n' + post.get("title", ""),
-                                     temperature=0.0, max_tokens=200)
+                                     temperature=0.0, max_tokens=1500)
                     q = res.get("q", "")
                 except llm.AIUnavailable:
                     q = ""
