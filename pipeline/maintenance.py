@@ -268,24 +268,27 @@ def apply(preview=False, push=None):
                 section = next((l for l in post.get("labels", []) if l in config.SECTIONS), "")
                 slug = compose.slug(_slug_for(post))
                 card_rel = f"{config.IMAGE_DIR}/fix/{pid}-{slug}.jpg"
-                brand.share_card(post.get("title", ""), section, card_rel)
+                branded = bool(photo and brand.branded_photo(photo["url"], section, card_rel))
+                if not branded:
+                    brand.share_card(post.get("title", ""), section, card_rel)
                 sha = push([card_rel], f"card: fix {pid}") if push else None
                 if not sha:
                     log.append(f"- add-image {pid}: could not save the card image, skipped")
                     continue
                 card_url = f"https://cdn.jsdelivr.net/gh/{config.REPO}@{sha}/{card_rel}"
                 e = html.escape
-                top = (f'<div class="bn-share" style="display:none"><img src="{e(card_url)}" alt="{e(post.get("title", ""))}" '
-                       f'width="1200" height="675" /></div>\n') if photo else ""
-                fig = (f'<div class="separator bn-photo" data-section="{e(section)}"><img src="{e(photo["url"])}" '
-                       f'alt="{e(post.get("title", ""))}" width="1200" height="675" /></div>\n{compose._caption(photo)}\n') if photo else \
-                      (f'<div class="separator bn-cardimg"><img src="{e(card_url)}" alt="{e(post.get("title", ""))}" '
-                       f'width="1200" height="675" /></div>\n')
+                top = ""
+                if branded:
+                    fig = (f'<div class="separator bn-branded"><img src="{e(card_url)}" alt="{e(post.get("title", ""))}" '
+                           f'width="1200" height="675" /></div>\n{compose._caption(photo)}\n')
+                else:
+                    fig = (f'<div class="separator bn-cardimg"><img src="{e(card_url)}" alt="{e(post.get("title", ""))}" '
+                           f'width="1200" height="675" /></div>\n')
                 if photo:
                     st_photos.append(photo["id"])
                 requests.patch(f"{bl.base}/{pid}", headers=bl.h, timeout=60,
                                json={"content": top + fig + body}).raise_for_status()
-                log.append(f"- add-image {pid}: added {'card + Unsplash photo' if photo else 'branded card'}")
+                log.append(f"- add-image {pid}: added {'branded Unsplash photo' if branded else 'branded card'}")
         except Exception as ex:  # noqa: BLE001  - one bad post must not stop the rest
             log.append(f"- {act} {pid}: FAILED: {str(ex)[:200]}")
     # mark processed lines as done so they don't run twice

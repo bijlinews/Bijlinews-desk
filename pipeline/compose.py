@@ -71,7 +71,11 @@ def build_post(article, card_url, sources, section=""):
         links.append(f'<a class="bn-chip" href="{e(s["url"])}" rel="nofollow noopener" target="_blank">{e(s["source"])}</a>')
     photo = article.get("_photo")
     alt = e(article.get("image_alt") or article["title_hi"])
-    if photo:
+    if photo and article.get("_branded_url"):   # our branded copy of the Unsplash photo (main + preview image)
+        share = ""
+        figure = (f'<div class="separator bn-branded"><img src="{e(article["_branded_url"])}" alt="{alt}" '
+                  f'width="1200" height="675" /></div>\n{_caption(photo)}')
+    elif photo:
         share = (f'<div class="bn-share" style="display:none"><img src="{e(card_url)}" alt="{e(article["title_hi"])}" '
                  f'width="1200" height="675" /></div>\n')
         figure = (f'<div class="separator bn-photo" data-section="{e(section)}"><img src="{e(photo["url"])}" alt="{alt}" '

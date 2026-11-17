@@ -153,3 +153,57 @@ def logo(out_path, size=512):
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
     img.save(out_path, "PNG", optimize=True)
     return out_path
+
+
+def branded_photo(src, section, out_path):
+    """Our version of an Unsplash photo: 1200x675, bijlinews logo bottom-left, section chip, red line.
+    src: an image URL (downloaded) or a local file path. Returns out_path, or None if it can't be made."""
+    import io
+    try:
+        if str(src).startswith("http"):
+            import requests
+            r = requests.get(src, timeout=40)
+            r.raise_for_status()
+            img = Image.open(io.BytesIO(r.content)).convert("RGB")
+        else:
+            img = Image.open(src).convert("RGB")
+    except Exception as e:  # noqa: BLE001
+        print(f"  ! photo download failed: {e}")
+        return None
+    scale = max(W / img.width, H / img.height)
+    img = img.resize((int(img.width * scale + 0.5), int(img.height * scale + 0.5)), Image.LANCZOS)
+    left, top = (img.width - W) // 2, (img.height - H) // 2
+    img = img.crop((left, top, left + W, top + H))
+
+    # soft dark fade at the bottom so the logo is readable on any photo
+    fade = Image.new("L", (1, H))
+    for y in range(H):
+        fade.putpixel((0, y), int(170 * max(0.0, (y - H * 0.62) / (H * 0.38)) ** 1.5))
+    img = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), img, fade.resize((W, H)))
+    d = ImageDraw.Draw(img)
+
+    # logo pill, bottom-left
+    f = _font(True, 30)
+    name = "बिजली न्यूज़"
+    tw = d.textlength(name, font=f)
+    x, y = 28, H - 28 - 58
+    d.rounded_rectangle((x, y, x + 58 + 14 + tw + 22, y + 58), radius=29, fill=(0, 0, 0))
+    _mark(d, x + 4, y + 4, 50)
+    d.text((x + 64, y + 7), name, font=f, fill=WHITE)
+
+    # section chip, top-left
+    if section:
+        cf = _font(True, 24)
+        cw = d.textlength(section, font=cf) + 28
+        d.rounded_rectangle((28, 26, 28 + cw, 26 + 42), radius=8, fill=GOLD)
+        d.text((42, 28), section, font=cf, fill=(20, 16, 0))
+
+    # site + red line at the bottom
+    sf = _latin(22)
+    site = "bijlinews.com"
+    d.text((W - 28 - d.textlength(site, font=sf), H - 50), site, font=sf, fill=(235, 235, 235))
+    d.rectangle((0, H - 7, W, H), fill=ACCENT.get(section, RED))
+
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    img.save(out_path, "JPEG", quality=86, optimize=True, progressive=True)
+    return out_path

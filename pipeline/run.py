@@ -259,9 +259,13 @@ def main():
                 st["photos"].append(photo["id"])
             nums = [n for n in (article.get("key_numbers") or []) if isinstance(n, dict) and n.get("value")]
             card_rel = f"{config.IMAGE_DIR}/{NOW:%Y/%m}/{slug}-{NOW:%H%M}.jpg"
-            brand.share_card(article["title_hi"], p["section"], card_rel, nums[0] if nums else None)
-            sha = git_push([card_rel], f"card: {slug}") or "main"
+            branded = bool(photo and brand.branded_photo(photo["url"], p["section"], card_rel))
+            if not branded:   # no photo, or download failed: our text card instead
+                brand.share_card(article["title_hi"], p["section"], card_rel, nums[0] if nums else None)
+            sha = git_push([card_rel], f"image: {slug}") or "main"
             card_url = f"https://cdn.jsdelivr.net/gh/{config.REPO}@{sha}/{card_rel}"
+            if branded:
+                article["_branded_url"] = card_url
 
             html = compose.build_post(article, card_url, srcs, p["section"])
             labels = [p["section"], config.TREND_LABEL]
