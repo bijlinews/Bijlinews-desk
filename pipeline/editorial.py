@@ -42,15 +42,26 @@ For EACH topic decide:
 
 Return JSON: {{"topics": [{{"index": 0, "relevant": true, "section": "...", "sensitive": false,
 "reason": "one line", "priority": 7, "query": "..."}}]}}"""
-    data = llm.ask(prompt, model=config.WRITER_MODEL, temperature=0.2)
+    data, _ = llm.ask(prompt, providers=_order(), temperature=0.2, max_tokens=3000)
     return data.get("topics", [])
 
 
-def _sources_block(sources):
-    out = []
+def _order():
+    """Writer first, the other AI as backup."""
+    return (config.WRITER, "groq" if config.WRITER == "mistral" else "mistral")
+
+
+def _sources_block(sources, budget=16000):
+    """Numbered sources, trimmed to a character budget (Groq's free tier allows smaller prompts)."""
+    out, used = [], 0
+    per = max(300, budget // max(1, len(sources)))
     for i, s in enumerate(sources, 1):
-        body = s.get("text") or ""
-        out.append(f"[{i}] {s['source']} — {s['title']}\nURL: {s['url']}\n{body[:2500]}")
+        body = (s.get("text") or "")[:per]
+        block = f"[{i}] {s['source']} — {s['title']}\nURL: {s['url']}\n{body}"
+        if used + len(block) > budget:
+            block = f"[{i}] {s['source']} — {s['title']}"
+        out.append(block)
+        used += len(block)
     return "\n\n".join(out)
 
 
@@ -78,13 +89,47 @@ Return JSON with these keys:
 - "image_alt": Hindi alt text describing the cover image (a news card with the headline).
 - "claims": list of every checkable factual claim in the article (names, numbers, dates, events), in Hindi.
 - "sources_used": list of source numbers you relied on, e.g. [1, 3]."""
-    return llm.ask(prompt, model=config.WRITER_MODEL, temperature=0.5)
+    article, by = llm.ask(prompt, providers=_order(), temperature=0.5, max_tokens=6000)
+    article["_writer"] = by
+    return article
 
 
 def fact_check(article, sources):
-    """Independent check. Sees sources the writer did NOT see, and can search Google itself."""
-    search_note = ("You may also run Google searches to verify claims. Prefer official sources and "
-                   "well-known Indian news outlets." if config.CHECKER_WEB_SEARCH else "")
+    """Both AIs check the article independently. PASS only if both say PASS."""
+    results = {}
+    for p, budget in (("mistral", 16000), ("groq", 6000)):
+        try:
+            results[p], _ = llm.ask(_check_prompt(article, sources, budget), providers=(p,),
+                                    temperature=0.1, max_tokens=3500)
+        except llm.AIUnavailable as e:
+            results[p] = {"verdict": "UNAVAILABLE", "notes": str(e)[:200], "claims": [], "corrections": []}
+    return _combine(results)
+
+
+def _combine(results):
+    verdicts = [r.get("verdict", "FAIL") for r in results.values()]
+    if all(v == "PASS" for v in verdicts):
+        verdict = "PASS"
+    elif any(v in ("FAIL", "UNAVAILABLE") for v in verdicts):
+        verdict = "FAIL" if "FAIL" in verdicts else "UNAVAILABLE"
+    else:
+        verdict = "FIX"
+    claims, corrections = [], []
+    for p, r in results.items():
+        for c in r.get("claims", []) or []:
+            claims.append({**c, "evidence": f"[{p}] {c.get('evidence', '')}"})
+        corrections += r.get("corrections", []) or []
+    return {
+        "verdict": verdict,
+        "sensitive": any(r.get("sensitive") for r in results.values()),
+        "claims": claims,
+        "corrections": corrections,
+        "notes": " | ".join(f"{p}: {r.get('verdict')} — {r.get('notes', '')}" for p, r in results.items()),
+        "by_checker": {p: r.get("verdict") for p, r in results.items()},
+    }
+
+
+def _check_prompt(article, sources, budget):
     prompt = f"""You are a strict fact-checker for a Hindi news website. A different writer produced the
 article below. Your job is to find mistakes BEFORE it is published. Be sceptical.
 
@@ -93,14 +138,13 @@ ARTICLE SUMMARY: {json.dumps(article['summary'], ensure_ascii=False)}
 ARTICLE BODY (HTML): {article['body_html']}
 CLAIMS LISTED BY WRITER: {json.dumps(article.get('claims', []), ensure_ascii=False)}
 
-INDEPENDENT SOURCES (from other outlets):
-{_sources_block(sources)}
-
-{search_note}
+SOURCES (news reports from several outlets):
+{_sources_block(sources, budget)}
 
 Check every factual statement in the title, summary and body (not only the writer's list):
 names and spellings, numbers, dates, places, who said what, cause and effect.
-A claim is "supported" only if at least one reliable independent source above (or your search) confirms it.
+A claim is "supported" only if a source above clearly confirms it. Do not use your own memory as evidence:
+your training data may be outdated, and news changes daily. If no source covers a claim, it is "unsupported".
 Also flag: anything that accuses a named person, speculation presented as fact, outdated information,
 and a headline that overstates the body.
 {SENSITIVE_RULES}
@@ -113,7 +157,7 @@ Return ONLY JSON:
   "notes": "one or two lines in English for the editor"}}
 Use PASS only if every claim is supported and nothing is misleading.
 Use FIX if there are small errors that the corrections fully solve. Use FAIL for anything else."""
-    return llm.ask(prompt, model=config.CHECKER_MODEL, web_search=config.CHECKER_WEB_SEARCH, temperature=0.1)
+    return prompt
 
 
 def revise(article, check):
@@ -125,7 +169,7 @@ PROBLEM CLAIMS: {json.dumps([c for c in check.get('claims', []) if c.get('status
 
 ARTICLE JSON:
 {json.dumps({k: article[k] for k in ('title_hi','slug_en','summary','body_html','search_description','image_text','image_alt','claims','sources_used')}, ensure_ascii=False)}"""
-    fixed = llm.ask(prompt, model=config.WRITER_MODEL, temperature=0.2)
+    fixed, _ = llm.ask(prompt, providers=_order(), temperature=0.2, max_tokens=6000)
     for k, v in article.items():
         fixed.setdefault(k, v)
     return fixed

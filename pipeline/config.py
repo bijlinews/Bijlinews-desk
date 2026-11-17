@@ -14,12 +14,13 @@ GOOGLE_CLIENT_ID = env("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = env("GOOGLE_CLIENT_SECRET")
 GOOGLE_REFRESH_TOKEN = env("GOOGLE_REFRESH_TOKEN")
 
-# --- AI (Gemini) ---
-GEMINI_API_KEY = env("GEMINI_API_KEY")
-WRITER_MODEL = env("WRITER_MODEL", "gemini-flash-latest")
-CHECKER_MODEL = env("CHECKER_MODEL", "gemini-flash-latest")
-# Let the fact-checker run its own Google searches (uses the Gemini "grounding" quota).
-CHECKER_WEB_SEARCH = env("CHECKER_WEB_SEARCH", "1") == "1"
+# --- AI (Groq + Mistral, both free) ---
+GROQ_API_KEY = env("GROQ_API_KEY")
+MISTRAL_API_KEY = env("MISTRAL_API_KEY")
+GROQ_MODEL = env("GROQ_MODEL", "openai/gpt-oss-120b")
+MISTRAL_MODEL = env("MISTRAL_MODEL", "mistral-medium-latest")
+WRITER = env("WRITER", "mistral")          # who writes; the other one is the backup writer
+# Both AIs fact-check every article independently. Publish only if BOTH say PASS.
 
 # --- Email (Gmail SMTP with an App Password) ---
 SMTP_HOST = env("SMTP_HOST", "smtp.gmail.com")

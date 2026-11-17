@@ -6,7 +6,7 @@ import re
 import subprocess
 import traceback
 
-from . import blogger, compose, config, editorial, image, notify, sources
+from . import blogger, compose, config, editorial, image, llm, notify, sources
 
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 NOW = dt.datetime.now(IST)
@@ -86,7 +86,12 @@ def main():
         return
     trends = sorted(trends, key=lambda t: -t["traffic"])[:15]
 
-    picks = editorial.triage(trends)
+    try:
+        picks = editorial.triage(trends)
+    except llm.AIUnavailable as e:
+        print(f"AI services unavailable right now, trying again next hour: {e}")
+        save_state(st)
+        return
     for p in picks:  # remember every trend we looked at, so we don't re-check it every hour
         i = p.get("index")
         if isinstance(i, int) and 0 <= i < len(trends):
@@ -114,10 +119,11 @@ def main():
                 print("  skip: we already have a similar post")
                 continue
 
-            check = editorial.fact_check(article, checker_src)
+            all_src = writer_src + checker_src
+            check = editorial.fact_check(article, all_src)
             if check.get("verdict") == "FIX" and check.get("corrections"):
                 article = editorial.revise(article, check)
-                check = editorial.fact_check(article, checker_src)
+                check = editorial.fact_check(article, all_src)
             print(f"  fact-check: {check.get('verdict')} | {check.get('notes','')[:120]}")
 
             # ---- decide: publish or hold as draft
@@ -158,6 +164,8 @@ def main():
             recent.append(article["title_hi"])
             done += 1
             print(f"  -> {status} {post.get('url') or post.get('edit_url')}")
+        except llm.AIUnavailable as e:
+            print(f"  skip (AI unavailable): {e}")
         except Exception:  # one bad topic must not stop the run
             err = traceback.format_exc()
             print(err)

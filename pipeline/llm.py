@@ -1,6 +1,9 @@
-"""Minimal Gemini REST client with JSON output and optional Google Search grounding.
-If the configured model name no longer exists (Google retires models), it automatically picks
-the newest stable Flash model available to this API key."""
+"""AI client for Groq and Mistral (both OpenAI-compatible, both have free tiers).
+
+ask(prompt, providers=["mistral", "groq"]) tries each provider in order and returns
+(json_result, provider_name). If a model name has been retired, it picks the best available
+model from the provider's /models list automatically.
+"""
 import json
 import re
 import time
@@ -9,101 +12,109 @@ import requests
 
 from . import config
 
-BASE = "https://generativelanguage.googleapis.com/v1beta"
+
+class AIUnavailable(RuntimeError):
+    """Every provider failed (outage, rate limit, missing key)."""
+
+
+PROVIDERS = {
+    "groq": {
+        "base": "https://api.groq.com/openai/v1",
+        "key": lambda: config.GROQ_API_KEY,
+        "model": lambda: config.GROQ_MODEL,
+        # best first; used only if the configured model no longer exists
+        "prefer": ["openai/gpt-oss-120b", "qwen/qwen3", "llama-3.3-70b", "llama-4", "gpt-oss-20b"],
+    },
+    "mistral": {
+        "base": "https://api.mistral.ai/v1",
+        "key": lambda: config.MISTRAL_API_KEY,
+        "model": lambda: config.MISTRAL_MODEL,
+        "prefer": ["mistral-medium-latest", "mistral-large-latest", "mistral-medium", "mistral-large", "mistral-small-latest"],
+    },
+}
 _resolved = {}
-_no_thinking_cfg = set()   # models that rejected the thinking setting
 
 
-def _headers():
-    return {"x-goog-api-key": config.GEMINI_API_KEY}
+def _headers(p):
+    return {"Authorization": f"Bearer {PROVIDERS[p]['key']()}", "Content-Type": "application/json"}
 
 
-def _version_key(name):
-    nums = [int(n) for n in re.findall(r"\d+", name)]
-    return nums + [0] * (4 - len(nums))
-
-
-def _best_flash():
-    r = requests.get(f"{BASE}/models", headers=_headers(), params={"pageSize": 1000}, timeout=60)
+def _pick_model(p):
+    r = requests.get(f"{PROVIDERS[p]['base']}/models", headers=_headers(p), timeout=60)
     r.raise_for_status()
-    names = [m["name"].split("/", 1)[1] for m in r.json().get("models", [])
-             if "generateContent" in m.get("supportedGenerationMethods", [])]
-    bad = ("lite", "image", "tts", "audio", "live", "embedding", "thinking", "exp", "learnlm", "robotics", "computer")
-    flash = [n for n in names if "flash" in n and not any(b in n for b in bad)]
-    stable = [n for n in flash if "preview" not in n] or flash
-    aliases = [n for n in stable if n.endswith("-latest")]
-    pool = sorted([n for n in stable if not n.endswith("-latest")], key=_version_key, reverse=True)
-    # Prefer Google's moving alias for the current fast model; otherwise the newest stable version.
-    choice = "gemini-flash-latest" if "gemini-flash-latest" in names else (pool[0] if pool else None)
-    print(f"  (available flash models: {', '.join(sorted(flash))[:300]})")
-    if not choice:
-        raise RuntimeError("No usable Gemini Flash model found for this API key")
-    return choice
-
-
-def _model(name):
-    return _resolved.get(name, name)
+    ids = [m.get("id", "") for m in r.json().get("data", [])]
+    for want in PROVIDERS[p]["prefer"]:
+        hits = sorted([i for i in ids if want in i and not any(b in i for b in ("guard", "whisper", "tts", "embed", "ocr", "moderation"))])
+        if hits:
+            return hits[-1]
+    raise AIUnavailable(f"{p}: no suitable model among {ids[:15]}")
 
 
 def _extract_json(text):
-    text = text.strip()
+    text = (text or "").strip()
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.S).strip()   # some models emit reasoning tags
     m = re.search(r"```(?:json)?\s*(.*?)```", text, re.S)
     if m:
         text = m.group(1).strip()
     start = min([i for i in (text.find("{"), text.find("[")) if i >= 0], default=0)
-    return json.loads(text[start:])
+    end = max(text.rfind("}"), text.rfind("]"))
+    return json.loads(text[start:end + 1] if end > start else text[start:])
 
 
-def ask(prompt, model=None, web_search=False, temperature=0.4, retries=3):
-    """Send a prompt, return parsed JSON. With web_search=True the model may run Google searches."""
-    wanted = model or config.WRITER_MODEL
+def _call(p, prompt, temperature, max_tokens):
+    model = _resolved.get(p) or PROVIDERS[p]["model"]()
     body = {
-        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": temperature},
+        "model": model,
+        "messages": [
+            {"role": "system", "content": "You are a careful news-desk assistant. Always answer with valid JSON only."},
+            {"role": "user", "content": prompt},
+        ],
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+        "response_format": {"type": "json_object"},
     }
-    if web_search:
-        body["tools"] = [{"google_search": {}}]
-    else:
-        body["generationConfig"]["responseMimeType"] = "application/json"
-
-    last = None
-    for attempt in range(retries + 2):
-        model = _model(wanted)
-        cfg = dict(body["generationConfig"])
-        if model not in _no_thinking_cfg:
-            cfg["thinkingConfig"] = {"thinkingLevel": "low"}   # fast answers; this job needs no deep reasoning
+    last = ""
+    for attempt in range(3):
         try:
-            r = requests.post(f"{BASE}/models/{model}:generateContent", headers=_headers(),
-                              json={**body, "generationConfig": cfg}, timeout=240)
-            if r.status_code == 400 and "thinking" in r.text.lower() and model not in _no_thinking_cfg:
-                _no_thinking_cfg.add(model)
-                continue
-            if r.status_code == 404 and wanted not in _resolved:
-                _resolved[wanted] = _best_flash()
-                print(f"  ! model '{wanted}' not found; using '{_resolved[wanted]}' instead")
-                continue
-            if r.status_code in (429, 500, 503):
-                last = f"HTTP {r.status_code}: {r.text[:200]}"
-                time.sleep(20 * (attempt + 1))
-                continue
-            if r.status_code >= 400:
-                raise RuntimeError(f"Gemini HTTP {r.status_code}: {r.text[:400]}")
-            data = r.json()
-            parts = data["candidates"][0]["content"]["parts"]
-            text = "".join(p.get("text", "") for p in parts)
-            result = _extract_json(text)
-            if web_search and isinstance(result, dict):
-                gm = data["candidates"][0].get("groundingMetadata", {})
-                result["_search_sources"] = [
-                    {"title": c.get("web", {}).get("title", ""), "url": c.get("web", {}).get("uri", "")}
-                    for c in gm.get("groundingChunks", [])
-                ]
-            return result
-        except (KeyError, IndexError, json.JSONDecodeError) as e:
-            last = f"bad response: {e}"
-            time.sleep(5)
+            r = requests.post(f"{PROVIDERS[p]['base']}/chat/completions", headers=_headers(p), json=body, timeout=180)
         except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
-            last = f"network/timeout: {e}"
-            print(f"  ! Gemini {last[:120]}; retrying")
-            time.sleep(15)
-    raise RuntimeError(f"Gemini request failed: {last}")
+            last = f"network: {e}"
+            time.sleep(10)
+            continue
+        if r.status_code == 404 or (r.status_code == 400 and "model" in r.text.lower() and p not in _resolved):
+            _resolved[p] = _pick_model(p)
+            body["model"] = _resolved[p]
+            print(f"  ! {p}: model '{model}' unavailable, using '{_resolved[p]}'")
+            continue
+        if r.status_code in (429, 500, 502, 503, 529):
+            last = f"HTTP {r.status_code}: {r.text[:160]}"
+            wait = float(r.headers.get("retry-after", 0) or 0) or 15 * (attempt + 1)
+            time.sleep(min(wait, 60))
+            continue
+        if r.status_code == 413 or "too large" in r.text.lower():
+            raise AIUnavailable(f"{p}: prompt too large for free limits")
+        if r.status_code >= 400:
+            raise AIUnavailable(f"{p}: HTTP {r.status_code}: {r.text[:300]}")
+        try:
+            text = r.json()["choices"][0]["message"]["content"]
+            return _extract_json(text)
+        except (KeyError, IndexError, json.JSONDecodeError) as e:
+            last = f"bad JSON: {e}"
+            body["temperature"] = 0.1
+            continue
+    raise AIUnavailable(f"{p}: {last}")
+
+
+def ask(prompt, providers=("mistral", "groq"), temperature=0.4, max_tokens=4000):
+    """Try providers in order. Returns (result_dict, provider_used)."""
+    errors = []
+    for p in providers:
+        if not PROVIDERS[p]["key"]():
+            errors.append(f"{p}: no API key")
+            continue
+        try:
+            return _call(p, prompt, temperature, max_tokens), p
+        except AIUnavailable as e:
+            print(f"  ! {e}")
+            errors.append(str(e))
+    raise AIUnavailable(" | ".join(errors))
