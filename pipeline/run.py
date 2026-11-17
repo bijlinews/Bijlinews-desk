@@ -4,6 +4,7 @@ import json
 import os
 import re
 import subprocess
+import time
 import traceback
 
 from . import blogger, compose, config, editorial, image, llm, notify, search, sources
@@ -45,8 +46,27 @@ def git_push(paths, message):
     if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode == 0:
         return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     subprocess.run(["git", "commit", "-m", message], check=True)
-    subprocess.run(["git", "push"], check=True)
-    return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+    # Someone may have committed while we ran (e.g. a file upload): rebase onto it and retry.
+    for attempt in range(4):
+        if subprocess.run(["git", "push"]).returncode == 0:
+            return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+        print(f"  ! push rejected, updating from GitHub and retrying ({attempt + 1}/4)")
+        subprocess.run(["git", "fetch", "origin", "main"], check=True)
+        if subprocess.run(["git", "rebase", "origin/main"]).returncode != 0:
+            # both sides changed the same file (usually state.json): keep our newer copy
+            subprocess.run(["git", "rebase", "--abort"])
+            keep = {f: open(f, "rb").read() for f in paths if os.path.exists(f)}
+            subprocess.run(["git", "reset", "--hard", "origin/main"], check=True)
+            for f, data in keep.items():
+                os.makedirs(os.path.dirname(f) or ".", exist_ok=True)
+                with open(f, "wb") as fh:
+                    fh.write(data)
+            subprocess.run(["git", "add", *paths], check=True)
+            if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode != 0:
+                subprocess.run(["git", "commit", "-m", message], check=True)
+        time.sleep(3 * (attempt + 1))
+    print("  ! could not save to GitHub this run; it will be saved next run")
+    return None
 
 
 def research(trend, query):
@@ -91,11 +111,43 @@ def similar_exists(title, recent):
     return False
 
 
+def publish_approved(st):
+    """Drafts you approved (label 'publish') are published with their English URL."""
+    if config.DRY_RUN:
+        return
+    try:
+        bl = blogger.Blogger()
+        for post in bl.approved_drafts():
+            m = re.search(r"<!--bn-slug:([a-z0-9-]+)-->", post.get("content", ""))
+            slug_ = m.group(1) if m and m.group(1) != "news" else ""
+            if not slug_:   # older drafts: ask the AI for an English slug from the Hindi headline
+                try:
+                    res, _ = llm.ask("Write a short English URL slug (lowercase words joined by hyphens, max 6 words, "
+                                     "no dates) for this Hindi news headline. Return JSON {\"slug\": \"...\"}.\n"
+                                     + post.get("title", ""), temperature=0.0, max_tokens=300)
+                    slug_ = compose.slug(res.get("slug", ""))
+                except llm.AIUnavailable:
+                    slug_ = ""
+            if not slug_ or slug_ == "news":
+                slug_ = f"news-{post['id'][-6:]}"
+            live = bl.publish_with_slug(post, slug_.replace("-", " "))
+            print(f"Published your approved draft: {live.get('url')}")
+            st["posts"].append({"date": TODAY, "trend": "(approved draft)", "title": live.get("title", ""),
+                                "status": "approved", "url": live.get("url", ""), "why": []})
+            notify.send("[प्रकाशित] " + live.get("title", "")[:80],
+                        f"<p>आपका मंज़ूर किया हुआ ड्राफ्ट प्रकाशित हो गया:</p><p><a href='{live.get('url', '')}'>{live.get('url', '')}</a></p>")
+    except Exception as e:  # noqa: BLE001  — never block the hourly run
+        print(f"  ! approved-draft publishing failed: {e}")
+
+
 def main():
     st = load_state()
-    made_today = sum(1 for p in st["posts"] if p["date"] == TODAY)
+    publish_approved(st)
+    made_today = sum(1 for p in st["posts"] if p["date"] == TODAY and p.get("status") != "approved")
     if made_today >= config.MAX_PER_DAY:
-        print("Daily limit reached; nothing to do.")
+        print("Daily limit reached; no new articles today.")
+        save_state(st)
+        git_push([config.STATE_FILE], f"state: {NOW:%Y-%m-%d %H:%M} IST")
         return
 
     # Groq keys take turns: this run starts with the next key in line (the others are backups)
