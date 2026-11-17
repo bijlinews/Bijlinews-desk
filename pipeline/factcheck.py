@@ -36,7 +36,12 @@ def _numbers(text):
 
 def unsupported_numbers(article, sources, facts):
     """Every number (2+ digits) in the headline, summary and body must appear in the sources."""
-    art = " ".join([article.get("title_hi", ""), " ".join(article.get("summary", [])), article.get("body_html", "")])
+    extras = []
+    for key in ("key_numbers", "timeline", "faq"):
+        for item in article.get(key) or []:
+            if isinstance(item, dict):
+                extras += [str(v) for v in item.values()]
+    art = " ".join([article.get("title_hi", ""), " ".join(article.get("summary", [])), article.get("body_html", "")] + extras)
     pool = " ".join([" ".join([s.get("title", ""), s.get("snippet", ""), s.get("text", "")]) for s in sources] +
                     [f.get("quote", "") for f in facts])   # quotes only: they are proven to be in a source
     have = _numbers(pool)

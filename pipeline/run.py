@@ -7,7 +7,7 @@ import subprocess
 import time
 import traceback
 
-from . import blogger, compose, config, editorial, image, llm, notify, search, sources
+from . import blogger, brand, compose, config, editorial, image, llm, notify, search, sources, stories
 
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 NOW = dt.datetime.now(IST)
@@ -67,6 +67,27 @@ def git_push(paths, message):
         time.sleep(3 * (attempt + 1))
     print("  ! could not save to GitHub this run; it will be saved next run")
     return None
+
+
+def pages_changed():
+    """Tell the workflow to redeploy GitHub Pages (Web Stories)."""
+    out = os.environ.get("GITHUB_OUTPUT")
+    if out:
+        with open(out, "a") as f:
+            f.write("docs=1\n")
+
+
+def make_story(st, data, post_url, post_id):
+    """Write a Web Story for a published post and push it. Never breaks the run."""
+    try:
+        art = data["article"]
+        changed, url = stories.save(art, data["section"], post_url, data["card_url"], post_id)
+        if not config.DRY_RUN and git_push(changed, f"web story: {art.get('slug_en', '')}"):
+            pages_changed()
+        return url
+    except Exception as e:  # noqa: BLE001
+        print(f"  ! web story failed: {e}")
+        return None
 
 
 def research(trend, query):
@@ -132,6 +153,9 @@ def publish_approved(st):
                 slug_ = f"news-{post['id'][-6:]}"
             live = bl.publish_with_slug(post, slug_.replace("-", " "))
             print(f"Published your approved draft: {live.get('url')}")
+            data = st.get("pending", {}).pop(post["id"], None)
+            if data and live.get("url"):
+                make_story(st, data, live["url"], post["id"])
             st["posts"].append({"date": TODAY, "trend": "(approved draft)", "title": live.get("title", ""),
                                 "status": "approved", "url": live.get("url", ""), "why": []})
             notify.send("[प्रकाशित] " + live.get("title", "")[:80],
@@ -142,6 +166,8 @@ def publish_approved(st):
 
 def main():
     st = load_state()
+    cutoff = (NOW - dt.timedelta(days=21)).strftime("%Y-%m-%d")
+    st["pending"] = {k: v for k, v in st.get("pending", {}).items() if v.get("date", "") >= cutoff}
     publish_approved(st)
     made_today = sum(1 for p in st["posts"] if p["date"] == TODAY and p.get("status") != "approved")
     if made_today >= config.MAX_PER_DAY:
@@ -223,21 +249,24 @@ def main():
                 reasons.append("कुछ संख्याएँ स्रोतों में नहीं मिलीं")
             publish = not reasons
 
-            # ---- image: Unsplash photo (shown from Unsplash), else a branded card committed to the repo
+            # ---- images: our branded card (thumbnail + social preview, committed to the repo)
+            #      + an Unsplash photo inside the article (shown from Unsplash's own URL)
             slug = compose.slug(article.get("slug_en") or trend["title"])
+            article["slug_en"] = slug
             photo = image.unsplash_photo(article.get("image_query_en"), used=st.setdefault("photos", [])[-200:])
             if photo:
-                img_url = photo["url"]
                 article["_photo"] = photo
                 st["photos"].append(photo["id"])
-            else:
-                img_rel = f"{config.IMAGE_DIR}/{NOW:%Y/%m}/{slug}-{NOW:%H%M}.jpg"
-                image.make_card(article["title_hi"], p["section"], img_rel)
-                sha = git_push([img_rel], f"image: {slug}") or "main"
-                img_url = f"https://cdn.jsdelivr.net/gh/{config.REPO}@{sha}/{img_rel}"
+            nums = [n for n in (article.get("key_numbers") or []) if isinstance(n, dict) and n.get("value")]
+            card_rel = f"{config.IMAGE_DIR}/{NOW:%Y/%m}/{slug}-{NOW:%H%M}.jpg"
+            brand.share_card(article["title_hi"], p["section"], card_rel, nums[0] if nums else None)
+            sha = git_push([card_rel], f"card: {slug}") or "main"
+            card_url = f"https://cdn.jsdelivr.net/gh/{config.REPO}@{sha}/{card_rel}"
 
-            html = compose.build_post(article, img_url, srcs)
+            html = compose.build_post(article, card_url, srcs, p["section"])
             labels = [p["section"], config.TREND_LABEL]
+            story_data = {"article": {k: article.get(k) for k in ("title_hi", "slug_en", "summary", "key_numbers", "_photo")},
+                          "section": p["section"], "card_url": card_url, "date": TODAY}
             if config.DRY_RUN:
                 os.makedirs("out", exist_ok=True)
                 with open(f"out/{slug}.html", "w", encoding="utf-8") as f:
@@ -246,9 +275,19 @@ def main():
                     json.dump({"check": check, "facts": facts, "rejected_facts": rejected,
                                "sources": [{k: x.get(k) for k in ("source", "title", "url")} for x in srcs]},
                               f, ensure_ascii=False, indent=1)
+                try:
+                    name, _, doc = stories.build(story_data["article"], p["section"], "https://www.bijlinews.com/", card_url)
+                    with open(f"out/story-{name}", "w", encoding="utf-8") as f:
+                        f.write(doc)
+                except Exception as e:  # noqa: BLE001
+                    print(f"  ! web story preview failed: {e}")
                 post = {"url": "", "edit_url": f"out/{slug}.html"}
             else:
                 post = bl.create(slug.replace("-", " "), article["title_hi"], html, labels, publish)
+                if publish and post.get("url"):
+                    make_story(st, story_data, post["url"], post.get("id", ""))
+                elif post.get("id"):
+                    st.setdefault("pending", {})[post["id"]] = story_data   # story is made when you approve it
 
             status = "published" if publish else "draft"
             notify.post_report(status, ", ".join(reasons), article, post, check, trend)

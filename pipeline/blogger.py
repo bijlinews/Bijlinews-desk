@@ -40,6 +40,29 @@ class Blogger:
         post["edit_url"] = f"https://www.blogger.com/blog/post/edit/{config.BLOG_ID}/{post['id']}"
         return post
 
+    def approved_drafts(self):
+        """Drafts the editor approved by adding the label 'publish' (or 'पब्लिश')."""
+        out = []
+        for lab in ("publish", "पब्लिश"):
+            r = requests.get(self.base, headers=self.h, timeout=60,
+                             params={"status": "draft", "labels": lab, "fetchBodies": "true", "maxResults": 20})
+            r.raise_for_status()
+            out += [p for p in r.json().get("items", []) if p["id"] not in {x["id"] for x in out}]
+        return out
+
+    def publish_with_slug(self, post, slug_title):
+        """Publish an approved draft so its URL comes from the English slug, then restore the Hindi title."""
+        hindi = post.get("title", "")
+        labels = [l for l in post.get("labels", []) if l.strip().lower() not in ("publish", "पब्लिश")]
+        r = requests.patch(f"{self.base}/{post['id']}", headers=self.h, timeout=60,
+                           json={"title": slug_title, "labels": labels})
+        r.raise_for_status()
+        r = requests.post(f"{self.base}/{post['id']}/publish", headers=self.h, timeout=60)
+        r.raise_for_status()
+        r = requests.patch(f"{self.base}/{post['id']}", headers=self.h, timeout=60, json={"title": hindi})
+        r.raise_for_status()
+        return r.json()
+
     def recent_titles(self, n=40):
         r = requests.get(self.base, headers=self.h,
                          params={"maxResults": n, "fetchBodies": "false", "status": ["live", "draft"]}, timeout=60)

@@ -36,6 +36,7 @@ def unsplash_photo(query, used=()):
         requests.get(p["links"]["download_location"], headers=h, timeout=20)
         return {"id": p["id"],
                 "url": p["urls"]["raw"] + "&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+                "raw": p["urls"]["raw"],
                 "credit_name": p["user"]["name"],
                 "credit_url": f"{p['user']['links']['html']}?{UTM}",
                 "unsplash_url": f"https://unsplash.com/?{UTM}"}

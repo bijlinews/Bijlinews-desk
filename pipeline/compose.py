@@ -1,5 +1,6 @@
 """Turn the AI output into the post HTML the theme expects."""
 import html
+import json
 import re
 
 ALLOWED = {"p", "h2", "h3", "ul", "ol", "li", "strong", "em", "b", "i", "br", "blockquote"}
@@ -25,7 +26,40 @@ def _caption(photo):
             f' / <a href="{e(photo["unsplash_url"])}" rel="nofollow noopener" target="_blank">Unsplash</a></p>')
 
 
-def build_post(article, image_url, sources):
+def _numbers(article):
+    e = html.escape
+    tiles = [n for n in (article.get("key_numbers") or []) if isinstance(n, dict) and n.get("value")][:3]
+    if not tiles:
+        return ""
+    return '<div class="bn-nums">' + "".join(
+        f'<div class="bn-num"><b>{e(str(n["value"]))}</b><span>{e(str(n.get("label", "")))}</span></div>' for n in tiles) + "</div>"
+
+
+def _timeline(article):
+    e = html.escape
+    items = [t for t in (article.get("timeline") or []) if isinstance(t, dict) and t.get("what")][:5]
+    if len(items) < 3:
+        return ""
+    lis = "".join(f'<li><b>{e(str(t.get("when", "")))}</b> {e(str(t["what"]))}</li>' for t in items)
+    return f'<div class="bn-timeline"><h2>घटनाक्रम</h2><ol>{lis}</ol></div>'
+
+
+def _faq(article):
+    e = html.escape
+    qa = [f for f in (article.get("faq") or []) if isinstance(f, dict) and f.get("q") and f.get("a")][:3]
+    if not qa:
+        return ""
+    items = "".join(f'<details><summary>{e(str(f["q"]))}</summary><p>{e(str(f["a"]))}</p></details>' for f in qa)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": str(f["q"]), "acceptedAnswer": {"@type": "Answer", "text": str(f["a"])}} for f in qa]}
+    ld_s = json.dumps(ld, ensure_ascii=True).replace("</", "<\\/")
+    return (f'<div class="bn-faq"><h2>लोग पूछ रहे हैं</h2>{items}</div>\n'
+            f'<script type="application/ld+json">{ld_s}</script>')
+
+
+def build_post(article, card_url, sources, section=""):
+    """card_url: our branded card (first image = thumbnail and social preview).
+    The Unsplash photo (article['_photo']) is shown in the article from Unsplash's own URL."""
     e = html.escape
     bullets = "".join(f"<li>{e(b)}</li>" for b in article["summary"][:3])
     used = [s for s in sources if s.get("text")] or sources[:5]
@@ -34,14 +68,27 @@ def build_post(article, image_url, sources):
         if s["source"] in seen or not s.get("url"):
             continue
         seen.add(s["source"])
-        links.append(f'<a href="{e(s["url"])}" rel="nofollow noopener" target="_blank">{e(s["source"])}</a>')
-    return f"""<div class="bn-summary"><b class="t">⚡ 30 सेकंड में समझें</b><ul>{bullets}</ul></div>
+        links.append(f'<a class="bn-chip" href="{e(s["url"])}" rel="nofollow noopener" target="_blank">{e(s["source"])}</a>')
+    photo = article.get("_photo")
+    alt = e(article.get("image_alt") or article["title_hi"])
+    if photo:
+        share = (f'<div class="bn-share" style="display:none"><img src="{e(card_url)}" alt="{e(article["title_hi"])}" '
+                 f'width="1200" height="675" /></div>\n')
+        figure = (f'<div class="separator bn-photo" data-section="{e(section)}"><img src="{e(photo["url"])}" alt="{alt}" '
+                  f'width="1200" height="675" /></div>\n{_caption(photo)}')
+    else:  # no photo: the branded card itself is shown
+        share = ""
+        figure = f'<div class="separator bn-cardimg"><img src="{e(card_url)}" alt="{alt}" width="1200" height="675" /></div>'
+    return f"""<!--bn-slug:{slug(article.get("slug_en") or "")}-->
+{share}<div class="bn-summary"><b class="t">⚡ 30 सेकंड में समझें</b><ul>{bullets}</ul></div>
 <!--more-->
-<div class="separator"><img src="{e(image_url)}" alt="{e(article['image_alt'])}" width="1200" height="675" /></div>
-{_caption(article.get('_photo'))}
+{figure}
+{_numbers(article)}
 {clean_html(article['body_html'])}
-<p class="bn-source"><strong>स्रोत:</strong> {' · '.join(links[:5])}</p>
-<p class="bn-ai">इस खबर को हमने कई विश्वसनीय स्रोतों से जाँचा और सत्यापित किया है। अगर आपको इसमें कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
+{_timeline(article)}
+{_faq(article)}
+<div class="bn-source"><strong>स्रोत:</strong> {' '.join(links[:5])}</div>
+<p class="bn-ai">यह लेख AI की मदद से ऊपर दिए गए समाचार स्रोतों के आधार पर तैयार किया गया है और प्रकाशन से पहले स्वचालित रूप से जाँचा गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
 
 
 def slug(s):

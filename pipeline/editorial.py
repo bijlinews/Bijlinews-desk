@@ -171,7 +171,28 @@ Return JSON:
    Never a person's name, brand, party or team name.
 - "claims_en": the 5 most important facts as short English web-search queries (max 12 words each),
    including names, e.g. "Sunny Deol Suryaa release postponed November 2026".
+- "key_numbers": 0 to 3 of the most important numbers in the facts, each {{"value": "the number exactly as in
+   the facts, e.g. '₹1,429' or '145 किमी/घंटा'", "label": "2-5 Hindi words saying what it is"}}. [] if none.
+- "timeline": [] unless the facts give 3 or more dated events; then up to 5 {{"when": "date as in the facts",
+   "what": "one short Hindi line"}} in time order.
+- "faq": exactly 3 {{"q": "a question readers ask, in Hindi", "a": "1-2 sentence Hindi answer"}}; every answer
+   must come only from the facts. If the facts can't answer 3 questions, give fewer.
 - "facts_used": list of fact numbers used, e.g. [1, 2, 5]."""
+
+
+def extras_text(article):
+    """Number tiles, timeline and FAQ as plain text, so they are fact-checked like the body."""
+    parts = []
+    for n in article.get("key_numbers") or []:
+        if isinstance(n, dict):
+            parts.append(f"{n.get('value', '')} — {n.get('label', '')}")
+    for t in article.get("timeline") or []:
+        if isinstance(t, dict):
+            parts.append(f"{t.get('when', '')}: {t.get('what', '')}")
+    for f in article.get("faq") or []:
+        if isinstance(f, dict):
+            parts.append(f"प्रश्न: {f.get('q', '')} उत्तर: {f.get('a', '')}")
+    return "\n".join(parts)
 
 
 # ---------------------------------------------------------------- 4. check
@@ -194,6 +215,8 @@ Another AI wrote the article below. Find every mistake BEFORE it is published.
 HEADLINE: {article['title_hi']}
 SUMMARY: {json.dumps(article.get('summary', []), ensure_ascii=False)}
 ARTICLE: {article['body_html']}
+NUMBER TILES / TIMELINE / FAQ (also part of the article):
+{extras_text(article) or "(none)"}
 
 VERIFIED FACTS (each with an exact quote from a news report):
 {_facts_block(facts, with_quotes=True, budget=fbudget)}
@@ -201,7 +224,7 @@ VERIFIED FACTS (each with an exact quote from a news report):
 WEB SEARCH RESULTS (searched just now):
 {web_text[:wbudget] or "(none)"}
 
-Check EVERY sentence of the headline, summary and article — names and spellings, numbers, dates, places,
+Check EVERY sentence of the headline, summary, article, number tiles, timeline and FAQ — names and spellings, numbers, dates, places,
 who said what, cause and effect. A statement is "supported" only if the facts or search results above
 clearly confirm it. Do NOT use your own memory as evidence (it may be outdated); if nothing above covers
 a statement it is "unsupported". Flag a headline that says more than the facts.
@@ -240,8 +263,8 @@ PASS only if every statement is supported. FIX if the corrections fully solve th
 
 def revise(article, check, facts):
     bad = [c for c in check.get("claims", []) if c.get("status") != "supported"]
-    prompt = f"""Fix this Hindi news article. Apply the corrections, and DELETE every sentence that contains a
-problem statement or one of these numbers: {check.get('numbers_not_in_sources') or []}.
+    prompt = f"""Fix this Hindi news article. Apply the corrections, and DELETE every sentence, number tile, timeline
+entry or FAQ answer that contains a problem statement or one of these numbers: {check.get('numbers_not_in_sources') or []}.
 Do not add anything new. Use only the verified facts below. Keep the same JSON keys.
 
 CORRECTIONS: {json.dumps(check.get('corrections', []), ensure_ascii=False)}
@@ -251,7 +274,7 @@ VERIFIED FACTS:
 {_facts_block(facts, budget=5000)}
 
 ARTICLE JSON:
-{json.dumps({k: article.get(k) for k in ('title_hi', 'slug_en', 'summary', 'body_html', 'search_description', 'image_alt', 'image_query_en', 'claims_en', 'facts_used')}, ensure_ascii=False)}"""
+{json.dumps({k: article.get(k) for k in ('title_hi', 'slug_en', 'summary', 'body_html', 'search_description', 'image_alt', 'image_query_en', 'claims_en', 'key_numbers', 'timeline', 'faq', 'facts_used')}, ensure_ascii=False)}"""
     fixed, _ = llm.ask(prompt, providers=(article.get("_writer") or config.WRITER, _backup(article.get("_writer") or config.WRITER)),
                        temperature=0.0, max_tokens=4000)
     for k, v in article.items():

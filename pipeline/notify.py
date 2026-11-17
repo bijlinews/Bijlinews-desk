@@ -41,7 +41,7 @@ def post_report(status, reason, article, post, check, trend):
   <a href="{e(post['edit_url'])}" style="background:#FFD000;color:#111;padding:10px 16px;border-radius:8px;text-decoration:none">Blogger में एडिट करें</a>
 </p>
 {'<p style="color:#666;font-size:13px">हटाना हो तो: Blogger में एडिट खोलें → ऊपर "Revert to draft" दबाएँ।</p>' if published else
- f'<p style="color:#666;font-size:13px">प्रकाशित करने से पहले: तथ्य जाँचें, फिर Settings में Permalink → Custom: <b>{e(article.get("slug_en",""))}</b> और Search description भरें।</p>'}
+ f'<p style="color:#666;font-size:13px">प्रकाशित करने के लिए: तथ्य जाँचें, फिर Blogger में इस ड्राफ्ट पर Label <b>publish</b> जोड़कर <b>Save</b> करें। सीधे Publish न दबाएँ। अगले घंटे बॉट इसे सही English URL (<b>{e(article.get("slug_en",""))}</b>) के साथ प्रकाशित कर देगा।</p>'}
 <p><b>Search description (कॉपी करें):</b><br>{e(article.get('search_description',''))}</p>
 <h3>Fact-check: {e((check or {}).get('verdict','—'))}</h3>
 <p style="color:#555">{e((check or {}).get('notes',''))}</p>
