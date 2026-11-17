@@ -194,7 +194,7 @@ def apply(preview=False, push=None):
         return [], ""
     todo = []
     for ln in raw:
-        m = re.match(r"^\s*(draft|fix-url|add-image)\s+(\d{6,})\s*$", ln)
+        m = re.match(r"^\s*(draft|fix-url|add-image|auto-label)\s+(\d{6,})\s*$", ln)
         if m:
             todo.append((m.group(1), m.group(2)))
     if not todo:
@@ -236,6 +236,22 @@ def apply(preview=False, push=None):
                 requests.post(f"{bl.base}/{pid}/revert", headers=bl.h, timeout=60).raise_for_status()
                 redirects.append((_path(post.get("url")), _path(new_url)))
                 log.append(f"- fix-url {pid}: {post.get('url')} -> {new_url} (old copy moved to draft)")
+            elif act == "auto-label":
+                if post.get("labels"):
+                    log.append(f"- auto-label {pid}: skipped (already has labels)")
+                    continue
+                sections = ", ".join(config.SECTIONS)
+                try:
+                    res, _ = llm.ask(f"Pick the ONE best section for this Hindi news/article headline from: [{sections}]. "
+                                     'Reply JSON {"section": "..."}.\n' + post.get("title", ""), temperature=0.0, max_tokens=1500)
+                    sec = res.get("section", "")
+                except llm.AIUnavailable:
+                    sec = ""
+                if sec not in config.SECTIONS:
+                    log.append(f"- auto-label {pid}: skipped (no clear section)")
+                    continue
+                requests.patch(f"{bl.base}/{pid}", headers=bl.h, timeout=60, json={"labels": [sec]}).raise_for_status()
+                log.append(f"- auto-label {pid}: label '{sec}' added")
             elif act == "add-image":
                 body = post.get("content", "")
                 if re.search(r"<img\b", body, re.I):
