@@ -42,13 +42,17 @@ For EACH topic decide:
 
 Return JSON: {{"topics": [{{"index": 0, "relevant": true, "section": "...", "sensitive": false,
 "reason": "one line", "priority": 7, "query": "..."}}]}}"""
-    data, _ = llm.ask(prompt, providers=_order(), temperature=0.2, max_tokens=3000)
+    data, _ = llm.ask(prompt, providers=(config.TRIAGE, _other(config.TRIAGE)), temperature=0.2, max_tokens=3000)
     return data.get("topics", [])
+
+
+def _other(p):
+    return "groq" if p != "groq" else "openrouter"
 
 
 def _order():
     """Writer first, the other AI as backup."""
-    return (config.WRITER, "groq" if config.WRITER == "mistral" else "mistral")
+    return (config.WRITER, _other(config.WRITER))
 
 
 def _sources_block(sources, budget=16000):
@@ -97,7 +101,7 @@ Return JSON with these keys:
 def fact_check(article, sources):
     """Both AIs check the article independently. PASS only if both say PASS."""
     results = {}
-    for p, budget in (("mistral", 16000), ("groq", 6000)):
+    for p, budget in (("openrouter", 16000), ("groq", 6000)):
         try:
             results[p], _ = llm.ask(_check_prompt(article, sources, budget), providers=(p,),
                                     temperature=0.1, max_tokens=3500)

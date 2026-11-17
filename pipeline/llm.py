@@ -1,6 +1,6 @@
-"""AI client for Groq and Mistral (both OpenAI-compatible, both have free tiers).
+"""AI client for Groq, OpenRouter (and Mistral if ever paid for). All are OpenAI-compatible.
 
-ask(prompt, providers=["mistral", "groq"]) tries each provider in order and returns
+ask(prompt, providers=["openrouter", "groq"]) tries each provider in order and returns
 (json_result, provider_name). If a model name has been retired, it picks the best available
 model from the provider's /models list automatically.
 """
@@ -25,6 +25,14 @@ PROVIDERS = {
         # best first; used only if the configured model no longer exists
         "prefer": ["openai/gpt-oss-120b", "qwen/qwen3", "llama-3.3-70b", "llama-4", "gpt-oss-20b"],
     },
+    "openrouter": {
+        "base": "https://openrouter.ai/api/v1",
+        "key": lambda: config.OPENROUTER_API_KEY,
+        "model": lambda: config.OPENROUTER_MODEL,
+        # free models only (ids ending in ":free"), best first
+        "prefer": ["nemotron-3-ultra", "nemotron-3.5-super", "deepseek", "qwen3", "llama-3.3-70b", "gpt-oss-120b", "gemma", ""],
+        "free_only": True,
+    },
     "mistral": {
         "base": "https://api.mistral.ai/v1",
         "key": lambda: config.MISTRAL_API_KEY,
@@ -36,13 +44,18 @@ _resolved = {}
 
 
 def _headers(p):
-    return {"Authorization": f"Bearer {PROVIDERS[p]['key']()}", "Content-Type": "application/json"}
+    h = {"Authorization": f"Bearer {PROVIDERS[p]['key']()}", "Content-Type": "application/json"}
+    if p == "openrouter":
+        h.update({"HTTP-Referer": "https://www.bijlinews.com", "X-Title": "Bijlinews Desk"})
+    return h
 
 
 def _pick_model(p):
     r = requests.get(f"{PROVIDERS[p]['base']}/models", headers=_headers(p), timeout=60)
     r.raise_for_status()
     ids = [m.get("id", "") for m in r.json().get("data", [])]
+    if PROVIDERS[p].get("free_only"):
+        ids = [i for i in ids if i.endswith(":free")]
     for want in PROVIDERS[p]["prefer"]:
         hits = sorted([i for i in ids if want in i and not any(b in i for b in ("guard", "whisper", "tts", "embed", "ocr", "moderation"))])
         if hits:
@@ -81,6 +94,9 @@ def _call(p, prompt, temperature, max_tokens):
             last = f"network: {e}"
             time.sleep(10)
             continue
+        if r.status_code == 400 and "response_format" in r.text and "response_format" in body:
+            body.pop("response_format")          # some free models don't support JSON mode; the prompt still asks for JSON
+            continue
         if r.status_code == 404 or (r.status_code == 400 and "model" in r.text.lower() and p not in _resolved):
             _resolved[p] = _pick_model(p)
             body["model"] = _resolved[p]
@@ -105,7 +121,7 @@ def _call(p, prompt, temperature, max_tokens):
     raise AIUnavailable(f"{p}: {last}")
 
 
-def ask(prompt, providers=("mistral", "groq"), temperature=0.4, max_tokens=4000):
+def ask(prompt, providers=("openrouter", "groq"), temperature=0.4, max_tokens=4000):
     """Try providers in order. Returns (result_dict, provider_used)."""
     errors = []
     for p in providers:

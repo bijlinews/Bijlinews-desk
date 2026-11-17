@@ -14,12 +14,15 @@ GOOGLE_CLIENT_ID = env("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = env("GOOGLE_CLIENT_SECRET")
 GOOGLE_REFRESH_TOKEN = env("GOOGLE_REFRESH_TOKEN")
 
-# --- AI (Groq + Mistral, both free) ---
+# --- AI (Groq + OpenRouter, both free) ---
 GROQ_API_KEY = env("GROQ_API_KEY")
-MISTRAL_API_KEY = env("MISTRAL_API_KEY")
+OPENROUTER_API_KEY = env("OPENROUTER_API_KEY")
+MISTRAL_API_KEY = env("MISTRAL_API_KEY")   # optional (Mistral's API is paid-only now)
 GROQ_MODEL = env("GROQ_MODEL", "openai/gpt-oss-120b")
+OPENROUTER_MODEL = env("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")
 MISTRAL_MODEL = env("MISTRAL_MODEL", "mistral-medium-latest")
-WRITER = env("WRITER", "mistral")          # who writes; the other one is the backup writer
+WRITER = env("WRITER", "openrouter")      # who writes the article; Groq is the backup writer
+TRIAGE = env("TRIAGE", "groq")            # who picks topics every hour (Groq has the bigger daily limit)
 # Both AIs fact-check every article independently. Publish only if BOTH say PASS.
 
 # --- Email (Gmail SMTP with an App Password) ---
