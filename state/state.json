@@ -5,7 +5,12 @@
   "tata motors share price": "2026-11-17",
   "sl बनाम pak": "2026-11-17",
   "rbi": "2026-11-17",
-  "census 2027": "2026-11-17"
+  "census 2027": "2026-11-17",
+  "pf": "2026-11-17",
+  "আদালত": "2026-11-17",
+  "நீதிமன்றம்": "2026-11-17",
+  "કેરેટ": "2026-11-17",
+  "delhi high court": "2026-11-17"
  },
  "posts": [
   {
@@ -31,6 +36,29 @@
     "safe mode: PUBLISH_MODE=draft",
     "fact-check FAIL",
     "कुछ दावे पुष्ट नहीं हुए"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "pf",
+   "title": "ईपीएफओ: कंपनियों को 15 नवंबर तक जमा करना होगा अक्टूबर का पीएफ, वरना जुर्माना",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft",
+    "fact-check UNAVAILABLE",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "કેરેટ",
+   "title": "24 कैरेट सोना 1,429 रुपया सस्ता, चांदी 5,588 गिरी",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "safe mode: PUBLISH_MODE=draft",
+    "fact-check UNAVAILABLE"
    ]
   }
  ]
