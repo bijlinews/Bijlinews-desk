@@ -12,7 +12,6 @@ on:
 
 permissions:
   contents: write   # to commit cover images and state
-  models: read      # free GitHub Models AI, no key needed
 
 concurrency:
   group: bijli-trends
@@ -47,7 +46,6 @@ jobs:
       - name: Run
         env:
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
@@ -60,10 +58,10 @@ jobs:
           MAX_PER_RUN: ${{ vars.MAX_PER_RUN || '2' }}
           MAX_PER_DAY: ${{ vars.MAX_PER_DAY || '8' }}
           MIN_TRAFFIC: ${{ vars.MIN_TRAFFIC || '500' }}
-          WRITER: ${{ vars.WRITER || 'github' }}
+          WRITER: ${{ vars.WRITER || 'groq' }}
           TRIAGE: ${{ vars.TRIAGE || 'groq' }}
-          GITHUB_MODEL: ${{ vars.GITHUB_MODEL || 'openai/gpt-4.1' }}
           GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-120b' }}
+          GROQ_ALT_MODEL: ${{ vars.GROQ_ALT_MODEL || 'llama-3.3-70b-versatile' }}
         run: python -m pipeline.run
 
       - name: Keep dry-run output
