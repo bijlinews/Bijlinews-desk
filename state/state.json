@@ -34,7 +34,14 @@
   "nvidia results": "2026-11-17",
   "kenya vs south africa": "2026-11-17",
   "togo vs algeria": "2026-11-17",
-  "sierra leone vs dr congo": "2026-11-17"
+  "sierra leone vs dr congo": "2026-11-17",
+  "sudurpaschim royals vs lumbini lions standings": "2026-11-17",
+  "gta vi": "2026-11-17",
+  "manni l perez": "2026-11-17",
+  "nvidia earnings report": "2026-11-17",
+  "dr xbox doctors note": "2026-11-17",
+  "jordan vs australia": "2026-11-17",
+  "casino royale": "2026-11-17"
  },
  "posts": [
   {
@@ -148,6 +155,24 @@
     "safe mode: PUBLISH_MODE=draft",
     "संवेदनशील विषय"
    ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "nvidia earnings report",
+   "title": "Nvidia की आय रिपोर्ट, कोलेट क्रेस अस्थायी CEO, अनुमानित राजस्व $109 बिलियन",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "संवेदनशील विषय"
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "trend": "gta vi",
+   "title": "मियामी हीट ने बक्स के खिलाफ 'ए नाइट इन वाइस सिटी' इवेंट में GTA VI का उत्सव",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/miami-heat-gta-vi-event.html",
+   "why": []
   }
  ],
  "photos": [
@@ -156,7 +181,47 @@
   "K3cI9zl79Bg",
   "sSd85nlmy8M",
   "q-DJ9XhKkhA",
-  "fiXLQXAhCfk"
+  "fiXLQXAhCfk",
+  "x07ELaNFt34",
+  "XmYSlYrupL8"
  ],
- "groq_turn": 1
+ "groq_turn": 2,
+ "pending": {
+  "641795208175815405": {
+   "article": {
+    "title_hi": "Nvidia की आय रिपोर्ट, कोलेट क्रेस अस्थायी CEO, अनुमानित राजस्व $109 बिलियन",
+    "slug_en": "nvidia-earnings-interim-ceo",
+    "summary": [
+     "Nvidia की आय रिपोर्ट आने वाली है, कोलेट क्रेस अस्थायी CEO हैं।",
+     "रिपोर्ट्स के मुताबिक विश्लेषकों ने प्रति शेयर $2.47 आय और लगभग $109 बिलियन राजस्व की उम्मीद की है।",
+     "स्टॉक YTD में 17% और पिछले महीने में 27% गिरा है, और अमेरिकी शेयर बाजार में गिरावट आई है।"
+    ],
+    "key_numbers": [
+     {
+      "value": "$2.47",
+      "label": "प्रति शेयर आय"
+     },
+     {
+      "value": "$109 बिलियन",
+      "label": "अनुमानित राजस्व"
+     },
+     {
+      "value": "$530 बिलियन",
+      "label": "गारंटी दायित्व"
+     }
+    ],
+    "_photo": {
+     "id": "x07ELaNFt34",
+     "url": "https://images.unsplash.com/photo-1651341050677-24dba59ce0fd?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8c3RvY2slMjBtYXJrZXQlMjBjaGFydHxlbnwxfDB8fHwxNzk0OTM5MzY2fDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1651341050677-24dba59ce0fd?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8c3RvY2slMjBtYXJrZXQlMjBjaGFydHxlbnwxfDB8fHwxNzk0OTM5MzY2fDA&ixlib=rb-4.1.0",
+     "credit_name": "Anne Nygård",
+     "credit_url": "https://unsplash.com/@polarmermaid?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "शेयर बाजार",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@f85dcd6bdf064923b1b5cf6b73e16de2a248f56e/images/2026/11/nvidia-earnings-interim-ceo-2345.jpg",
+   "date": "2026-11-17"
+  }
+ }
 }
