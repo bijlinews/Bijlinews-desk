@@ -157,7 +157,7 @@ def audit():
              "# add-image = add branded card + Unsplash photo. Lines starting with # are ignored.", ""]
     for r in rows:
         lines.append(f"# ---- {r['title'][:80]}  [{r['status']}, {', '.join(r['flags'])}]")
-        acts = r["suggest"] or (["draft"] if r["status"] == "live" else [])
+        acts = r["suggest"]          # only real suggestions (e.g. a missing label has no action)
         if r["status"] != "live":
             lines.append("#   (draft: not public. Delete it in Blogger if you don't want it.)")
         for a in acts:

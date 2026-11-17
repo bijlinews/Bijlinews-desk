@@ -114,7 +114,9 @@ def _call(p, prompt, temperature, max_tokens):
             last = f"network: {e}"
             time.sleep(10)
             continue
-        if r.status_code == 400 and "response_format" in r.text and "response_format" in body:
+        if r.status_code == 400 and "response_format" in body and (
+                "response_format" in r.text or "json_validate_failed" in r.text):
+            # strict JSON mode rejected the reply (long Hindi text): retry without it, the prompt still asks for JSON
             body.pop("response_format")          # some free models don't support JSON mode; the prompt still asks for JSON
             continue
         if r.status_code == 404 or (r.status_code == 400 and "model" in r.text.lower() and p not in _resolved):
