@@ -24,7 +24,8 @@ def send(subject, body_html):
 def post_report(status, reason, article, post, check, trend):
     e = html.escape
     published = status == "published"
-    head = ("✅ प्रकाशित हुआ — कृपया एक बार पढ़ लें" if published
+    head = ("🔴 संवेदनशील खबर प्रकाशित हुई — कृपया अभी जाँच लें" if published and article.get("_sensitive")
+            else "✅ प्रकाशित हुआ — कृपया एक बार पढ़ लें" if published
             else f"✋ ड्राफ्ट में रखा गया — आपकी जाँच ज़रूरी है ({e(reason)})")
     rows = "".join(
         f"<tr><td style='padding:6px;border-bottom:1px solid #eee'>{e(c.get('claim',''))}</td>"
@@ -47,7 +48,8 @@ def post_report(status, reason, article, post, check, trend):
 <p style="color:#555">{e((check or {}).get('notes',''))}</p>
 <table style="border-collapse:collapse;width:100%;font-size:14px">{rows}</table>
 </div>"""
-    subject = ("[प्रकाशित] " if published else "[ड्राफ्ट] ") + article["title_hi"][:80]
+    subject = (("[प्रकाशित • संवेदनशील] " if article.get("_sensitive") else "[प्रकाशित] ") if published
+               else "[ड्राफ्ट] ") + article["title_hi"][:80]
     send(subject, body)
     return link
 

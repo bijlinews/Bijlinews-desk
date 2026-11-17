@@ -57,6 +57,15 @@ def _faq(article):
             f'<script type="application/ld+json">{ld_s}</script>')
 
 
+def _sensitive_note(article):
+    if not article.get("_sensitive"):
+        return ""
+    return ('<p class="bn-note-sensitive" style="font-size:14.5px;line-height:1.6;border-left:4px solid #e1001a;'
+            'background:#fff3f4;padding:10px 14px;border-radius:0 8px 8px 0">यदि इस खबर से किसी को कोई आपत्ति है, '
+            'तो कृपया हमें <a href="mailto:hello@bijlinews.com">hello@bijlinews.com</a> पर ईमेल करें। '
+            'जाँच के बाद हम इस खबर को सुधारेंगे या हटा देंगे।</p>\n')
+
+
 def build_post(article, card_url, sources, section=""):
     """card_url: our branded card (first image = thumbnail and social preview).
     The Unsplash photo (article['_photo']) is shown in the article from Unsplash's own URL."""
@@ -92,7 +101,7 @@ def build_post(article, card_url, sources, section=""):
 {_timeline(article)}
 {_faq(article)}
 <div class="bn-source"><strong>स्रोत:</strong> {' '.join(links[:5])}</div>
-<p class="bn-ai">यह लेख AI की मदद से ऊपर दिए गए समाचार स्रोतों के आधार पर तैयार किया गया है और प्रकाशन से पहले स्वचालित रूप से जाँचा गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
+{_sensitive_note(article)}<p class="bn-ai">यह लेख AI की मदद से ऊपर दिए गए समाचार स्रोतों के आधार पर तैयार किया गया है और प्रकाशन से पहले स्वचालित रूप से जाँचा गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
 
 
 def slug(s):

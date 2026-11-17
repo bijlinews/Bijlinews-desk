@@ -67,4 +67,4 @@ class Blogger:
         r = requests.get(self.base, headers=self.h,
                          params={"maxResults": n, "fetchBodies": "false", "status": ["live", "draft"]}, timeout=60)
         r.raise_for_status()
-        return [p.get("title", "") for p in r.json().get("items", [])]
+        return [(p.get("title", ""), p.get("published") or p.get("updated") or "") for p in r.json().get("items", [])]

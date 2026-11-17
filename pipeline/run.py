@@ -123,11 +123,41 @@ def research(trend, query):
     return srcs, len(outlets), len(full_outlets)
 
 
+STOP = set("के की का को में से पर और है हैं था थी थे ने भी तो यह वह इस उस एक लिए तक बाद साथ गया गई गए कर करें किया होगा होगी अब नहीं क्या क्यों कैसे the a an of in on to for and with by at from is are".split())
+
+
+# common news words that don't identify a particular story
+GENERIC = set("""भारत भारतीय देश सरकार हराया जीता हारा जीत हार विकेट रन मैच टेस्ट वनडे टी20 सीरीज़ सीरीज
+शेयर बाजार बाज़ार सेंसेक्स निफ्टी अंक चढ़ा गिरा गिरे तेजी गिरावट रुपया रुपये रुपए करोड़ लाख हजार प्रतिशत बिलियन
+खबर नया नई नए बड़ा बड़ी बड़े पहली पहला आज कल साल महीने दिन सप्ताह घंटे लोग मौत हादसा हादसे
+कंपनी रिपोर्ट मामला मामले बयान फैसला जारी शुरू खत्म ऐलान घोषणा संभावना news india""".split())
+
+
+def _terms(title):
+    t = norm(title).replace(",", "")
+    words = re.split(r"[\s,।!?:;\"'()\[\]{}–—/|‘’“”]+", t)
+    return {w.strip(".-") for w in words if w.strip(".-") and w.strip(".-") not in STOP and w.strip(".-") not in GENERIC
+            and (len(w.strip(".-")) >= 3 or w.strip(".-").isdigit())}
+
+
 def similar_exists(title, recent):
-    words = set(re.findall(r"\w+", norm(title)))
-    for r in recent:
-        rw = set(re.findall(r"\w+", norm(r)))
-        if words and len(words & rw) / max(1, len(words)) > 0.6:
+    """Same story already covered? recent: [(title, iso_date or "")]. Compares only posts from the last 48 hours,
+    so daily reports (Sensex today vs yesterday) are not treated as duplicates."""
+    mine = _terms(title)
+    if len(mine) < 3:
+        return False
+    cutoff = NOW - dt.timedelta(hours=48)
+    for item in recent:
+        other, when = (item, "") if isinstance(item, str) else item
+        try:
+            if when and dt.datetime.fromisoformat(str(when).replace("Z", "+00:00")) < cutoff:
+                continue
+        except ValueError:
+            pass
+        theirs = _terms(other)
+        shared = mine & theirs
+        if len(shared) >= 3 and len(shared) / max(1, min(len(mine), len(theirs))) >= 0.5:
+            print(f"  same story as: {other[:70]}")
             return True
     return False
 
@@ -239,8 +269,10 @@ def main():
             reasons = []
             if config.PUBLISH_MODE != "auto":
                 reasons.append("safe mode: PUBLISH_MODE=draft")
-            if p.get("sensitive") or check.get("sensitive"):
-                reasons.append("संवेदनशील विषय")
+            sensitive = bool(p.get("sensitive") or check.get("sensitive"))
+            article["_sensitive"] = sensitive          # published with a "contact us" note
+            if p.get("blocked") or check.get("blocked"):
+                reasons.append("कानूनी रोक: पीड़ित/नाबालिग की पहचान (भारत में प्रकाशित नहीं कर सकते)")
             if check.get("verdict") != "PASS":
                 reasons.append(f"fact-check {check.get('verdict')}")
             if any(c.get("status") != "supported" for c in check.get("claims", [])):
@@ -297,7 +329,7 @@ def main():
             notify.post_report(status, ", ".join(reasons), article, post, check, trend)
             st["posts"].append({"date": TODAY, "trend": trend["title"], "title": article["title_hi"],
                                 "status": status, "url": post.get("url", ""), "why": reasons})
-            recent.append(article["title_hi"])
+            recent.append((article["title_hi"], NOW.isoformat()))
             done += 1
             print(f"  -> {status} {post.get('url') or post.get('edit_url')}")
         except llm.AIUnavailable as e:

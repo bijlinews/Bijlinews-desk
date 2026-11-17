@@ -20,15 +20,19 @@ def today():
 
 # Topics that must never auto-publish. The pipeline saves these as drafts for a human.
 SENSITIVE_RULES = """
-Mark "sensitive": true if the story involves ANY of these:
-- death, suicide, self-harm, murder, accident or disaster with victims
-- a crime, arrest, FIR, court case, or any allegation/accusation against a named person or company
+Mark "sensitive": true ONLY if the story involves any of these:
+- death, suicide, murder, or an accident/disaster with victims
+- a crime, arrest, FIR or court case, or an allegation/accusation against a named person or company
 - communal, caste or religious tension; riots; hate speech
 - elections, vote counts, or claims made by/against politicians or parties
 - health, medicine, diet or disease advice
-- investment tips (buy/sell/target price), crypto, betting or gambling
-- minors, sexual content, or victims of violence
-- anything where getting a fact wrong could harm a real person's reputation
+- an explicit buy/sell/hold recommendation or target price, crypto tips, betting or gambling
+NOT sensitive: ordinary business news - company results, revenue/profit numbers, share price moves,
+market updates, product launches, executive appointments or exits, deals and funding.
+
+Mark "blocked": true (cannot be published in India) ONLY if the story would name or identify a victim of
+rape or any sexual offence, or identify a child/minor who is accused of a crime, a victim of abuse, or in
+sexual content. Otherwise "blocked": false.
 """
 
 
@@ -59,7 +63,7 @@ For EACH topic decide:
 - "query": a short English news-search query that finds THIS specific event (include the full name of the
   person/team/company and the event, e.g. "Sunny Deol Suryaa release postponed"), not just the trend word.
 
-Return JSON: {{"topics": [{{"index": 0, "relevant": true, "section": "...", "sensitive": false,
+Return JSON: {{"topics": [{{"index": 0, "relevant": true, "section": "...", "sensitive": false, "blocked": false,
 "reason": "one line", "priority": 7, "query": "..."}}]}}"""
     data, _ = llm.ask(prompt, providers=(config.TRIAGE, _backup(config.TRIAGE)), temperature=0.2, max_tokens=3000)
     return data.get("topics", [])
@@ -233,6 +237,7 @@ a statement it is "unsupported". Flag a headline that says more than the facts.
 Return ONLY JSON:
 {{"verdict": "PASS" | "FIX" | "FAIL",
   "sensitive": true/false,
+  "blocked": true/false,
   "claims": [{{"claim": "short Hindi statement from the article", "status": "supported" | "unsupported" | "contradicted", "evidence": "F3 or source domain"}}],
   "corrections": [{{"wrong": "exact text from the article", "right": "corrected text, or empty to delete", "why": "..."}}],
   "notes": "one or two lines in English for the editor"}}
