@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write   # to commit cover images and state
+  models: read      # free GitHub Models AI, no key needed
 
 concurrency:
   group: bijli-trends
@@ -46,12 +47,9 @@ jobs:
       - name: Run
         env:
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
@@ -62,11 +60,10 @@ jobs:
           MAX_PER_RUN: ${{ vars.MAX_PER_RUN || '2' }}
           MAX_PER_DAY: ${{ vars.MAX_PER_DAY || '8' }}
           MIN_TRAFFIC: ${{ vars.MIN_TRAFFIC || '500' }}
-          WRITER: ${{ vars.WRITER || 'groq' }}
+          WRITER: ${{ vars.WRITER || 'github' }}
           TRIAGE: ${{ vars.TRIAGE || 'groq' }}
-          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-flash-latest' }}
+          GITHUB_MODEL: ${{ vars.GITHUB_MODEL || 'openai/gpt-4.1' }}
           GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-120b' }}
-          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'nvidia/nemotron-3-ultra-550b-a55b:free' }}
         run: python -m pipeline.run
 
       - name: Keep dry-run output
