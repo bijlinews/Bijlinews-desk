@@ -9,9 +9,10 @@ You'll collect 7 secrets and paste them into GitHub. Never share them in chat or
    in the code; they're stored in GitHub Secrets, which nobody can read.*
 2. Upload every file from this folder (keep the folder structure, including `.github/workflows/trends.yml`).
 
-## 2. Gemini API key (free)
-1. Open **aistudio.google.com** → **Get API key** → **Create API key**.
-2. Copy it → this is `GEMINI_API_KEY`.
+## 2. AI keys (both free, no card)
+1. **Groq:** console.groq.com → sign up → **API Keys → Create API Key** → copy → `GROQ_API_KEY`.
+2. **Mistral:** console.mistral.ai → sign up → choose the free **Experiment** plan (it may ask to verify a
+   phone number) → **API Keys → Create new key** → copy → `MISTRAL_API_KEY`.
 
 ## 3. Google Cloud project + Blogger API
 1. **console.cloud.google.com** → project menu → **New project** → name `bijli-bot` → Create.
@@ -40,7 +41,7 @@ You'll collect 7 secrets and paste them into GitHub. Never share them in chat or
 
 ## 6. Put the secrets in GitHub
 Repo → **Settings → Secrets and variables → Actions → New repository secret**, one by one:
-`GEMINI_API_KEY`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`,
+`GROQ_API_KEY`, `MISTRAL_API_KEY`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`,
 `SMTP_USER`, `SMTP_PASS`, `NOTIFY_TO`.
 
 ## 7. Test, then go live
