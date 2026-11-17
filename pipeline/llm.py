@@ -138,8 +138,8 @@ def _call(p, prompt, temperature, max_tokens):
             if not text.strip():
                 raise json.JSONDecodeError("empty reply", "", 0)
             return _extract_json(text)
-        except (KeyError, IndexError, json.JSONDecodeError) as e:
-            last = f"bad JSON: {e}"
+        except (KeyError, IndexError, TypeError, json.JSONDecodeError) as e:
+            last = f"bad JSON: {e} | HTTP {r.status_code} {r.headers.get('content-type','')} | {r.text[:300]!r}"
             body["temperature"] = 0.1
             continue
     raise AIUnavailable(f"{p}: {last}")
