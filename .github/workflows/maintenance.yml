@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "audit = read-only report | preview = show what apply would do | apply = run un-commented lines in maintenance/actions.txt"
+        description: "audit = read-only report | preview = show what apply would do | apply = run un-commented lines in maintenance/actions.txt | rebrand = brand all Unsplash photos"
         type: choice
-        options: [audit, preview, apply]
+        options: [audit, preview, apply, rebrand]
         default: audit
 
 permissions:
