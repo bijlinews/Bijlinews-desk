@@ -41,7 +41,7 @@ def build_post(article, image_url, sources):
 {_caption(article.get('_photo'))}
 {clean_html(article['body_html'])}
 <p class="bn-source"><strong>स्रोत:</strong> {' · '.join(links[:5])}</p>
-<p class="bn-ai">यह लेख AI की मदद से ऊपर दिए गए समाचार स्रोतों के आधार पर तैयार किया गया है और प्रकाशन से पहले स्वचालित रूप से जाँचा गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
+<p class="bn-ai">इस खबर को हमने कई विश्वसनीय स्रोतों से जाँचा और सत्यापित किया है। अगर आपको इसमें कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
 
 
 def slug(s):
