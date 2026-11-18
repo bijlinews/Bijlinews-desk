@@ -50,7 +50,17 @@
   "cooper connolly": "2026-11-18",
   "yash dhull": "2026-11-18",
   "matt renshaw": "2026-11-18",
-  "श्रीलंका बनाम पाकिस्तान": "2026-11-18"
+  "श्रीलंका बनाम पाकिस्तान": "2026-11-18",
+  "2025–2027 आईसीसी विश्व टेस्ट चैम्पियनशिप": "2026-11-18",
+  "mum vs goa": "2026-11-18",
+  "lahiru kumara": "2026-11-18",
+  "quentin grimes": "2026-11-18",
+  "हुंडई": "2026-11-18",
+  "iran attacks bahrain": "2026-11-18",
+  "the times of india": "2026-11-18",
+  "bsf admit card": "2026-11-18",
+  "துரைமுருகன்": "2026-11-18",
+  "ఎరువు": "2026-11-18"
  },
  "posts": [
   {
@@ -221,6 +231,22 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "2025–2027 आईसीसी विश्व टेस्ट चैम्पियनशिप",
+   "title": "भारत बनाम न्यूज़ीलैंड दो‑टेस्ट श्रृंखला शुरू, WTC फाइनल के लिए अहम",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/india-newzealand-wtc-series.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "bsf admit card",
+   "title": "BSF ने 2026 ट्रेड्समैन CBT परीक्षा के एडमिट कार्ड जारी किए",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/bsf-tradesman-admit-card.html",
+   "why": []
   }
  ],
  "photos": [
@@ -234,9 +260,11 @@
   "XmYSlYrupL8",
   "I27kjbkwlAo",
   "bY4cqxp7vos",
-  "xk1wWf6YPmY"
+  "xk1wWf6YPmY",
+  "70YxSTWa2Zw",
+  "cbEvoHbJnIE"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
