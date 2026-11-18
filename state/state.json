@@ -73,7 +73,11 @@
   "tanzid hasan": "2026-11-18",
   "बैंक": "2026-11-18",
   "bengaluru united vs sreenidi deccan": "2026-11-18",
-  "falkland islands vs costa rica": "2026-11-18"
+  "falkland islands vs costa rica": "2026-11-18",
+  "sbi": "2026-11-18",
+  "sbi clerk result": "2026-11-18",
+  "salesforce layoffs": "2026-11-18",
+  "വീരപ്പ മൊയ്ലി": "2026-11-18"
  },
  "posts": [
   {
@@ -316,6 +320,22 @@
    "why": [
     "fact-check FIX"
    ]
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "sbi",
+   "title": "SBI की UPI सेवा 19 नवंबर को 45 मिनट के लिए बंद, UPI Lite चालू रहेगा",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sbi-upi-maintenance.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "sbi clerk result",
+   "title": "SBI ने 18 नवंबर 2026 को क्लर्क प्रीliminary परीक्षा का परिणाम जारी किया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sbi-clerk-result-announcement.html",
+   "why": []
   }
  ],
  "photos": [
@@ -336,9 +356,11 @@
   "euwSpNi8K2s",
   "oDs_AxeR5g4",
   "UW0VJCGaEQY",
-  "hQBIJsBtyBw"
+  "hQBIJsBtyBw",
+  "Q59HmzK38eQ",
+  "2_K82gx9Uk8"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
