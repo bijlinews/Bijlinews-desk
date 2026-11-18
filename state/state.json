@@ -70,7 +70,10 @@
   "yash dayal": "2026-11-18",
   "బండ్ల గణేష్": "2026-11-18",
   "వర్షం": "2026-11-18",
-  "tanzid hasan": "2026-11-18"
+  "tanzid hasan": "2026-11-18",
+  "बैंक": "2026-11-18",
+  "bengaluru united vs sreenidi deccan": "2026-11-18",
+  "falkland islands vs costa rica": "2026-11-18"
  },
  "posts": [
   {
@@ -295,6 +298,24 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "बैंक",
+   "title": "जलगांव और लातूर में सहकारी बैंक चुनाव: महायुति और कांग्रेस‑समर्थित पैनलों की जीत",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/cooperative-bank-elections-maharashtra.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "bengaluru united vs sreenidi deccan",
+   "title": "बेंगलुरु यूनाइटेड बनाम स्रीनीडी डेक्कन IFL मैच 18 नवंबर को बेंगलुरु फुटबॉल स्टेडियम में",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX"
+   ]
   }
  ],
  "photos": [
@@ -314,9 +335,10 @@
   "WvlFN57CyL8",
   "euwSpNi8K2s",
   "oDs_AxeR5g4",
-  "UW0VJCGaEQY"
+  "UW0VJCGaEQY",
+  "hQBIJsBtyBw"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -484,6 +506,38 @@
    },
    "section": "मनोरंजन",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@2a7004967f1766f98c75c6ce87b3bcb4e7b55933/images/2026/11/ott-releases-dhindora-suryaa-kaali-kheti-1651.jpg",
+   "date": "2026-11-18"
+  },
+  "5261957374910090783": {
+   "article": {
+    "title_hi": "बेंगलुरु यूनाइटेड बनाम स्रीनीडी डेक्कन IFL मैच 18 नवंबर को बेंगलुरु फुटबॉल स्टेडियम में",
+    "slug_en": "bengaluru-united-sreenidi-deccan-ifl",
+    "summary": [
+     "बेंगलुरु यूनाइटेड और स्रीनीडी डेक्कन का IFL मैच बेंगलुरु फुटबॉल स्टेडियम में बुधवार को होगा",
+     "दोनों टीमों के पास तीन मैचों के बाद चार अंक हैं",
+     "मैच DD Sports पर लाइव प्रसारित होगा और किक‑ऑफ़ शाम 6:30 बजे IST पर निर्धारित है"
+    ],
+    "key_numbers": [
+     {
+      "value": "4",
+      "label": "दोनों टीमों के अंक"
+     },
+     {
+      "value": "2-1",
+      "label": "स्रीनीडी डेक्कन की पिछली हार"
+     }
+    ],
+    "_photo": {
+     "id": "hQBIJsBtyBw",
+     "url": "https://images.unsplash.com/photo-1629217855633-79a6925d6c47?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8Zm9vdGJhbGwlMjBzdGFkaXVtJTIwbmlnaHR8ZW58MXwwfHx8MTc5NTAwOTMzOXww&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1629217855633-79a6925d6c47?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8Zm9vdGJhbGwlMjBzdGFkaXVtJTIwbmlnaHR8ZW58MXwwfHx8MTc5NTAwOTMzOXww&ixlib=rb-4.1.0",
+     "credit_name": "Krzysztof Dubiel",
+     "credit_url": "https://unsplash.com/@kris1902?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@97c075287fc595fd9ffc370f3d6265e3988bb6a3/images/2026/11/bengaluru-united-sreenidi-deccan-ifl-1910.jpg",
    "date": "2026-11-18"
   }
  }
