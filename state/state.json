@@ -80,7 +80,15 @@
   "വീരപ്പ മൊയ്ലി": "2026-11-18",
   "cricket abu dhabi t10 league": "2026-11-18",
   "മോഷണം": "2026-11-18",
-  "shraddha kapoor": "2026-11-18"
+  "shraddha kapoor": "2026-11-18",
+  "सय्यद मुश्ताक अली ट्रॉफी": "2026-11-18",
+  "dax": "2026-11-18",
+  "real madrid vs inter": "2026-11-18",
+  "மின் தடை": "2026-11-18",
+  "fc bengaluru united vs sreenidi deccan fc standings": "2026-11-18",
+  "drishyam 3 ott release date": "2026-11-18",
+  "qazi touqeer": "2026-11-18",
+  "কলকাতা হাইকোর্ট": "2026-11-18"
  },
  "posts": [
   {
@@ -355,6 +363,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/advocate-husain-house-theft.html",
    "why": []
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "drishyam 3 ott release date",
+   "title": "मद्रास हाई कोर्ट ने ड्रिश्यम 3 की OTT रिलीज़ को रोकने से इनकार किया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/madras-high-court-drishyam3-ott.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "dax",
+   "title": "DAX ने 27,000 अंक पार किए, फिर 50‑दिन EMA के पास गिरा",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/dax-mixed-moves-germany.html",
+   "why": []
   }
  ],
  "photos": [
@@ -379,9 +403,11 @@
   "Q59HmzK38eQ",
   "2_K82gx9Uk8",
   "QiZ4Vk8ycGI",
-  "G3Hrl6WzQYQ"
+  "G3Hrl6WzQYQ",
+  "j5YwVDEC394",
+  "K5mPtONmpHM"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
