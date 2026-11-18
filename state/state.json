@@ -41,7 +41,12 @@
   "nvidia earnings report": "2026-11-17",
   "dr xbox doctors note": "2026-11-17",
   "jordan vs australia": "2026-11-17",
-  "casino royale": "2026-11-17"
+  "casino royale": "2026-11-17",
+  "tom banton": "2026-11-18",
+  "mahanadi coalfields ipo": "2026-11-18",
+  "gold rate today kerala": "2026-11-18",
+  "mcx gold": "2026-11-18",
+  "delhi vs bihar": "2026-11-18"
  },
  "posts": [
   {
@@ -173,6 +178,26 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/miami-heat-gta-vi-event.html",
    "why": []
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "tom banton",
+   "title": "टॉम बैंटन के 121 रन, इंग्लैंड ने ऑस्ट्रेलिया को 135 रन से हराया",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए",
+    "कुछ संख्याएँ स्रोतों में नहीं मिलीं"
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "mahanadi coalfields ipo",
+   "title": "Mahanadi Coalfields Ltd का 10% शेयर IPO, कीमत ₹129‑₹136, कुल मूल्य ₹9,000 करोड़",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/mahanadi-coalfields-ipo.html",
+   "why": []
   }
  ],
  "photos": [
@@ -183,9 +208,10 @@
   "q-DJ9XhKkhA",
   "fiXLQXAhCfk",
   "x07ELaNFt34",
-  "XmYSlYrupL8"
+  "XmYSlYrupL8",
+  "I27kjbkwlAo"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -222,6 +248,42 @@
    "section": "शेयर बाजार",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@f85dcd6bdf064923b1b5cf6b73e16de2a248f56e/images/2026/11/nvidia-earnings-interim-ceo-2345.jpg",
    "date": "2026-11-17"
+  },
+  "8300775129365850005": {
+   "article": {
+    "title_hi": "टॉम बैंटन के 121 रन, इंग्लैंड ने ऑस्ट्रेलिया को 135 रन से हराया",
+    "slug_en": "england-australia-odi-adelaide",
+    "summary": [
+     "इंग्लैंड ने 15 नवंबर 2026 को एडिलेड में ऑस्ट्रेलिया को 135 रन से हराया।",
+     "सीरीज 1‑1 बराबर हुई, जिससे अगला मैच डेसाइडर बन गया।",
+     "तीसरा ODI होबार्ट में 18 नवंबर को खेला गया, जो सीरीज का निर्णायक था।"
+    ],
+    "key_numbers": [
+     {
+      "value": "121",
+      "label": "बैंटन के रन"
+     },
+     {
+      "value": "355",
+      "label": "इंग्लैंड का कुल स्कोर"
+     },
+     {
+      "value": "135",
+      "label": "जितने रन से"
+     }
+    ],
+    "_photo": {
+     "id": "I27kjbkwlAo",
+     "url": "https://images.unsplash.com/photo-1594470117722-de4b9a02ebed?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8Y3JpY2tldCUyMHN0YWRpdW0lMjBjcm93ZHxlbnwxfDB8fHwxNzk0OTc1NzAzfDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1594470117722-de4b9a02ebed?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8Y3JpY2tldCUyMHN0YWRpdW0lMjBjcm93ZHxlbnwxfDB8fHwxNzk0OTc1NzAzfDA&ixlib=rb-4.1.0",
+     "credit_name": "Ajay Parthasarathy",
+     "credit_url": "https://unsplash.com/@ajayparthasarathy?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@65aab5d09d4a2690381af569403eb08807fc369b/images/2026/11/england-australia-odi-adelaide-0949.jpg",
+   "date": "2026-11-18"
   }
  }
 }
