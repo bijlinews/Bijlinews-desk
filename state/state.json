@@ -46,7 +46,11 @@
   "mahanadi coalfields ipo": "2026-11-18",
   "gold rate today kerala": "2026-11-18",
   "mcx gold": "2026-11-18",
-  "delhi vs bihar": "2026-11-18"
+  "delhi vs bihar": "2026-11-18",
+  "cooper connolly": "2026-11-18",
+  "yash dhull": "2026-11-18",
+  "matt renshaw": "2026-11-18",
+  "श्रीलंका बनाम पाकिस्तान": "2026-11-18"
  },
  "posts": [
   {
@@ -198,6 +202,25 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/mahanadi-coalfields-ipo.html",
    "why": []
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "cooper connolly",
+   "title": "कोपर कॉनॉली ने सैंडपेपर स्कैंडल को कम करके बताया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/cooper-connolly-sandpaper-scare.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "yash dhull",
+   "title": "यश धुल की 78 रनों की पारी से दिल्ली ने पंजाब को 109 रन से हराया",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -209,9 +232,11 @@
   "fiXLQXAhCfk",
   "x07ELaNFt34",
   "XmYSlYrupL8",
-  "I27kjbkwlAo"
+  "I27kjbkwlAo",
+  "bY4cqxp7vos",
+  "xk1wWf6YPmY"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -283,6 +308,42 @@
    },
    "section": "खेल",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@65aab5d09d4a2690381af569403eb08807fc369b/images/2026/11/england-australia-odi-adelaide-0949.jpg",
+   "date": "2026-11-18"
+  },
+  "5225670767392082338": {
+   "article": {
+    "title_hi": "यश धुल की 78 रनों की पारी से दिल्ली ने पंजाब को 109 रन से हराया",
+    "slug_en": "yash-dhull-delhi-punjab-win",
+    "summary": [
+     "यश धुल ने 40 गेंदों पर 78 रन बनाकर दिल्ली को पंजाब के खिलाफ 109 रन की जीत दिलाई।",
+     "मयंक यादव ने 4/12 के आंकड़े के साथ प्लेयर ऑफ द मैच का खिताब जीता।",
+     "यश धुल ने 2026 आईपीएल नीलामी में अनसेल्ड रहने के बाद इस प्रदर्शन से ध्यान खींचा।"
+    ],
+    "key_numbers": [
+     {
+      "value": "78",
+      "label": "यश धुल के रन"
+     },
+     {
+      "value": "109",
+      "label": "जीत के रन"
+     },
+     {
+      "value": "4/12",
+      "label": "मयंक यादव के आंकड़े"
+     }
+    ],
+    "_photo": {
+     "id": "xk1wWf6YPmY",
+     "url": "https://images.unsplash.com/photo-1728659964407-ed9a942ec2de?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8Y3JpY2tldCUyMHN0YWRpdW0lMjBuaWdodHxlbnwxfDB8fHwxNzk0OTA3NjAyfDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1728659964407-ed9a942ec2de?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8Y3JpY2tldCUyMHN0YWRpdW0lMjBuaWdodHxlbnwxfDB8fHwxNzk0OTA3NjAyfDA&ixlib=rb-4.1.0",
+     "credit_name": "yash rai",
+     "credit_url": "https://unsplash.com/@yashzucced?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@e823cc15d88bd693630c347e5b0fb8019a505011/images/2026/11/yash-dhull-delhi-punjab-win-1054.jpg",
    "date": "2026-11-18"
   }
  }
