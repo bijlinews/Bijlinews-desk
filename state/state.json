@@ -65,7 +65,10 @@
   "kagiso rabada": "2026-11-18",
   "സഞ്ജു സാംസണ്": "2026-11-18",
   "vande bharat express": "2026-11-18",
-  "இந்தியா": "2026-11-18"
+  "இந்தியா": "2026-11-18",
+  "upcoming ott releases": "2026-11-18",
+  "yash dayal": "2026-11-18",
+  "బండ్ల గణేష్": "2026-11-18"
  },
  "posts": [
   {
@@ -268,6 +271,28 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/sanju-samson-kerala-csk.html",
    "why": []
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "yash dayal",
+   "title": "RCB ने यश दयाल को IPL 2027 के लिए रखरखाव सूची में शामिल किया",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FAIL",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
+  },
+  {
+   "date": "2026-11-18",
+   "trend": "upcoming ott releases",
+   "title": "इस हफ़्ते OTT पर नई रिलीज़: धिंदोरा 2, सुर्या और काली खेती",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -285,9 +310,11 @@
   "70YxSTWa2Zw",
   "cbEvoHbJnIE",
   "WvlFN57CyL8",
-  "euwSpNi8K2s"
+  "euwSpNi8K2s",
+  "oDs_AxeR5g4",
+  "UW0VJCGaEQY"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -395,6 +422,66 @@
    },
    "section": "खेल",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@e823cc15d88bd693630c347e5b0fb8019a505011/images/2026/11/yash-dhull-delhi-punjab-win-1054.jpg",
+   "date": "2026-11-18"
+  },
+  "1810237606354318103": {
+   "article": {
+    "title_hi": "RCB ने यश दयाल को IPL 2027 के लिए रखरखाव सूची में शामिल किया",
+    "slug_en": "rcb-retains-yash-dayal",
+    "summary": [
+     "RCB ने यश दयाल को IPL 2027 के लिए रखरखाव सूची में शामिल किया।",
+     "टीम ने युवा प्रतिभाओं को बनाए रखने पर ज़ोर दिया, जिससे यह चर्चा में है।",
+     "यश दयाल को कोर स्क्वाड में रखा गया है, जिससे आगामी सीज़न में उनका प्रभाव बढ़ेगा।"
+    ],
+    "key_numbers": [
+     {
+      "value": "20",
+      "label": "कुल रखरखाव खिलाड़ियों की संख्या"
+     }
+    ],
+    "_photo": {
+     "id": "oDs_AxeR5g4",
+     "url": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8NHx8Y3JpY2tldCUyMHN0YWRpdW18ZW58MXwwfHx8MTc5NTAwMDk0MXww&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8NHx8Y3JpY2tldCUyMHN0YWRpdW18ZW58MXwwfHx8MTc5NTAwMDk0MXww&ixlib=rb-4.1.0",
+     "credit_name": "Alessandro Bogliari",
+     "credit_url": "https://unsplash.com/@theinfluencermarketingfactory?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@14cc52cccd9aa7b618f3a1010ebb8aee4f490d1d/images/2026/11/rcb-retains-yash-dayal-1651.jpg",
+   "date": "2026-11-18"
+  },
+  "1449095919269294048": {
+   "article": {
+    "title_hi": "इस हफ़्ते OTT पर नई रिलीज़: धिंदोरा 2, सुर्या और काली खेती",
+    "slug_en": "ott-releases-dhindora-suryaa-kaali-kheti",
+    "summary": [
+     "इस हफ़्ते OTT पर धिंदोरा सीज़न 2, सुर्या और काली खेती रिलीज़ हो रही हैं।",
+     "नेटफ़्लिक्स की सीरीज़ The Body 11 नवंबर को प्रीमियर हो चुकी है।",
+     "प्राइम वीडियो पर Madden फिल्म 18 नवंबर से उपलब्ध है।"
+    ],
+    "key_numbers": [
+     {
+      "value": "18 नवंबर",
+      "label": "Madden रिलीज़ की तारीख"
+     },
+     {
+      "value": "11 नवंबर",
+      "label": "The Body प्रीमियर की तारीख"
+     }
+    ],
+    "_photo": {
+     "id": "UW0VJCGaEQY",
+     "url": "https://images.unsplash.com/photo-1651711912897-e90fa4c1f597?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8ZGlnaXRhbCUyMHN0cmVhbWluZyUyMHNjcmVlbnxlbnwxfDB8fHwxNzk1MDAxMTIyfDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1651711912897-e90fa4c1f597?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8ZGlnaXRhbCUyMHN0cmVhbWluZyUyMHNjcmVlbnxlbnwxfDB8fHwxNzk1MDAxMTIyfDA&ixlib=rb-4.1.0",
+     "credit_name": "Izaak Kirkbeck",
+     "credit_url": "https://unsplash.com/@izaakkirkbeck?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "मनोरंजन",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@2a7004967f1766f98c75c6ce87b3bcb4e7b55933/images/2026/11/ott-releases-dhindora-suryaa-kaali-kheti-1651.jpg",
    "date": "2026-11-18"
   }
  }
