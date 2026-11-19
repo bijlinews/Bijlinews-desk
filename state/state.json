@@ -98,7 +98,13 @@
   "today gold rate chennai": "2026-11-19",
   "pnb share price": "2026-11-19",
   "ireda share price": "2026-11-19",
-  "सागरिका घाटगे": "2026-11-19"
+  "सागरिका घाटगे": "2026-11-19",
+  "जनसंख्या": "2026-11-19",
+  "மு க ஸ்டாலின்": "2026-11-19",
+  "एकादशी": "2026-11-19",
+  "kospi": "2026-11-19",
+  "kospi moneycontrol": "2026-11-19",
+  "msme": "2026-11-19"
  },
  "posts": [
   {
@@ -426,6 +432,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/ireda-share-price-rise.html",
    "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "जनसंख्या",
+   "title": "प्यू रिसर्च सेंटर के अध्ययन में 2070 तक भारत में हिंदु‑मुस्लिम हिस्सेदारी में बदलाव",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/pew-research-india-religion-shift.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "msme",
+   "title": "वाणिज्य मंत्रालय ने MSME निर्यातकों के लिए एक्सपोर्ट प्रमोशन मिशन के नियम बदले",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/msme-export-promotion-mission-rules.html",
+   "why": []
   }
  ],
  "photos": [
@@ -456,9 +478,11 @@
   "iYsrkq5qq0Q",
   "N__BnvQ_w18",
   "bN3KYPiAd8k",
-  "Wb63zqJ5gnE"
+  "Wb63zqJ5gnE",
+  "RDchikIDEiQ",
+  "Annl9CjEaEs"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
