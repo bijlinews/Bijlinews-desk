@@ -112,7 +112,10 @@
   "dempo sc vs shillong lajong": "2026-11-19",
   "ராஜ்மோகன்": "2026-11-19",
   "deepinder goyal": "2026-11-19",
-  "మలేషియా": "2026-11-19"
+  "మలేషియా": "2026-11-19",
+  "सोना": "2026-11-19",
+  "क्रिकेट अंपायर": "2026-11-19",
+  "chitwan rhinos vs kathmandu gurkhas": "2026-11-19"
  },
  "posts": [
   {
@@ -488,6 +491,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/rajmohan-watch-price-controversy.html",
    "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "सोना",
+   "title": "19 नवंबर को सोने की कीमतें सातवीं बार गिरीं, 10 ग्राम में 2570 रुपये की कमी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/gold-prices-fall-india.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "क्रिकेट अंपायर",
+   "title": "वेलिंगटन टेस्ट में 31वें ओवर पर गिल‑इलिंगवर्थ की तीखी बहस",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/wellington-test-gill-umpire-argument.html",
+   "why": []
   }
  ],
  "photos": [
@@ -524,9 +543,11 @@
   "GBkssTODNT0",
   "tcJ6sJTtTWI",
   "-3xhXkOcKvE",
-  "PWLJC7fAzkg"
+  "PWLJC7fAzkg",
+  "pZ56pVKd_6c",
+  "dDcT5Kf6V54"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
