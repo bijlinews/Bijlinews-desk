@@ -104,7 +104,10 @@
   "एकादशी": "2026-11-19",
   "kospi": "2026-11-19",
   "kospi moneycontrol": "2026-11-19",
-  "msme": "2026-11-19"
+  "msme": "2026-11-19",
+  "cyclone": "2026-11-19",
+  "paytm shares": "2026-11-19",
+  "nasa voyager 1": "2026-11-19"
  },
  "posts": [
   {
@@ -448,6 +451,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/msme-export-promotion-mission-rules.html",
    "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "cyclone",
+   "title": "अकवान तूफ़ान ने ओडिशा में 1 लाख से अधिक लोगों को सुरक्षित किया, 20 नवम्बर को गोपालपुर के पास उतरने की संभावना",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/cyclone-akvan-odisha-evacuation.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "paytm shares",
+   "title": "UPI MDR में देरी के कारण Paytm शेयर 12% गिरकर 1,664.30 रुपये पर",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/paytm-shares-fall-upi-mdr-delay.html",
+   "why": []
   }
  ],
  "photos": [
@@ -480,9 +499,11 @@
   "bN3KYPiAd8k",
   "Wb63zqJ5gnE",
   "RDchikIDEiQ",
-  "Annl9CjEaEs"
+  "Annl9CjEaEs",
+  "GBkssTODNT0",
+  "tcJ6sJTtTWI"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
