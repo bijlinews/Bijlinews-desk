@@ -89,7 +89,11 @@
   "drishyam 3 ott release date": "2026-11-18",
   "qazi touqeer": "2026-11-18",
   "কলকাতা হাইকোর্ট": "2026-11-18",
-  "விடுமுறை": "2026-11-19"
+  "விடுமுறை": "2026-11-19",
+  "gold mcx": "2026-11-19",
+  "javokhir sindarov": "2026-11-19",
+  "today": "2026-11-19",
+  "investing com": "2026-11-19"
  },
  "posts": [
   {
@@ -380,6 +384,25 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/dax-mixed-moves-germany.html",
    "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "gold mcx",
+   "title": "MCX पर गोल्ड फ्यूचर्स 1,31,207 रुपये तक गिरे, डॉलर की मजबूती ने दबाव बढ़ाया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/gold-mcx-fall-strong-dollar.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "today",
+   "title": "Sensex 500 अंक गिरा, Nifty भी गिरावट, आज EAS परीक्षण सफल",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FAIL",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -406,9 +429,11 @@
   "QiZ4Vk8ycGI",
   "G3Hrl6WzQYQ",
   "j5YwVDEC394",
-  "K5mPtONmpHM"
+  "K5mPtONmpHM",
+  "iYsrkq5qq0Q",
+  "N__BnvQ_w18"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -609,6 +634,42 @@
    "section": "खेल",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@97c075287fc595fd9ffc370f3d6265e3988bb6a3/images/2026/11/bengaluru-united-sreenidi-deccan-ifl-1910.jpg",
    "date": "2026-11-18"
+  },
+  "1909424262175360882": {
+   "article": {
+    "title_hi": "Sensex 500 अंक गिरा, Nifty भी गिरावट, आज EAS परीक्षण सफल",
+    "slug_en": "stock-market-drop-eas-test",
+    "summary": [
+     "Sensex ने 500.38 अंक गिरकर 82,031.81 पर बंद किया, Nifty भी गिरा।",
+     "आज राष्ट्रीय आपातकालीन अलर्ट सिस्टम का परीक्षण हुआ और सफल रहा।",
+     "स्पॉट गोल्ड 3.2% गिरकर $3,726.19 प्रति औंस हो गया।"
+    ],
+    "key_numbers": [
+     {
+      "value": "500.38 अंक",
+      "label": "Sensex गिरावट"
+     },
+     {
+      "value": "82,031.81",
+      "label": "Sensex बंद मूल्य"
+     },
+     {
+      "value": "$3,726.19",
+      "label": "स्पॉट गोल्ड कीमत"
+     }
+    ],
+    "_photo": {
+     "id": "N__BnvQ_w18",
+     "url": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8M3x8c3RvY2slMjBtYXJrZXQlMjBhbGVydCUyMHN5c3RlbXxlbnwxfDB8fHwxNzk1MDYyMjgyfDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8M3x8c3RvY2slMjBtYXJrZXQlMjBhbGVydCUyMHN5c3RlbXxlbnwxfDB8fHwxNzk1MDYyMjgyfDA&ixlib=rb-4.1.0",
+     "credit_name": "Nick Chong",
+     "credit_url": "https://unsplash.com/@nick604?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "शेयर बाजार",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@bced64d3a317385c3d6a35829e2c48206155af89/images/2026/11/stock-market-drop-eas-test-0952.jpg",
+   "date": "2026-11-19"
   }
  }
 }
