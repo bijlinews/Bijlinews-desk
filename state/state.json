@@ -120,7 +120,11 @@
   "ben shelton": "2026-11-19",
   "weather ranchi": "2026-11-19",
   "एनडीटीवी": "2026-11-19",
-  "गुंतवणूकदार": "2026-11-19"
+  "गुंतवणूकदार": "2026-11-19",
+  "abhishek sharma": "2026-11-19",
+  "marvel avengers doomsday trailer": "2026-11-19",
+  "loan": "2026-11-19",
+  "पदोन्नति": "2026-11-19"
  },
  "posts": [
   {
@@ -530,6 +534,25 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/jee-main-2027-registration-close.html",
    "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "abhishek sharma",
+   "title": "दोहा में नेपाल के खिलाफ खेलेंगे अभिषेक शर्मा, 20 नवंबर से शुरू एशिया कप",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/abhishek-sharma-nepal-asia-cup.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "पदोन्नति",
+   "title": "छत्तीसगढ़ में चार IAS अधिकारियों की पदोन्नति, सुबोध सिंह और निहारिका बारिक को नई जिम्मेदारियाँ",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -569,9 +592,11 @@
   "PWLJC7fAzkg",
   "pZ56pVKd_6c",
   "dDcT5Kf6V54",
-  "3tk-1pXqruo"
+  "3tk-1pXqruo",
+  "UvGtaCC1eVs",
+  "XU93D-JThyE"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -875,6 +900,37 @@
    },
    "section": "भारत",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@2528deda0e1b6a55ac92922b492ba852d355e3bd/images/2026/11/cyclone-akvan-odisha-landfall-1913.jpg",
+   "date": "2026-11-19"
+  },
+  "6369230662358632230": {
+   "article": {
+    "title_hi": "छत्तीसगढ़ में चार IAS अधिकारियों की पदोन्नति, सुबोध सिंह और निहारिका बारिक को नई जिम्मेदारियाँ",
+    "slug_en": "chhattisgarh-ias-promotion",
+    "summary": [
+     "चार IAS अधिकारियों को पदोन्नति मिली।",
+     "सुबोध सिंह और निहारिका बारिक को प्रमुख पदों पर नियुक्त किया गया।"
+    ],
+    "key_numbers": [
+     {
+      "value": "4",
+      "label": "पदोन्नत IAS अधिकारी"
+     },
+     {
+      "value": "1997",
+      "label": "बैच वर्ष"
+     }
+    ],
+    "_photo": {
+     "id": "XU93D-JThyE",
+     "url": "https://images.unsplash.com/photo-1570941144223-7e4f5d0624ee?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8Z292ZXJubWVudCUyMGNlcmVtb255JTIwYnVpbGRpbmd8ZW58MXwwfHx8MTc5NTEwNTcyOXww&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1570941144223-7e4f5d0624ee?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8Z292ZXJubWVudCUyMGNlcmVtb255JTIwYnVpbGRpbmd8ZW58MXwwfHx8MTc5NTEwNTcyOXww&ixlib=rb-4.1.0",
+     "credit_name": "Alejandro Barba",
+     "credit_url": "https://unsplash.com/@albrb?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "भारत",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@b98895f38e61f56cd6432cb71b0e6d23df8731a4/images/2026/11/chhattisgarh-ias-promotion-2153.jpg",
    "date": "2026-11-19"
   }
  }
