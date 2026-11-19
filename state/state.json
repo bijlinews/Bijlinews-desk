@@ -124,7 +124,9 @@
   "abhishek sharma": "2026-11-19",
   "marvel avengers doomsday trailer": "2026-11-19",
   "loan": "2026-11-19",
-  "पदोन्नति": "2026-11-19"
+  "पदोन्नति": "2026-11-19",
+  "गोरखपुर": "2026-11-19",
+  "sooraj barjatya": "2026-11-19"
  },
  "posts": [
   {
@@ -553,6 +555,26 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "गोरखपुर",
+   "title": "गोरखपुर में 14 साल के छात्र की मौत, योगी ने 5 लाख सहायता की घोषणा",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX"
+   ]
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "sooraj barjatya",
+   "title": "सोरोज बरजतिया की नई फिल्म 'येह प्रेम मोल लिया' का ट्रेलर रिलीज",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX"
+   ]
   }
  ],
  "photos": [
@@ -594,9 +616,11 @@
   "dDcT5Kf6V54",
   "3tk-1pXqruo",
   "UvGtaCC1eVs",
-  "XU93D-JThyE"
+  "XU93D-JThyE",
+  "eKY6_9W_iqY",
+  "M6we0b1vruE"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -931,6 +955,65 @@
    },
    "section": "भारत",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@b98895f38e61f56cd6432cb71b0e6d23df8731a4/images/2026/11/chhattisgarh-ias-promotion-2153.jpg",
+   "date": "2026-11-19"
+  },
+  "3069311059369707016": {
+   "article": {
+    "title_hi": "गोरखपुर में 14 साल के छात्र की मौत, योगी ने 5 लाख सहायता की घोषणा",
+    "slug_en": "gorakhpur-boy-death-yogi-aid",
+    "summary": [
+     "गोरखपुर में 14 साल के छात्र की एक्सकेवेटर से टकराव से मौत",
+     "माँ ने अखिलेश यादव को जिम्मेदार ठहराया, योगी ने इसे निर्मरम हत्या कहा",
+     "योगी ने परिवार को 5 लाख रुपये की सहायता की घोषणा की और कड़ी सजा की बात की"
+    ],
+    "key_numbers": [
+     {
+      "value": "14",
+      "label": "वर्ष की आयु"
+     },
+     {
+      "value": "5 लाख रुपये",
+      "label": "परिवार को सहायता राशि"
+     }
+    ],
+    "_photo": {
+     "id": "eKY6_9W_iqY",
+     "url": "https://images.unsplash.com/photo-1575281923032-f40d94ef6160?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGFjY2lkZW50fGVufDF8MHx8fDE3OTUxMTE5MTZ8MA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1575281923032-f40d94ef6160?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGFjY2lkZW50fGVufDF8MHx8fDE3OTUxMTE5MTZ8MA&ixlib=rb-4.1.0",
+     "credit_name": "Troy Mortier",
+     "credit_url": "https://unsplash.com/@troyscanon?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "भारत",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@4bd88adfee5fa6327bbe06b492839cffe72a1154/images/2026/11/gorakhpur-boy-death-yogi-aid-2341.jpg",
+   "date": "2026-11-19"
+  },
+  "1354637336392478522": {
+   "article": {
+    "title_hi": "सोरोज बरजतिया की नई फिल्म 'येह प्रेम मोल लिया' का ट्रेलर रिलीज",
+    "slug_en": "sooraj-barjatya-yeh-prem-mol-liya-trailer",
+    "summary": [
+     "सोरोज बरजतिया ने 'येह प्रेम मोल लिया' की घोषणा की, जिसमें आयुष्मान खुराना और शार्वरी हैं।",
+     "फिल्म पारंपरिक मूल्यों के साथ प्रगतिशील रिश्ते दिखाती है और पारिवारिक मनोरंजन लाने की कोशिश कर रही है।"
+    ],
+    "key_numbers": [
+     {
+      "value": "30-दिन",
+      "label": "शूट की अवधि"
+     }
+    ],
+    "_photo": {
+     "id": "M6we0b1vruE",
+     "url": "https://images.unsplash.com/photo-1659352787906-f809a3b9e86e?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8aW5kaWFuJTIwZmFtaWx5JTIwZHJhbWElMjBmaWxtJTIwc2V0fGVufDF8MHx8fDE3OTUxMTIwNDl8MA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1659352787906-f809a3b9e86e?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8aW5kaWFuJTIwZmFtaWx5JTIwZHJhbWElMjBmaWxtJTIwc2V0fGVufDF8MHx8fDE3OTUxMTIwNDl8MA&ixlib=rb-4.1.0",
+     "credit_name": "Fotos",
+     "credit_url": "https://unsplash.com/@fotospk?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "मनोरंजन",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@bcb7afcb43fb1515bd4e84c478937901390478a9/images/2026/11/sooraj-barjatya-yeh-prem-mol-liya-trailer-2341.jpg",
    "date": "2026-11-19"
   }
  }
