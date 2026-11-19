@@ -93,7 +93,12 @@
   "gold mcx": "2026-11-19",
   "javokhir sindarov": "2026-11-19",
   "today": "2026-11-19",
-  "investing com": "2026-11-19"
+  "investing com": "2026-11-19",
+  "why gold price is going down": "2026-11-19",
+  "today gold rate chennai": "2026-11-19",
+  "pnb share price": "2026-11-19",
+  "ireda share price": "2026-11-19",
+  "सागरिका घाटगे": "2026-11-19"
  },
  "posts": [
   {
@@ -403,6 +408,24 @@
     "fact-check FAIL",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "why gold price is going down",
+   "title": "मजबूत डॉलर और कम मांग से सोने की कीमत में गिरावट",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX"
+   ]
+  },
+  {
+   "date": "2026-11-19",
+   "trend": "ireda share price",
+   "title": "IREDA के शेयर 5% से अधिक बढ़कर लगभग ₹122 पर",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/ireda-share-price-rise.html",
+   "why": []
   }
  ],
  "photos": [
@@ -431,9 +454,11 @@
   "j5YwVDEC394",
   "K5mPtONmpHM",
   "iYsrkq5qq0Q",
-  "N__BnvQ_w18"
+  "N__BnvQ_w18",
+  "bN3KYPiAd8k",
+  "Wb63zqJ5gnE"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -669,6 +694,42 @@
    },
    "section": "शेयर बाजार",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@bced64d3a317385c3d6a35829e2c48206155af89/images/2026/11/stock-market-drop-eas-test-0952.jpg",
+   "date": "2026-11-19"
+  },
+  "5900016105810430732": {
+   "article": {
+    "title_hi": "मजबूत डॉलर और कम मांग से सोने की कीमत में गिरावट",
+    "slug_en": "gold-price-falls-strong-dollar",
+    "summary": [
+     "सोने की कीमत 2% से अधिक गिर गई और एमसीएक्स पर 3000 रुपये से अधिक गिरा।",
+     "रिपोर्ट्स के मुताबिक मजबूत डॉलर और शादी का सीजन न शुरू होने से मांग घट रही है।",
+     "आगे सोने की कीमत में और गिरावट या स्थिरता देखी जा सकती है, क्योंकि लगातार छठे सत्र में सस्ता हुआ।"
+    ],
+    "key_numbers": [
+     {
+      "value": "₹1,35,800",
+      "label": "24 कैरेट सोने का भाव 10 ग्राम पर"
+     },
+     {
+      "value": "2%",
+      "label": "कीमत गिरावट"
+     },
+     {
+      "value": "3000 रुपये",
+      "label": "एमसीएक्स पर गिरावट"
+     }
+    ],
+    "_photo": {
+     "id": "bN3KYPiAd8k",
+     "url": "https://images.unsplash.com/photo-1624365169364-0640dd10e180?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8Z29sZCUyMG1hcmtldHxlbnwxfDB8fHwxNzk1MDY2MTg5fDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1624365169364-0640dd10e180?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8Z29sZCUyMG1hcmtldHxlbnwxfDB8fHwxNzk1MDY2MTg5fDA&ixlib=rb-4.1.0",
+     "credit_name": "Zlaťáky.cz",
+     "credit_url": "https://unsplash.com/@zlataky?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "बिजनेस",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@87b07747f73c18e2bf5dfc94359c47849224130d/images/2026/11/gold-price-falls-strong-dollar-1059.jpg",
    "date": "2026-11-19"
   }
  }
