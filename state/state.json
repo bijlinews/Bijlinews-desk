@@ -141,7 +141,11 @@
   "ಕರ್ನಾಟಕ": "2026-11-20",
   "punjab vs tamil nadu": "2026-11-20",
   "shahrukh khan": "2026-11-20",
-  "न्यायालय": "2026-11-20"
+  "न्यायालय": "2026-11-20",
+  "आदित्य धर": "2026-11-20",
+  "samantha": "2026-11-20",
+  "pakw vs irew": "2026-11-20",
+  "om": "2026-11-20"
  },
  "posts": [
   {
@@ -646,6 +650,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/karnataka-transport-housing-grant.html",
    "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "samantha",
+   "title": "सामंथा और राज ने पहला बच्चा देव निडिमोरु का जन्म 19 नवंबर को किया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/samantha-raj-first-baby.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "आदित्य धर",
+   "title": "आदित्य धर ने यामी गौतम को कहा 'लेडी लक', 20 साल में मिली रातोंरात शोहरत",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/aditya-dhar-yami-gautam-lady-luck.html",
+   "why": []
   }
  ],
  "photos": [
@@ -696,9 +716,11 @@
   "ugJ5DkR8S_o",
   "uplPFLDsn84",
   "rjWfNR_AC5g",
-  "T5jzpRTVF1U"
+  "T5jzpRTVF1U",
+  "vTknj2OxDVg",
+  "qIu77BsFdds"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
