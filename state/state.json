@@ -173,7 +173,13 @@
   "sandisk share price": "2026-11-20",
   "al-ahli vs al-nassr": "2026-11-20",
   "mohammedan sc vs gokulam kerala fc standings": "2026-11-20",
-  "bitcoin price usd": "2026-11-20"
+  "bitcoin price usd": "2026-11-20",
+  "तुलसी विवाह आरती": "2026-11-20",
+  "new ott releases movies": "2026-11-20",
+  "விமர்சனம்": "2026-11-20",
+  "usman khawaja": "2026-11-20",
+  "tulip siddiq": "2026-11-20",
+  "নবান্ন": "2026-11-20"
  },
  "posts": [
   {
@@ -795,6 +801,25 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/gokulam-kerala-beats-mohammedan-sc.html",
    "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "usman khawaja",
+   "title": "उस्मान खवाजा की किताब ने ऑस्ट्रेलियाई क्रिकेट टीम पर फिर उठाए सवाल",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "new ott releases movies",
+   "title": "नवीन OTT रिलीज़: धिंदोरा 2, हाइकु, द व्वान और कई नई फिल्में 20 नवंबर को",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/new-ott-releases.html",
+   "why": []
   }
  ],
  "photos": [
@@ -859,9 +884,11 @@
   "IO4xflLqm8A",
   "W5o5EFH_RQ4",
   "lrTSZaprSZA",
-  "qCrKTET_09o"
+  "qCrKTET_09o",
+  "qoMXr0pQCqk",
+  "0aPGF0HjOZ4"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -1323,6 +1350,37 @@
    },
    "section": "खेल",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@5dc3811d34f3c31594c66a616b1011c42fcf2b52/images/2026/11/east-bengal-vs-sc-delhi-1650.jpg",
+   "date": "2026-11-20"
+  },
+  "8730791715703501764": {
+   "article": {
+    "title_hi": "उस्मान खवाजा की किताब ने ऑस्ट्रेलियाई क्रिकेट टीम पर फिर उठाए सवाल",
+    "slug_en": "usman-khawaja-autobiography-sabr",
+    "summary": [
+     "उस्मान खवाजा ने अपनी 2026 में रिलीज़ हुई किताब 'सब्र' में दावा किया कि पूरी ऑस्ट्रेलियाई क्रिकेट टीम को 2018 के सैंडपेपर बॉल-टैमपरिंग घोटाले के बारे में पता था।",
+     "इस दावे के बाद क्रिकेट ऑस्ट्रेलिया (CA) को नया फोरम शुरू करने पर मजबूर होना पड़ा, हालांकि CA का कहना है कि यह नई जांच नहीं है।"
+    ],
+    "key_numbers": [
+     {
+      "value": "2026",
+      "label": "किताब रिलीज़ का साल"
+     },
+     {
+      "value": "2018",
+      "label": "सैंडपेपर घोटाला का साल"
+     }
+    ],
+    "_photo": {
+     "id": "qoMXr0pQCqk",
+     "url": "https://images.unsplash.com/photo-1622225074638-1d80c0388697?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8M3x8Y3JpY2tldCUyMHN0YWRpdW0lMjBib29rfGVufDF8MHx8fDE3OTUxOTg3OTZ8MA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1622225074638-1d80c0388697?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8M3x8Y3JpY2tldCUyMHN0YWRpdW0lMjBib29rfGVufDF8MHx8fDE3OTUxOTg3OTZ8MA&ixlib=rb-4.1.0",
+     "credit_name": "Maninder Sidhu",
+     "credit_url": "https://unsplash.com/@manni_17?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@1e7813723285bde37390b21dcd82f74232def094/images/2026/11/usman-khawaja-autobiography-sabr-2347.jpg",
    "date": "2026-11-20"
   }
  }
