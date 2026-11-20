@@ -150,7 +150,13 @@
   "east bengal vs sc delhi": "2026-11-20",
   "doha": "2026-11-20",
   "hong kong badminton": "2026-11-20",
-  "sk78": "2026-11-20"
+  "sk78": "2026-11-20",
+  "ಚಿನ್ನ": "2026-11-20",
+  "रॉबर्ट कियोसाकी": "2026-11-20",
+  "apec": "2026-11-20",
+  "மு. க. ஸ்டாலின்": "2026-11-20",
+  "அமைச்சர்": "2026-11-20",
+  "సమంత రుత్ ప్రభు": "2026-11-20"
  },
  "posts": [
   {
@@ -692,6 +698,22 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "ಚಿನ್ನ",
+   "title": "20 नवंबर को बेंगलुरु में 24‑कैरेट सोना ₹5,120 और 22‑कैरेट सोना ₹4,700 प्रति 10 ग्राम गिरा",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/gold-price-fall-india-november.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "அமைச்சர்",
+   "title": "डिस्ट्रिक्ट क्राइम ब्रांच ने मूर्ति के घर पर अवैध पत्थर खनन के दो मामलों की छापेमारी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/moorthy-quarry-raid.html",
+   "why": []
   }
  ],
  "photos": [
@@ -746,9 +768,11 @@
   "vTknj2OxDVg",
   "qIu77BsFdds",
   "ek-J1s7qlTs",
-  "yKHZ65nuEtE"
+  "yKHZ65nuEtE",
+  "oPRU2Cne0Pw",
+  "y5LaV9IEC_g"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
