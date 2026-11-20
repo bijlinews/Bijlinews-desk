@@ -134,7 +134,14 @@
   "eci": "2026-11-20",
   "world air forces directory india rafale": "2026-11-20",
   "scotland vs netherlands": "2026-11-20",
-  "maharashtra cricket team": "2026-11-20"
+  "maharashtra cricket team": "2026-11-20",
+  "nifty bank": "2026-11-20",
+  "आज का राशिफल मेष": "2026-11-20",
+  "rakshitha sree santhosh ramraj": "2026-11-20",
+  "ಕರ್ನಾಟಕ": "2026-11-20",
+  "punjab vs tamil nadu": "2026-11-20",
+  "shahrukh khan": "2026-11-20",
+  "न्यायालय": "2026-11-20"
  },
  "posts": [
   {
@@ -623,6 +630,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/maharashtra-puducherry-t20-loss.html",
    "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "rakshitha sree santhosh ramraj",
+   "title": "रक्षिता रामराज ने ऑलंपिक चैंपियन को हराकर हांगकांग ओपन में क्वार्टरफ़ाइनल में जगह बनाई",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/rakshitha-ramraj-beats-chen-yufei.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "ಕರ್ನಾಟಕ",
+   "title": "कर्नाटक सरकार ने 2,000 ईवी बसों और ₹21,900 करोड़ अनुदान की मंजूरी दी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/karnataka-transport-housing-grant.html",
+   "why": []
   }
  ],
  "photos": [
@@ -671,9 +694,11 @@
   "Vq__yk6faOI",
   "NcCNPwNLRFI",
   "ugJ5DkR8S_o",
-  "uplPFLDsn84"
+  "uplPFLDsn84",
+  "rjWfNR_AC5g",
+  "T5jzpRTVF1U"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
