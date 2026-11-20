@@ -145,7 +145,12 @@
   "आदित्य धर": "2026-11-20",
   "samantha": "2026-11-20",
   "pakw vs irew": "2026-11-20",
-  "om": "2026-11-20"
+  "om": "2026-11-20",
+  "इंडिया ए बनाम नेपाल": "2026-11-20",
+  "east bengal vs sc delhi": "2026-11-20",
+  "doha": "2026-11-20",
+  "hong kong badminton": "2026-11-20",
+  "sk78": "2026-11-20"
  },
  "posts": [
   {
@@ -666,6 +671,27 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/aditya-dhar-yami-gautam-lady-luck.html",
    "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "hong kong badminton",
+   "title": "हांगकांग ओपन में लक्ष्य सेन सेमीफ़ाइनल, राक्षीता क्वार्टरफ़ाइनल, श्रीकांत क्वार्टर में",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX"
+   ]
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "east bengal vs sc delhi",
+   "title": "ईस्ट बंगाल बनाम स्पोर्टिंग क्लब दिल्ली: 20 नवंबर को भिड़ंत",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -718,9 +744,11 @@
   "rjWfNR_AC5g",
   "T5jzpRTVF1U",
   "vTknj2OxDVg",
-  "qIu77BsFdds"
+  "qIu77BsFdds",
+  "ek-J1s7qlTs",
+  "yKHZ65nuEtE"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -1115,6 +1143,74 @@
    "section": "मनोरंजन",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@bcb7afcb43fb1515bd4e84c478937901390478a9/images/2026/11/sooraj-barjatya-yeh-prem-mol-liya-trailer-2341.jpg",
    "date": "2026-11-19"
+  },
+  "8575103455974764879": {
+   "article": {
+    "title_hi": "हांगकांग ओपन में लक्ष्य सेन सेमीफ़ाइनल, राक्षीता क्वार्टरफ़ाइनल, श्रीकांत क्वार्टर में",
+    "slug_en": "hong-kong-open-indian-shuttlers-progress",
+    "summary": [
+     "भारतीय शटलर लक्ष्य सेन, किडंबी श्रीकांत और राक्षीता रामराज ने हांगकांग ओपन में आगे बढ़े।",
+     "रिपोर्ट्स के मुताबिक लक्ष्य की जीत की लड़ी 13 मैचों तक बढ़ी।",
+     "लक्ष्य ने बीडब्ल्यूएफ विश्व टूर फाइनल्स 2026 के लिए क्वालीफाई किया।"
+    ],
+    "key_numbers": [
+     {
+      "value": "13",
+      "label": "जित की लड़ी"
+     },
+     {
+      "value": "2026",
+      "label": "वर्ष"
+     }
+    ],
+    "_photo": {
+     "id": "ek-J1s7qlTs",
+     "url": "https://images.unsplash.com/photo-1718452739586-5b467f1f109b?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8YmFkbWludG9uJTIwaW5kb29yJTIwY291cnR8ZW58MXwwfHx8MTc5NTE3Mzc3MHww&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1718452739586-5b467f1f109b?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8YmFkbWludG9uJTIwaW5kb29yJTIwY291cnR8ZW58MXwwfHx8MTc5NTE3Mzc3MHww&ixlib=rb-4.1.0",
+     "credit_name": "Irish83",
+     "credit_url": "https://unsplash.com/@irish83?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@18996cffc06681f4371f0538cb245064fa00706b/images/2026/11/hong-kong-open-indian-shuttlers-progress-1650.jpg",
+   "date": "2026-11-20"
+  },
+  "6325218346918046083": {
+   "article": {
+    "title_hi": "ईस्ट बंगाल बनाम स्पोर्टिंग क्लब दिल्ली: 20 नवंबर को भिड़ंत",
+    "slug_en": "east-bengal-vs-sc-delhi",
+    "summary": [
+     "ईस्ट बंगाल 20 नवंबर को स्पोर्टिंग क्लब दिल्ली का सामना करेगा।",
+     "यह ईस्ट बंगाल का इस सीज़न का पहला होम मैच है।",
+     "दोनों टीमों के मैनेजर और फॉर्मेशन तय हो चुके हैं।"
+    ],
+    "key_numbers": [
+     {
+      "value": "12",
+      "label": "पहले तीन मैचों में गोल"
+     },
+     {
+      "value": "4-0",
+      "label": "चर्चिल ब्रदर्स के खिलाफ स्कोर"
+     },
+     {
+      "value": "5-1",
+      "label": "इंटर काशी के खिलाफ स्कोर"
+     }
+    ],
+    "_photo": {
+     "id": "yKHZ65nuEtE",
+     "url": "https://images.unsplash.com/photo-1679391029864-d46f366a456b?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8Zm9vdGJhbGwlMjBzdGFkaXVtJTIwbmlnaHR8ZW58MXwwfHx8MTc5NTE3Mzk4OXww&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1679391029864-d46f366a456b?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8Zm9vdGJhbGwlMjBzdGFkaXVtJTIwbmlnaHR8ZW58MXwwfHx8MTc5NTE3Mzk4OXww&ixlib=rb-4.1.0",
+     "credit_name": "Howard Bouchevereau",
+     "credit_url": "https://unsplash.com/@howardbouchevereau?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@5dc3811d34f3c31594c66a616b1011c42fcf2b52/images/2026/11/east-bengal-vs-sc-delhi-1650.jpg",
+   "date": "2026-11-20"
   }
  }
 }
