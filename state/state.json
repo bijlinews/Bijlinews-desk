@@ -127,7 +127,11 @@
   "पदोन्नति": "2026-11-19",
   "गोरखपुर": "2026-11-19",
   "sooraj barjatya": "2026-11-19",
-  "kl rahul": "2026-11-20"
+  "kl rahul": "2026-11-20",
+  "gold rate today": "2026-11-20",
+  "gold rate": "2026-11-20",
+  "gold rate today 22 carat": "2026-11-20",
+  "eci": "2026-11-20"
  },
  "posts": [
   {
@@ -584,6 +588,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/kl-rahul-first-test-century.html",
    "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "eci",
+   "title": "सुप्रीम कोर्ट ने फॉर्म 7 घोटाले की जांच के लिए ECI को डेटा मांगा",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/supreme-court-eci-form7-investigation.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "gold rate today",
+   "title": "सोने की कीमत $3,800 से नीचे, भारत में 24K दर में ₹257 की गिरावट",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/gold-price-drop-india.html",
+   "why": []
   }
  ],
  "photos": [
@@ -628,9 +648,11 @@
   "XU93D-JThyE",
   "eKY6_9W_iqY",
   "M6we0b1vruE",
-  "oOpk9SnCF60"
+  "oOpk9SnCF60",
+  "Vq__yk6faOI",
+  "NcCNPwNLRFI"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
