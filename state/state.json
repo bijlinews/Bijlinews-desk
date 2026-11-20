@@ -162,7 +162,10 @@
   "bengaluru vs mumbai city": "2026-11-20",
   "rhenium": "2026-11-20",
   "bob": "2026-11-20",
-  "deepak chahar": "2026-11-20"
+  "deepak chahar": "2026-11-20",
+  "மம்மூட்டி": "2026-11-20",
+  "భారత అంధుల క్రికెట్ జట్టు": "2026-11-20",
+  "मुकदमा": "2026-11-20"
  },
  "posts": [
   {
@@ -736,6 +739,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/gta6-launch-sales.html",
    "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "मुकदमा",
+   "title": "US कोर्ट ने दिल्ली के तीन अदालतों को डोभाल और गोयल को समन सेवा करने का आदेश दिया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/us-court-summons-india.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "భారత అంధుల క్రికెట్ జట్టు",
+   "title": "पाकिस्तान ने बिना खेल के एशिया कप का खिताब ले लिया, भारत ने नियमों पर सवाल उठाए",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/pakistan-asia-cup-controversy.html",
+   "why": []
   }
  ],
  "photos": [
@@ -794,9 +813,11 @@
   "oPRU2Cne0Pw",
   "y5LaV9IEC_g",
   "DOicNPBVSHs",
-  "Mf23RF8xArY"
+  "Mf23RF8xArY",
+  "ecHGTPfjNfA",
+  "s6XWkKDKynY"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
