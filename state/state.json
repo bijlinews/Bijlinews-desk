@@ -170,7 +170,10 @@
   "gta gta6": "2026-11-20",
   "riemann hypothesis": "2026-11-20",
   "t10 league": "2026-11-20",
-  "sandisk share price": "2026-11-20"
+  "sandisk share price": "2026-11-20",
+  "al-ahli vs al-nassr": "2026-11-20",
+  "mohammedan sc vs gokulam kerala fc standings": "2026-11-20",
+  "bitcoin price usd": "2026-11-20"
  },
  "posts": [
   {
@@ -776,6 +779,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/hetmyer-102-eagles-victory.html",
    "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "al-ahli vs al-nassr",
+   "title": "अल‑अहली बनाम अल‑नासर क्लासिको जेद्दा में 20 नवंबर को हुआ",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/al-ahli-al-nassr-classico.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "mohammedan sc vs gokulam kerala fc standings",
+   "title": "गोकुलम केरला ने मोहम्‍मदन को 4-1 से हराया, IFL में शीर्ष पर बने",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/gokulam-kerala-beats-mohammedan-sc.html",
+   "why": []
   }
  ],
  "photos": [
@@ -838,9 +857,11 @@
   "ecHGTPfjNfA",
   "s6XWkKDKynY",
   "IO4xflLqm8A",
-  "W5o5EFH_RQ4"
+  "W5o5EFH_RQ4",
+  "lrTSZaprSZA",
+  "qCrKTET_09o"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
