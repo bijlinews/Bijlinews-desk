@@ -131,7 +131,10 @@
   "gold rate today": "2026-11-20",
   "gold rate": "2026-11-20",
   "gold rate today 22 carat": "2026-11-20",
-  "eci": "2026-11-20"
+  "eci": "2026-11-20",
+  "world air forces directory india rafale": "2026-11-20",
+  "scotland vs netherlands": "2026-11-20",
+  "maharashtra cricket team": "2026-11-20"
  },
  "posts": [
   {
@@ -604,6 +607,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/gold-price-drop-india.html",
    "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "world air forces directory india rafale",
+   "title": "World Air Forces निर्देशिका ने IAF के सक्रिय राफ़ल को 32 बताया, रक्षा मंत्रालय ने अस्वीकार",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/world-air-forces-rafale-count.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "maharashtra cricket team",
+   "title": "महाराष्ट्र ने पुडुचेरी से 15 रन से हार दर्ज की",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/maharashtra-puducherry-t20-loss.html",
+   "why": []
   }
  ],
  "photos": [
@@ -650,9 +669,11 @@
   "M6we0b1vruE",
   "oOpk9SnCF60",
   "Vq__yk6faOI",
-  "NcCNPwNLRFI"
+  "NcCNPwNLRFI",
+  "ugJ5DkR8S_o",
+  "uplPFLDsn84"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
