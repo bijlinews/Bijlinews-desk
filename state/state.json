@@ -126,7 +126,8 @@
   "loan": "2026-11-19",
   "पदोन्नति": "2026-11-19",
   "गोरखपुर": "2026-11-19",
-  "sooraj barjatya": "2026-11-19"
+  "sooraj barjatya": "2026-11-19",
+  "kl rahul": "2026-11-20"
  },
  "posts": [
   {
@@ -575,6 +576,14 @@
    "why": [
     "fact-check FIX"
    ]
+  },
+  {
+   "date": "2026-11-20",
+   "trend": "kl rahul",
+   "title": "KL राहुल ने 2015 में ऑस्ट्रेलिया के खिलाफ 110 रन बनाकर पहला टेस्ट शतक बनाया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/kl-rahul-first-test-century.html",
+   "why": []
   }
  ],
  "photos": [
@@ -618,9 +627,10 @@
   "UvGtaCC1eVs",
   "XU93D-JThyE",
   "eKY6_9W_iqY",
-  "M6we0b1vruE"
+  "M6we0b1vruE",
+  "oOpk9SnCF60"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
