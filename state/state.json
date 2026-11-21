@@ -199,7 +199,12 @@
   "सिंधु जल समझौता": "2026-11-21",
   "virgo horoscope today": "2026-11-21",
   "സോണിയ": "2026-11-21",
-  "ਪੈਨਸ਼ਨ": "2026-11-21"
+  "ਪੈਨਸ਼ਨ": "2026-11-21",
+  "england vs australia": "2026-11-21",
+  "gold rate 21 november 2026": "2026-11-21",
+  "jordan cox": "2026-11-21",
+  "sam curran": "2026-11-21",
+  "नुकसानभरपाई": "2026-11-21"
  },
  "posts": [
   {
@@ -896,6 +901,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/sonia-gandhi-biopic-monica-bellucci.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "england vs australia",
+   "title": "ऑस्ट्रेलिया बनाम इंग्लैंड: 21 नवंबर को MCG में पहला टी20 मैच",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/england-australia-t20-opening.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "sam curran",
+   "title": "सैम करन लखनऊ सुपर जायंट्स में, शमी‑सिद्धार्थ राजस्थान रॉयल्स को",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sam-curran-trade-lsg.html",
+   "why": []
   }
  ],
  "photos": [
@@ -969,9 +990,10 @@
   "6pcGTJDuf6M",
   "uwxNqKHi75U",
   "yWOFs6RsHVY",
-  "LwfHZQzgHKg"
+  "LwfHZQzgHKg",
+  "Npp5wwx_xCs"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
