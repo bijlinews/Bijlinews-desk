@@ -222,7 +222,11 @@
   "ind a vs pak a": "2026-11-21",
   "tulsi vivah katha": "2026-11-21",
   "galatasaray vs samsunspor": "2026-11-21",
-  "liverpool vs chelsea": "2026-11-21"
+  "liverpool vs chelsea": "2026-11-21",
+  "spurs vs ipswich town": "2026-11-21",
+  "rayo vs valencia": "2026-11-21",
+  "pancreatic cancer drug daraxonrasib": "2026-11-21",
+  "coventry vs palace": "2026-11-21"
  },
  "posts": [
   {
@@ -997,6 +1001,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/india-pakistan-asia-cup-match.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "pancreatic cancer drug daraxonrasib",
+   "title": "डाराक्सोनरासिब के साथ कीमोथेरेपी में ट्यूमर घटे, कुछ रोगियों में कैंसर नहीं दिखा",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/daraxonrasib-pancreatic-trial-results.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "spurs vs ipswich town",
+   "title": "टोटनहैम बनाम इप्सविच: शनिवार 3 बजे स्टेडियम में मुकाबला",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/spurs-ipswich-preview.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1077,9 +1097,11 @@
   "KqZIFALjBw8",
   "HrFCxo0Go5Y",
   "d8cwbw41IO8",
-  "D5e5e36Yp84"
+  "D5e5e36Yp84",
+  "_9xRHrMOjeg",
+  "qowyMze7jqg"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
