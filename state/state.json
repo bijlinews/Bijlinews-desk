@@ -187,7 +187,13 @@
   "gold rate today chennai": "2026-11-21",
   "guidance tamil nadu": "2026-11-21",
   "மதுபானம்": "2026-11-21",
-  "ऋषभ पंत": "2026-11-21"
+  "ऋषभ पंत": "2026-11-21",
+  "anshul kamboj": "2026-11-21",
+  "sri lanka a vs hong kong": "2026-11-21",
+  "ind vs nz test live score": "2026-11-21",
+  "நக்கீரன்": "2026-11-21",
+  "ಪ್ರತಾಪ್ ಸಿಂಹ": "2026-11-21",
+  "clat 2027": "2026-11-21"
  },
  "posts": [
   {
@@ -860,6 +866,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/manipur-spurious-liquor-deaths.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "anshul kamboj",
+   "title": "सिराज को न्यूज़ीलैंड के पहले टेस्ट में बाहर किया गया, विवाद शुरू",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/siraj-drop-controversy-new-zealand-test.html",
+   "why": []
   }
  ],
  "photos": [
@@ -930,9 +944,10 @@
   "C2v6EeGXVQM",
   "7Mre86MB1zQ",
   "w4FLDxUs8QA",
-  "6pcGTJDuf6M"
+  "6pcGTJDuf6M",
+  "uwxNqKHi75U"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
