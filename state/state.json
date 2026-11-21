@@ -226,7 +226,11 @@
   "spurs vs ipswich town": "2026-11-21",
   "rayo vs valencia": "2026-11-21",
   "pancreatic cancer drug daraxonrasib": "2026-11-21",
-  "coventry vs palace": "2026-11-21"
+  "coventry vs palace": "2026-11-21",
+  "कल का मौसम": "2026-11-21",
+  "nice vs psg": "2026-11-21",
+  "dhanush new movie": "2026-11-21",
+  "ബാച്ച്ലര് പാര്ട്ടി": "2026-11-21"
  },
  "posts": [
   {
@@ -1017,6 +1021,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/spurs-ipswich-preview.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "कल का मौसम",
+   "title": "दिल्ली में 21 नवंबर को कोहरा अलर्ट, तापमान 10.6°C तक गिरा, AQI 369 तक पहुँचा",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/delhi-fog-cold-air-quality.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "dhanush new movie",
+   "title": "Dhanush और Mammootty की जासूसी थ्रिलर ने 20 नवंबर को रिलीज़ कर 33.7 करोड़ की कमाई की",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/dhanush-mammootty-thriller-boxoffice.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1099,9 +1119,11 @@
   "d8cwbw41IO8",
   "D5e5e36Yp84",
   "_9xRHrMOjeg",
-  "qowyMze7jqg"
+  "qowyMze7jqg",
+  "K0Qo3qQDQpM",
+  "CiUR8zISX60"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
