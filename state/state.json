@@ -193,7 +193,13 @@
   "ind vs nz test live score": "2026-11-21",
   "நக்கீரன்": "2026-11-21",
   "ಪ್ರತಾಪ್ ಸಿಂಹ": "2026-11-21",
-  "clat 2027": "2026-11-21"
+  "clat 2027": "2026-11-21",
+  "aus vs eng": "2026-11-21",
+  "australia vs england": "2026-11-21",
+  "सिंधु जल समझौता": "2026-11-21",
+  "virgo horoscope today": "2026-11-21",
+  "സോണിയ": "2026-11-21",
+  "ਪੈਨਸ਼ਨ": "2026-11-21"
  },
  "posts": [
   {
@@ -874,6 +880,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/siraj-drop-controversy-new-zealand-test.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "सिंधु जल समझौता",
+   "title": "सिंध जल संधि निलंबित, एससीओ सभ्यतागत संवाद का उद्घाटन",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sindhu-water-suspend-sco-dialogue.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "സോണിയ",
+   "title": "सोनिया गांधी बायोपिक: मोनिका बेलुच्ची की भूमिका और इटली में संग्रहालय की खबर",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sonia-gandhi-biopic-monica-bellucci.html",
+   "why": []
   }
  ],
  "photos": [
@@ -945,9 +967,11 @@
   "7Mre86MB1zQ",
   "w4FLDxUs8QA",
   "6pcGTJDuf6M",
-  "uwxNqKHi75U"
+  "uwxNqKHi75U",
+  "yWOFs6RsHVY",
+  "LwfHZQzgHKg"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
