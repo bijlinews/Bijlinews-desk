@@ -230,7 +230,12 @@
   "कल का मौसम": "2026-11-21",
   "nice vs psg": "2026-11-21",
   "dhanush new movie": "2026-11-21",
-  "ബാച്ച്ലര് പാര്ട്ടി": "2026-11-21"
+  "ബാച്ച്ലര് പാര്ട്ടി": "2026-11-21",
+  "newcastle vs arsenal": "2026-11-21",
+  "sevilla vs betis": "2026-11-21",
+  "parma vs roma": "2026-11-21",
+  "borussia mönchengladbach vs borussia dortmund standings": "2026-11-21",
+  "iran": "2026-11-21"
  },
  "posts": [
   {
@@ -1037,6 +1042,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/dhanush-mammootty-thriller-boxoffice.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "newcastle vs arsenal",
+   "title": "आर्सेनल और न्यूकैसल का 200वाँ मुकाबला, आर्सेनल 5 अंक की बढ़त के साथ",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/arsenal-newcastle-premier-league.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "iran",
+   "title": "इरान की सेना ने कहा एंटी‑एयर मिसाइल ने F‑16 को नुकसान पहुँचाया, US CENTCOM ने दावे को खारिज किया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/iran-missile-f16-claim.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1121,9 +1142,11 @@
   "_9xRHrMOjeg",
   "qowyMze7jqg",
   "K0Qo3qQDQpM",
-  "CiUR8zISX60"
+  "CiUR8zISX60",
+  "F8BwS9kay4E",
+  "SH1j81ticjs"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
