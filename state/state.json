@@ -213,7 +213,12 @@
   "21 november 2026 gold rate": "2026-11-21",
   "ಚಿನ್ನದ ಬೆಲೆ": "2026-11-21",
   "mitchell marsh": "2026-11-21",
-  "kr777": "2026-11-21"
+  "kr777": "2026-11-21",
+  "man city vs fulham": "2026-11-21",
+  "सोने": "2026-11-21",
+  "lumbini lions vs sudurpaschim royals": "2026-11-21",
+  "musadik malik": "2026-11-21",
+  "హ్యారీ బ్రూక్": "2026-11-21"
  },
  "posts": [
   {
@@ -964,6 +969,22 @@
     "कुछ दावे पुष्ट नहीं हुए",
     "कुछ संख्याएँ स्रोतों में नहीं मिलीं"
    ]
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "man city vs fulham",
+   "title": "मैन्चेस्टर सिटी बनाम फुलहैम: एतिहाद में प्रीमियर लीग राउंड 11 का मुकाबला",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/man-city-fulham-premier-league.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "musadik malik",
+   "title": "मुसादिक मलिक ने नई दिल्ली में SCO बैठक में भाग लिया, ताज महल देखना चाहते हैं",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/musadik-malik-sco-delhi.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1042,9 +1063,11 @@
   "7PP4RKH8aII",
   "J82GxqnwKSs",
   "KqZIFALjBw8",
-  "HrFCxo0Go5Y"
+  "HrFCxo0Go5Y",
+  "d8cwbw41IO8",
+  "D5e5e36Yp84"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
