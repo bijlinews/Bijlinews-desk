@@ -209,7 +209,11 @@
   "motorola edge 70 neo": "2026-11-21",
   "afghanistan a vs bangladesh a": "2026-11-21",
   "gta vi xbox series s": "2026-11-21",
-  "cet exam city 2026": "2026-11-21"
+  "cet exam city 2026": "2026-11-21",
+  "21 november 2026 gold rate": "2026-11-21",
+  "ಚಿನ್ನದ ಬೆಲೆ": "2026-11-21",
+  "mitchell marsh": "2026-11-21",
+  "kr777": "2026-11-21"
  },
  "posts": [
   {
@@ -938,6 +942,28 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/motorola-edge-70-neo-launch.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "21 november 2026 gold rate",
+   "title": "21 नवंबर 2026 को भारत में सोने की कीमतें गिरीं, दिल्ली‑मुंबई‑हैदराबाद में गिरावट",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "ಚಿನ್ನದ ಬೆಲೆ",
+   "title": "20‑21 नवंबर को भारत में सोने की कीमतों में तेज गिरावट",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FAIL",
+    "कुछ दावे पुष्ट नहीं हुए",
+    "कुछ संख्याएँ स्रोतों में नहीं मिलीं"
+   ]
   }
  ],
  "photos": [
@@ -1014,9 +1040,11 @@
   "LwfHZQzgHKg",
   "Npp5wwx_xCs",
   "7PP4RKH8aII",
-  "J82GxqnwKSs"
+  "J82GxqnwKSs",
+  "KqZIFALjBw8",
+  "HrFCxo0Go5Y"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -1510,6 +1538,74 @@
    "section": "खेल",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@1e7813723285bde37390b21dcd82f74232def094/images/2026/11/usman-khawaja-autobiography-sabr-2347.jpg",
    "date": "2026-11-20"
+  },
+  "1888258623030680453": {
+   "article": {
+    "title_hi": "21 नवंबर 2026 को भारत में सोने की कीमतें गिरीं, दिल्ली‑मुंबई‑हैदराबाद में गिरावट",
+    "slug_en": "gold-price-fall-india-november",
+    "summary": [
+     "21 नवंबर 2026 को भारत के कई शहरों में सोने की कीमतें गिरीं।",
+     "रिपोर्ट्स के मुताबिक अमेरिकी डॉलर की मजबूती ने सोने की कीमतों पर दबाव डाला।",
+     "सोने ने इस हफ़्ते लगभग 9% गिरावट दर्ज की।"
+    ],
+    "key_numbers": [
+     {
+      "value": "$3,515.02",
+      "label": "वैश्विक औंस कीमत"
+     },
+     {
+      "value": "9%",
+      "label": "साप्ताहिक गिरावट प्रतिशत"
+     }
+    ],
+    "_photo": {
+     "id": "KqZIFALjBw8",
+     "url": "https://images.unsplash.com/photo-1704026437282-91dfa7ced81e?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Nnx8Z29sZCUyMHByaWNlJTIwY2hhcnR8ZW58MXwwfHx8MTc5NTI1OTQwM3ww&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1704026437282-91dfa7ced81e?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Nnx8Z29sZCUyMHByaWNlJTIwY2hhcnR8ZW58MXwwfHx8MTc5NTI1OTQwM3ww&ixlib=rb-4.1.0",
+     "credit_name": "William Warby",
+     "credit_url": "https://unsplash.com/@wwarby?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "बिजनेस",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@8fd068c2f3382eb45536eec64ffc9301de52b774/images/2026/11/gold-price-fall-india-november-1638.jpg",
+   "date": "2026-11-21"
+  },
+  "6562028822545922895": {
+   "article": {
+    "title_hi": "20‑21 नवंबर को भारत में सोने की कीमतों में तेज गिरावट",
+    "slug_en": "gold-price-drop-november-2026",
+    "summary": [
+     "20‑21 नवंबर को 24k, 22k और 18k सोने की कीमतें गिरीं",
+     "रिपोर्ट्स के मुताबिक कीमतों में तेज गिरावट दर्ज हुई",
+     "10 ग्राम शुद्ध सोने की कीमत लगभग 1.25 लाख रुपये हुई"
+    ],
+    "key_numbers": [
+     {
+      "value": "₹5,120",
+      "label": "24k सोने की 10 ग्राम कीमत (20 नवम्बर)"
+     },
+     {
+      "value": "₹1.25 लाख",
+      "label": "शुद्ध सोने की 10 ग्राम कीमत (21 नवम्बर)"
+     },
+     {
+      "value": "₹49",
+      "label": "24k सोने की प्रति ग्राम कीमत (21 नवम्बर)"
+     }
+    ],
+    "_photo": {
+     "id": "HrFCxo0Go5Y",
+     "url": "https://images.unsplash.com/photo-1669951584309-492ed24d274f?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8N3x8Z29sZCUyMHByaWNlJTIwY2hhcnR8ZW58MXwwfHx8MTc5NTI1OTQwM3ww&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1669951584309-492ed24d274f?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8N3x8Z29sZCUyMHByaWNlJTIwY2hhcnR8ZW58MXwwfHx8MTc5NTI1OTQwM3ww&ixlib=rb-4.1.0",
+     "credit_name": "Allison Saeng",
+     "credit_url": "https://unsplash.com/@allisonsaeng?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "बिजनेस",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@13bf79b9c40eea87fba58caddbe2e73797690b11/images/2026/11/gold-price-drop-november-2026-1638.jpg",
+   "date": "2026-11-21"
   }
  }
 }
