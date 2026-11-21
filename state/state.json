@@ -183,7 +183,11 @@
   "shubman gill": "2026-11-21",
   "अनंत कुमार सिंह": "2026-11-21",
   "lakers vs kings": "2026-11-21",
-  "guidance tamil nadu official statement": "2026-11-21"
+  "guidance tamil nadu official statement": "2026-11-21",
+  "gold rate today chennai": "2026-11-21",
+  "guidance tamil nadu": "2026-11-21",
+  "மதுபானம்": "2026-11-21",
+  "ऋषभ पंत": "2026-11-21"
  },
  "posts": [
   {
@@ -840,6 +844,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/anant-singh-shivangi-wedding.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "gold rate today chennai",
+   "title": "चेंनई में सोने की कीमत 1.2 लाख रुपये पर गिरी, 30% से अधिक गिरावट",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/chennai-gold-price-drop.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "மதுபானம்",
+   "title": "मनिपुर के चकपिकारोंग में जहरयुक्त शराब से 11 मौतें, 181 भर्ती",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/manipur-spurious-liquor-deaths.html",
+   "why": []
   }
  ],
  "photos": [
@@ -908,9 +928,11 @@
   "qoMXr0pQCqk",
   "0aPGF0HjOZ4",
   "C2v6EeGXVQM",
-  "7Mre86MB1zQ"
+  "7Mre86MB1zQ",
+  "w4FLDxUs8QA",
+  "6pcGTJDuf6M"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
