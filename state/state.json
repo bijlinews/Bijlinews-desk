@@ -235,7 +235,11 @@
   "sevilla vs betis": "2026-11-21",
   "parma vs roma": "2026-11-21",
   "borussia mönchengladbach vs borussia dortmund standings": "2026-11-21",
-  "iran": "2026-11-21"
+  "iran": "2026-11-21",
+  "बारिश मौसम": "2026-11-21",
+  "kerala lottery results karunya": "2026-11-21",
+  "lakshya sen badminton": "2026-11-21",
+  "china military pressure india us report": "2026-11-21"
  },
  "posts": [
   {
@@ -1058,6 +1062,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/iran-missile-f16-claim.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "बारिश मौसम",
+   "title": "साइकलोन अकवान ने ओडिशा‑पश्चिम बंगाल में भारी बारिश, फसल को खतरा, उड़ानें रद्द",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/cyclone-akvan-heavy-rain.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "lakshya sen badminton",
+   "title": "लक्ष्य सेन की 13‑मैच जीत की लड़ी हॉन्ग कॉंग ओपन सेमीफ़ाइनल में टूटी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/lakshya-sen-hong-kong-semifinal.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1144,9 +1164,11 @@
   "K0Qo3qQDQpM",
   "CiUR8zISX60",
   "F8BwS9kay4E",
-  "SH1j81ticjs"
+  "SH1j81ticjs",
+  "n81tfAKH3fY",
+  "k20AdZ9rBAg"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
