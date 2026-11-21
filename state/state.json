@@ -179,7 +179,8 @@
   "விமர்சனம்": "2026-11-20",
   "usman khawaja": "2026-11-20",
   "tulip siddiq": "2026-11-20",
-  "নবান্ন": "2026-11-20"
+  "নবান্ন": "2026-11-20",
+  "shubman gill": "2026-11-21"
  },
  "posts": [
   {
@@ -820,6 +821,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/new-ott-releases.html",
    "why": []
+  },
+  {
+   "date": "2026-11-21",
+   "trend": "shubman gill",
+   "title": "शुबमन गिल ने ग्लेन फिलिप्स के खिलाफ DRS रिव्यू खोने पर उम्पायर से तकरार की",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/shubman-gill-umpire-argument.html",
+   "why": []
   }
  ],
  "photos": [
@@ -886,9 +895,10 @@
   "lrTSZaprSZA",
   "qCrKTET_09o",
   "qoMXr0pQCqk",
-  "0aPGF0HjOZ4"
+  "0aPGF0HjOZ4",
+  "C2v6EeGXVQM"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
