@@ -246,7 +246,9 @@
   "दृश्यम": "2026-11-22",
   "बेटी": "2026-11-22",
   "churchill brothers vs mohun bagan": "2026-11-22",
-  "hull vs brighton": "2026-11-22"
+  "hull vs brighton": "2026-11-22",
+  "barcelona vs": "2026-11-22",
+  "motogp": "2026-11-22"
  },
  "posts": [
   {
@@ -1233,6 +1235,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/churchill-brothers-vs-mohun-bagan-isl.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "motogp",
+   "title": "मार्क मार्केज़ की पुर्तगाल स्प्रिंट में दुर्घटना, शीर्षक का मौका खो गया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/marquez-crash-portugal-sprint.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1334,9 +1344,10 @@
   "br2HgQuvq6I",
   "2eMemvByB-8",
   "VuN3x0cKC4I",
-  "8-s5QuUBtyM"
+  "8-s5QuUBtyM",
+  "HHunRG19kF8"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
