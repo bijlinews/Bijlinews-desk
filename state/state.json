@@ -205,7 +205,12 @@
   "josh hazlewood": "2026-11-22",
   "today gold price": "2026-11-22",
   "maxx morando": "2026-11-22",
-  "pulse polio 2026 november": "2026-11-22"
+  "pulse polio 2026 november": "2026-11-22",
+  "scotland women's national cricket team vs pakistan women's national cricket team match scorecard": "2026-11-22",
+  "fc bayern munich": "2026-11-22",
+  "బంగాళాఖాతము": "2026-11-22",
+  "donald trump iran war": "2026-11-22",
+  "వరంగల్": "2026-11-22"
  },
  "posts": [
   {
@@ -1088,6 +1093,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/miley-maxx-wedding-palm-springs.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "donald trump iran war",
+   "title": "ट्रम्प ने ईरान को डर्टी बॉम्ब अफवाह पर चेतावनी, रासायनिक‑जैविक हथियारों का आरोप",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/trump-iran-warning-dirty-bomb.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1179,9 +1192,10 @@
   "k20AdZ9rBAg",
   "qVDsbN-lsvs",
   "BtXb27sglY4",
-  "j0eqFgKhhR8"
+  "j0eqFgKhhR8",
+  "6kA9FjqUxhM"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
