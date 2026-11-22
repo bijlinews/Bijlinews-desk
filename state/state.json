@@ -241,7 +241,12 @@
   "खेसारी लाल यादव": "2026-11-22",
   "কর্মচারী সুবিধা": "2026-11-22",
   "మహేశ్ బాబు": "2026-11-22",
-  "सार्वजनिक अवकाश": "2026-11-22"
+  "सार्वजनिक अवकाश": "2026-11-22",
+  "fc barcelona vs villarreal cf lineups": "2026-11-22",
+  "दृश्यम": "2026-11-22",
+  "बेटी": "2026-11-22",
+  "churchill brothers vs mohun bagan": "2026-11-22",
+  "hull vs brighton": "2026-11-22"
  },
  "posts": [
   {
@@ -1212,6 +1217,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/uttar-pradesh-bihar-2027-holiday.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "दृश्यम",
+   "title": "ड्रिश्यम 3 का थियेटर रिलीज 2 अक्टूबर 2026, नेटफ्लिक्स पर 27 नवंबर 2026",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/drishyam-3-release-details.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "churchill brothers vs mohun bagan",
+   "title": "चर्चिल ब्रदर्स बनाम मोहन बागन: ISL में पहली मुलाकात, 22 नवंबर को होगी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/churchill-brothers-vs-mohun-bagan-isl.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1311,9 +1332,11 @@
   "whVWG_9zQE8",
   "hnrMi9PH4u0",
   "br2HgQuvq6I",
-  "2eMemvByB-8"
+  "2eMemvByB-8",
+  "VuN3x0cKC4I",
+  "8-s5QuUBtyM"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
