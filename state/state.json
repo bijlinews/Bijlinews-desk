@@ -248,7 +248,12 @@
   "churchill brothers vs mohun bagan": "2026-11-22",
   "hull vs brighton": "2026-11-22",
   "barcelona vs": "2026-11-22",
-  "motogp": "2026-11-22"
+  "motogp": "2026-11-22",
+  "ilt20 2026": "2026-11-22",
+  "barca": "2026-11-22",
+  "ग्रेच्युटी": "2026-11-22",
+  "કેરેટ": "2026-11-22",
+  "arsenal vs west ham": "2026-11-22"
  },
  "posts": [
   {
@@ -1243,6 +1248,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/marquez-crash-portugal-sprint.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "કેરેટ",
+   "title": "भारत में विभिन्न कैरेट सोने की कीमतें रिपोर्ट की गई",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/gold-carats-prices-india.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "barca",
+   "title": "बार्सिलोना ने 22 नवंबर को विलेयरियल के खिलाफ 14:00 बजे मैच खेला",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/barcelona-villarreal-match.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1345,9 +1366,11 @@
   "2eMemvByB-8",
   "VuN3x0cKC4I",
   "8-s5QuUBtyM",
-  "HHunRG19kF8"
+  "HHunRG19kF8",
+  "ONBf949C91k",
+  "xl7675LXTO0"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
