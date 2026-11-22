@@ -216,7 +216,13 @@
   "కొనుగోలు": "2026-11-22",
   "വൃക്കരോഗം": "2026-11-22",
   "అనిల్ రావిపూడి": "2026-11-22",
-  "yuvraj singh": "2026-11-22"
+  "yuvraj singh": "2026-11-22",
+  "desert vipers": "2026-11-22",
+  "रामायण": "2026-11-22",
+  "sanju samson": "2026-11-22",
+  "kerala vs puducherry": "2026-11-22",
+  "ప్రమాదము": "2026-11-22",
+  "leandro paredes": "2026-11-22"
  },
  "posts": [
   {
@@ -1123,6 +1129,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/kerala-fairness-cream-mercury-case.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "ప్రమాదము",
+   "title": "कोटा‑उदयपुर हाईवे पर टेम्पो और पार्केड ट्रक टकराव, 9 परिवारिक सदस्य मारे",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/kota-udaipur-highway-accident.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "desert vipers",
+   "title": "MI Emirates ने Desert Vipers को 52 रन से हराया, ILT20 सीज़न 5 का उद्घाटन",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/mi-emirates-defeat-desert-vipers.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1216,9 +1238,11 @@
   "BtXb27sglY4",
   "j0eqFgKhhR8",
   "6kA9FjqUxhM",
-  "rGLB7gc0U9I"
+  "rGLB7gc0U9I",
+  "OKkb2btf11E",
+  "CYbiE2T6Xtc"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
