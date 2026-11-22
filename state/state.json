@@ -210,7 +210,13 @@
   "fc bayern munich": "2026-11-22",
   "బంగాళాఖాతము": "2026-11-22",
   "donald trump iran war": "2026-11-22",
-  "వరంగల్": "2026-11-22"
+  "వరంగల్": "2026-11-22",
+  "vikalp tiwari": "2026-11-22",
+  "max verstappen": "2026-11-22",
+  "కొనుగోలు": "2026-11-22",
+  "വൃക്കരോഗം": "2026-11-22",
+  "అనిల్ రావిపూడి": "2026-11-22",
+  "yuvraj singh": "2026-11-22"
  },
  "posts": [
   {
@@ -1101,6 +1107,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/trump-iran-warning-dirty-bomb.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "vikalp tiwari",
+   "title": "विकल्प तिवारी ने SMAT में 119 रन का शतक बनाया, IPL 2027 के ट्रायल में रुचि",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/vikalp-tiwari-smat-century.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "വൃക്കരോഗം",
+   "title": "इंस्टाग्राम इन्फ्लुएंसर की प्रमोटेड क्रीम में उच्च मरकरी, लड़की को मेम्ब्रेनस नेफ्रोपैथी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/kerala-fairness-cream-mercury-case.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1193,9 +1215,10 @@
   "qVDsbN-lsvs",
   "BtXb27sglY4",
   "j0eqFgKhhR8",
-  "6kA9FjqUxhM"
+  "6kA9FjqUxhM",
+  "rGLB7gc0U9I"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
