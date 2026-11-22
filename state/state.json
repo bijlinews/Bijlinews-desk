@@ -240,7 +240,8 @@
   "live match today": "2026-11-22",
   "खेसारी लाल यादव": "2026-11-22",
   "কর্মচারী সুবিধা": "2026-11-22",
-  "మహేశ్ బాబు": "2026-11-22"
+  "మహేశ్ బాబు": "2026-11-22",
+  "सार्वजनिक अवकाश": "2026-11-22"
  },
  "posts": [
   {
@@ -1203,6 +1204,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/mahesh-babu-ss-karthikeya-birthday.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "सार्वजनिक अवकाश",
+   "title": "उत्तर प्रदेश और बिहार ने 2027 के सार्वजनिक व स्कूल अवकाश कैलेंडर जारी किए",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/uttar-pradesh-bihar-2027-holiday.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1301,9 +1310,10 @@
   "CYbiE2T6Xtc",
   "whVWG_9zQE8",
   "hnrMi9PH4u0",
-  "br2HgQuvq6I"
+  "br2HgQuvq6I",
+  "2eMemvByB-8"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
