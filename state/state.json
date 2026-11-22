@@ -222,7 +222,13 @@
   "sanju samson": "2026-11-22",
   "kerala vs puducherry": "2026-11-22",
   "ప్రమాదము": "2026-11-22",
-  "leandro paredes": "2026-11-22"
+  "leandro paredes": "2026-11-22",
+  "us iran war": "2026-11-22",
+  "irew vs zimw": "2026-11-22",
+  "jitesh sharma": "2026-11-22",
+  "the body netflix": "2026-11-22",
+  "kar vs chn": "2026-11-22",
+  "women's big bash league": "2026-11-22"
  },
  "posts": [
   {
@@ -1145,6 +1151,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/mi-emirates-defeat-desert-vipers.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "us iran war",
+   "title": "ईरान ने बहरैन में अमेरिकी रडार बेस, औद्योगिक सुविधा और दो टैंकरों पर हमला किया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/iran-us-bahrain-attack.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "irew vs zimw",
+   "title": "आयरलैंड बनाम ज़िम्बाब्वे सुपर सिक्स मैच में टॉस जीतकर बैटिंग ज़िम्बाब्वे ने चुनी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/ireland-zimbabwe-super-six.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1240,9 +1262,10 @@
   "6kA9FjqUxhM",
   "rGLB7gc0U9I",
   "OKkb2btf11E",
-  "CYbiE2T6Xtc"
+  "CYbiE2T6Xtc",
+  "whVWG_9zQE8"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
