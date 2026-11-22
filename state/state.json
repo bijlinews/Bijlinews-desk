@@ -1,47 +1,5 @@
 {
  "seen": {
-  "शेयर बाज़ार": "2026-11-17",
-  "సాయిపల్లవి": "2026-11-17",
-  "tata motors share price": "2026-11-17",
-  "sl बनाम pak": "2026-11-17",
-  "rbi": "2026-11-17",
-  "census 2027": "2026-11-17",
-  "pf": "2026-11-17",
-  "আদালত": "2026-11-17",
-  "நீதிமன்றம்": "2026-11-17",
-  "કેરેટ": "2026-11-17",
-  "delhi high court": "2026-11-17",
-  "सनी": "2026-11-17",
-  "chase bank outages": "2026-11-17",
-  "libra horoscope today": "2026-11-17",
-  "बातमी": "2026-11-17",
-  "नरेन्द्र मोदी": "2026-11-17",
-  "mars rover": "2026-11-17",
-  "திரைப்படம்": "2026-11-17",
-  "നെടുമ്പാശ്ശേരി": "2026-11-17",
-  "adelaide strikers vs sydney sixers": "2026-11-17",
-  "स्वर्ण कांता शर्मा": "2026-11-17",
-  "ഇറാന്": "2026-11-17",
-  "singapore vs brazil": "2026-11-17",
-  "marvel avengers doomsday": "2026-11-17",
-  "एशिया कप": "2026-11-17",
-  "kea": "2026-11-17",
-  "अभिषेक बच्चन": "2026-11-17",
-  "fcs": "2026-11-17",
-  "miguel ángel félix gallardo": "2026-11-17",
-  "আগামীকালের আবহাওয়া": "2026-11-17",
-  "operation mole movie": "2026-11-17",
-  "nvidia results": "2026-11-17",
-  "kenya vs south africa": "2026-11-17",
-  "togo vs algeria": "2026-11-17",
-  "sierra leone vs dr congo": "2026-11-17",
-  "sudurpaschim royals vs lumbini lions standings": "2026-11-17",
-  "gta vi": "2026-11-17",
-  "manni l perez": "2026-11-17",
-  "nvidia earnings report": "2026-11-17",
-  "dr xbox doctors note": "2026-11-17",
-  "jordan vs australia": "2026-11-17",
-  "casino royale": "2026-11-17",
   "tom banton": "2026-11-18",
   "mahanadi coalfields ipo": "2026-11-18",
   "gold rate today kerala": "2026-11-18",
@@ -239,7 +197,12 @@
   "बारिश मौसम": "2026-11-21",
   "kerala lottery results karunya": "2026-11-21",
   "lakshya sen badminton": "2026-11-21",
-  "china military pressure india us report": "2026-11-21"
+  "china military pressure india us report": "2026-11-21",
+  "devon conway": "2026-11-22",
+  "ind vs nz test": "2026-11-22",
+  "tom latham": "2026-11-22",
+  "चांदी": "2026-11-22",
+  "josh hazlewood": "2026-11-22"
  },
  "posts": [
   {
@@ -1078,6 +1041,26 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/lakshya-sen-hong-kong-semifinal.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "ind vs nz test",
+   "title": "भारत ने बेसिन रिज़र्व में 720/9 पर घोषणा की, 352 रन की बढ़त ली",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए",
+    "कुछ संख्याएँ स्रोतों में नहीं मिलीं"
+   ]
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "josh hazlewood",
+   "title": "हैज़लवुड ने बॉल‑टैम्परिंग अनजानता और कुमिंस हटने पर क्विट की चेतावनी दी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/hazlewood-quit-cummins-captaincy.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1168,7 +1151,7 @@
   "n81tfAKH3fY",
   "k20AdZ9rBAg"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -1730,6 +1713,35 @@
    "section": "बिजनेस",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@13bf79b9c40eea87fba58caddbe2e73797690b11/images/2026/11/gold-price-drop-november-2026-1638.jpg",
    "date": "2026-11-21"
+  },
+  "7594047516049074728": {
+   "article": {
+    "title_hi": "भारत ने बेसिन रिज़र्व में 720/9 पर घोषणा की, 352 रन की बढ़त ली",
+    "slug_en": "india-newzealand-test-wellington",
+    "summary": [
+     "भारत ने बेसिन रिज़र्व, वेलिंगटन में 720/9 पर घोषणा की और 352‑रन की बढ़त ली।",
+     "रिपोर्ट्स के मुताबिक भारत ने दोपहर के भोजन पर 629/6 बनाकर 261 रन की बढ़त ली।",
+     "टेस्ट 19‑23 नवंबर तक चलेगा, आगे के दिनों में परिणाम तय होगा।"
+    ],
+    "key_numbers": [
+     {
+      "value": "720/9",
+      "label": "घोषणा स्कोर"
+     },
+     {
+      "value": "352",
+      "label": "बढ़त रन"
+     },
+     {
+      "value": "128",
+      "label": "रिशभ पैंट रन"
+     }
+    ],
+    "_photo": null
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@0002bf5aad4c686a19550ccbd91e42200c927645/images/2026/11/india-newzealand-test-wellington-0752.jpg",
+   "date": "2026-11-22"
   }
  }
 }
