@@ -234,7 +234,13 @@
   "पाकिस्तान ए क्रिकेट टीम बनाम इंडिया ए के मैच का स्कोरकार्ड": "2026-11-22",
   "టెస్ట్ క్రికెట్": "2026-11-22",
   "india pakistan": "2026-11-22",
-  "emerging asia cup 2026": "2026-11-22"
+  "emerging asia cup 2026": "2026-11-22",
+  "juventus vs venezia": "2026-11-22",
+  "sony liv": "2026-11-22",
+  "live match today": "2026-11-22",
+  "खेसारी लाल यादव": "2026-11-22",
+  "কর্মচারী সুবিধা": "2026-11-22",
+  "మహేశ్ బాబు": "2026-11-22"
  },
  "posts": [
   {
@@ -1189,6 +1195,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/india-nepal-cricket-doha.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "మహేశ్ బాబు",
+   "title": "महेश बाबू ने एसएस कार्तिकेय को 35वें जन्मदिन पर बधाई दी और वारणासी की फोटो साझा की",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/mahesh-babu-ss-karthikeya-birthday.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1286,9 +1300,10 @@
   "OKkb2btf11E",
   "CYbiE2T6Xtc",
   "whVWG_9zQE8",
-  "hnrMi9PH4u0"
+  "hnrMi9PH4u0",
+  "br2HgQuvq6I"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
