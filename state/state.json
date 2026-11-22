@@ -228,7 +228,13 @@
   "jitesh sharma": "2026-11-22",
   "the body netflix": "2026-11-22",
   "kar vs chn": "2026-11-22",
-  "women's big bash league": "2026-11-22"
+  "women's big bash league": "2026-11-22",
+  "pakistan a vs india a cricket team match scorecard": "2026-11-22",
+  "రాబర్ట్ కియోసాకి": "2026-11-22",
+  "पाकिस्तान ए क्रिकेट टीम बनाम इंडिया ए के मैच का स्कोरकार्ड": "2026-11-22",
+  "టెస్ట్ క్రికెట్": "2026-11-22",
+  "india pakistan": "2026-11-22",
+  "emerging asia cup 2026": "2026-11-22"
  },
  "posts": [
   {
@@ -1167,6 +1173,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/ireland-zimbabwe-super-six.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "pakistan a vs india a cricket team match scorecard",
+   "title": "पाकिस्तान A ने टॉस जीतकर पहले बल्लेबाज़ी की, दोहा में ग्रुप B मैच 8",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/pakistan-india-doha-match.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "emerging asia cup 2026",
+   "title": "भारत-ए ने दोहा में नेपाल-ए को 332-26 से हराया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/india-nepal-cricket-doha.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1263,9 +1285,10 @@
   "rGLB7gc0U9I",
   "OKkb2btf11E",
   "CYbiE2T6Xtc",
-  "whVWG_9zQE8"
+  "whVWG_9zQE8",
+  "hnrMi9PH4u0"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
