@@ -203,7 +203,9 @@
   "tom latham": "2026-11-22",
   "चांदी": "2026-11-22",
   "josh hazlewood": "2026-11-22",
-  "today gold price": "2026-11-22"
+  "today gold price": "2026-11-22",
+  "maxx morando": "2026-11-22",
+  "pulse polio 2026 november": "2026-11-22"
  },
  "posts": [
   {
@@ -1070,6 +1072,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/gold-price-drop-india_01112531495.html",
    "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "pulse polio 2026 november",
+   "title": "22 नवंबर को कई जिलों में विशेष पोलियो ड्राइव, 0‑5 साल के बच्चों को वैक्सीन",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/pulse-polio-november-2026.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-22",
+   "trend": "maxx morando",
+   "title": "मिली सायरस और मैक्स मोरांदो ने पाम स्प्रिंग्स में शादी की",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/miley-maxx-wedding-palm-springs.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1159,9 +1177,11 @@
   "SH1j81ticjs",
   "n81tfAKH3fY",
   "k20AdZ9rBAg",
-  "qVDsbN-lsvs"
+  "qVDsbN-lsvs",
+  "BtXb27sglY4",
+  "j0eqFgKhhR8"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
