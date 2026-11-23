@@ -219,7 +219,9 @@
   "upessc": "2026-11-22",
   "florian wirtz": "2026-11-22",
   "जसप्रीत बुमराह": "2026-11-23",
-  "today's weather": "2026-11-23"
+  "today's weather": "2026-11-23",
+  "gold price today": "2026-11-23",
+  "sl-w vs pakw": "2026-11-23"
  },
  "posts": [
   {
@@ -1265,6 +1267,14 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "gold price today",
+   "title": "23 नवंबर को सोने की कीमत 1.21 लाख रुपये पर गिरावट के बाद पुनः बढ़ी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/gold-price-rebound-india.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1371,9 +1381,10 @@
   "ONBf949C91k",
   "xl7675LXTO0",
   "0eqcfjZlVKQ",
-  "GvJBboqOebI"
+  "GvJBboqOebI",
+  "fvoxs8eVE_U"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
