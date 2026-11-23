@@ -245,7 +245,10 @@
   "bhel recruitment 2026 engineer trainee": "2026-11-23",
   "khaled ahmed": "2026-11-23",
   "సౌరవ్ గంగూలీ": "2026-11-23",
-  "एशिया": "2026-11-23"
+  "एशिया": "2026-11-23",
+  "neftchi fergana vs al-hilal": "2026-11-23",
+  "leonida": "2026-11-23",
+  "real kashmir vs dempo sc": "2026-11-23"
  },
  "posts": [
   {
@@ -1366,6 +1369,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/south-africa-bangladesh-second-test.html",
    "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "real kashmir vs dempo sc",
+   "title": "रियल कश्मीर बनाम डेम्पो SC का IFL 2026-27 का 21वां मैच ट्रांसजेंडर सेंटर में",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/real-kashmir-dempo-match.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1478,9 +1489,10 @@
   "3r8rcSy0Ffg",
   "wB2_lYjauVI",
   "XYgTTbXCJ0M",
-  "zcLsFdzR5MI"
+  "zcLsFdzR5MI",
+  "C-TNT-R0cho"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
