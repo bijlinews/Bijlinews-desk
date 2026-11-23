@@ -238,7 +238,14 @@
   "মুখ্যমন্ত্রী": "2026-11-23",
   "up super tet exam city": "2026-11-23",
   "क्रिकेट पिच": "2026-11-23",
-  "सनी देओल": "2026-11-23"
+  "सनी देओल": "2026-11-23",
+  "bangladesh national cricket team vs south africa national cricket team match scorecard": "2026-11-23",
+  "ban vs sa": "2026-11-23",
+  "gta vi game": "2026-11-23",
+  "bhel recruitment 2026 engineer trainee": "2026-11-23",
+  "khaled ahmed": "2026-11-23",
+  "సౌరవ్ గంగూలీ": "2026-11-23",
+  "एशिया": "2026-11-23"
  },
  "posts": [
   {
@@ -1343,6 +1350,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/wellington-test-draw-india-nz.html",
    "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "bangladesh national cricket team vs south africa national cricket team match scorecard",
+   "title": "सेंटूरियन में बांग्लादेश बनाम दक्षिण अफ्रीका दूसरे टेस्ट का टॉस बारिश से देर से",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/south-africa-bangladesh-test-toss-delay.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "ban vs sa",
+   "title": "एडेन मार्क्रम अस्थायी कप्तान, साउथ अफ्रीका बनाम बांग्लादेश दूसरा टेस्ट सेंटरियन में",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/south-africa-bangladesh-second-test.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1454,9 +1477,10 @@
   "O5s2SBSRJJA",
   "3r8rcSy0Ffg",
   "wB2_lYjauVI",
-  "XYgTTbXCJ0M"
+  "XYgTTbXCJ0M",
+  "zcLsFdzR5MI"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
