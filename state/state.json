@@ -1,52 +1,5 @@
 {
  "seen": {
-  "tom banton": "2026-11-18",
-  "mahanadi coalfields ipo": "2026-11-18",
-  "gold rate today kerala": "2026-11-18",
-  "mcx gold": "2026-11-18",
-  "delhi vs bihar": "2026-11-18",
-  "cooper connolly": "2026-11-18",
-  "yash dhull": "2026-11-18",
-  "matt renshaw": "2026-11-18",
-  "श्रीलंका बनाम पाकिस्तान": "2026-11-18",
-  "2025–2027 आईसीसी विश्व टेस्ट चैम्पियनशिप": "2026-11-18",
-  "mum vs goa": "2026-11-18",
-  "lahiru kumara": "2026-11-18",
-  "quentin grimes": "2026-11-18",
-  "हुंडई": "2026-11-18",
-  "iran attacks bahrain": "2026-11-18",
-  "the times of india": "2026-11-18",
-  "bsf admit card": "2026-11-18",
-  "துரைமுருகன்": "2026-11-18",
-  "ఎరువు": "2026-11-18",
-  "sarfaraz khan": "2026-11-18",
-  "kagiso rabada": "2026-11-18",
-  "സഞ്ജു സാംസണ്": "2026-11-18",
-  "vande bharat express": "2026-11-18",
-  "இந்தியா": "2026-11-18",
-  "upcoming ott releases": "2026-11-18",
-  "yash dayal": "2026-11-18",
-  "బండ్ల గణేష్": "2026-11-18",
-  "వర్షం": "2026-11-18",
-  "tanzid hasan": "2026-11-18",
-  "बैंक": "2026-11-18",
-  "bengaluru united vs sreenidi deccan": "2026-11-18",
-  "falkland islands vs costa rica": "2026-11-18",
-  "sbi": "2026-11-18",
-  "sbi clerk result": "2026-11-18",
-  "salesforce layoffs": "2026-11-18",
-  "വീരപ്പ മൊയ്ലി": "2026-11-18",
-  "cricket abu dhabi t10 league": "2026-11-18",
-  "മോഷണം": "2026-11-18",
-  "shraddha kapoor": "2026-11-18",
-  "सय्यद मुश्ताक अली ट्रॉफी": "2026-11-18",
-  "dax": "2026-11-18",
-  "real madrid vs inter": "2026-11-18",
-  "மின் தடை": "2026-11-18",
-  "fc bengaluru united vs sreenidi deccan fc standings": "2026-11-18",
-  "drishyam 3 ott release date": "2026-11-18",
-  "qazi touqeer": "2026-11-18",
-  "কলকাতা হাইকোর্ট": "2026-11-18",
   "விடுமுறை": "2026-11-19",
   "gold mcx": "2026-11-19",
   "javokhir sindarov": "2026-11-19",
@@ -264,7 +217,9 @@
   "faf du plessis": "2026-11-22",
   "ramayana movie ranbir kapoor": "2026-11-22",
   "upessc": "2026-11-22",
-  "florian wirtz": "2026-11-22"
+  "florian wirtz": "2026-11-22",
+  "जसप्रीत बुमराह": "2026-11-23",
+  "today's weather": "2026-11-23"
  },
  "posts": [
   {
@@ -1299,6 +1254,17 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/ramayana-rise-boxoffice-records.html",
    "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "जसप्रीत बुमराह",
+   "title": "बुमराह ने लाथम को दोनों इनिंग में शून्य रन पर आउट किया",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -1407,7 +1373,7 @@
   "0eqcfjZlVKQ",
   "GvJBboqOebI"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -1998,6 +1964,30 @@
    "section": "खेल",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@0002bf5aad4c686a19550ccbd91e42200c927645/images/2026/11/india-newzealand-test-wellington-0752.jpg",
    "date": "2026-11-22"
+  },
+  "1486400944236759017": {
+   "article": {
+    "title_hi": "बुमराह ने लाथम को दोनों इनिंग में शून्य रन पर आउट किया",
+    "slug_en": "bumrah-dismisses-latham-ducks",
+    "summary": [
+     "बुमराह ने टॉम लाथम को दोनों पारियों में शून्य रन पर आउट किया।",
+     "लाथम का दूसरा डक रिषभ पंत ने कैच किया, जिससे बुमराह की वर्चस्व दिखी।"
+    ],
+    "key_numbers": [
+     {
+      "value": "दो",
+      "label": "पहले इनिंग में गेंदों की संख्या"
+     },
+     {
+      "value": "दूसरे",
+      "label": "दूसरे इनिंग में गेंदों की संख्या"
+     }
+    ],
+    "_photo": null
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@b50d205e2133646d1fdb155d13953afbdcf827a5/images/2026/11/bumrah-dismisses-latham-ducks-0757.jpg",
+   "date": "2026-11-23"
   }
  }
 }
