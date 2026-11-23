@@ -224,7 +224,13 @@
   "sl-w vs pakw": "2026-11-23",
   "chicago fire fc vs charlotte fc standings": "2026-11-23",
   "taiwan index": "2026-11-23",
-  "itbp": "2026-11-23"
+  "itbp": "2026-11-23",
+  "ടെസ്റ്റ് ക്രിക്കറ്റ്": "2026-11-23",
+  "hang seng index": "2026-11-23",
+  "রেখা পাত্র": "2026-11-23",
+  "womens emerging nations trophy": "2026-11-23",
+  "today lottery sambad": "2026-11-23",
+  "the hunger games sunrise on the reaping": "2026-11-23"
  },
  "posts": [
   {
@@ -1297,6 +1303,22 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "ടെസ്റ്റ് ക്രിക്കറ്റ്",
+   "title": "भारत और न्यूज़ीलैंड का पहला टेस्ट ड्रॉ, वर्ल्ड टेस्ट चैंपियनशिप आशा पर असर",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/india-newzealand-test-draw.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "womens emerging nations trophy",
+   "title": "श्रीलंका ने नीदरलैंड्स को हराकर ICC महिला इमर्जिंग नेशन्स ट्रॉफी फाइनल की जगह पक्की की",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sri-lanka-qualifies-womens-emerging.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1406,9 +1428,10 @@
   "GvJBboqOebI",
   "fvoxs8eVE_U",
   "O5s2SBSRJJA",
-  "3r8rcSy0Ffg"
+  "3r8rcSy0Ffg",
+  "wB2_lYjauVI"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
