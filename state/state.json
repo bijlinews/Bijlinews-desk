@@ -248,7 +248,11 @@
   "एशिया": "2026-11-23",
   "neftchi fergana vs al-hilal": "2026-11-23",
   "leonida": "2026-11-23",
-  "real kashmir vs dempo sc": "2026-11-23"
+  "real kashmir vs dempo sc": "2026-11-23",
+  "avengers doomsday": "2026-11-23",
+  "ugc net": "2026-11-23",
+  "al-shamal vs al-ahli": "2026-11-23",
+  "intel share price": "2026-11-23"
  },
  "posts": [
   {
@@ -1377,6 +1381,25 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/real-kashmir-dempo-match.html",
    "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "ugc net",
+   "title": "NTA ने CSIR‑UGC NET दिसंबर 2026 की परीक्षा तिथियां, शिफ्टें और स्लिप जारी करने की घोषणा की",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FAIL",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "avengers doomsday",
+   "title": "अवेंजर्स: डूम्सडे का अंतिम ट्रेलर रिलीज़, 18 दिसंबर को होगी रिलीज़",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/avengers-doomsday-final-trailer-release.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1490,9 +1513,11 @@
   "wB2_lYjauVI",
   "XYgTTbXCJ0M",
   "zcLsFdzR5MI",
-  "C-TNT-R0cho"
+  "C-TNT-R0cho",
+  "PDRFeeDniCk",
+  "4VDRCoNuvE0"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -2134,6 +2159,38 @@
    },
    "section": "शेयर बाजार",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@fa06674c218f387f92d1abbce9acf062aebc31ae/images/2026/11/taiwan-short-selling-ban-1200.jpg",
+   "date": "2026-11-23"
+  },
+  "6516860106665453777": {
+   "article": {
+    "title_hi": "NTA ने CSIR‑UGC NET दिसंबर 2026 की परीक्षा तिथियां, शिफ्टें और स्लिप जारी करने की घोषणा की",
+    "slug_en": "ugc-net-schedule-announcement",
+    "summary": [
+     "NTA ने CSIR‑UGC NET दिसंबर 2026 की परीक्षा तिथियां और शिफ्टें घोषित कीं।",
+     "रिपोर्ट्स के मुताबिक शहर इंटिमेशन स्लिप 23 नवंबर को जारी होगी, लेकिन अभी तक डाउनलोड नहीं हुई।",
+     "एडमिट कार्ड 7 दिसंबर से जारी होंगे, और शेड्यूल csirugcnet.nta.nic.in पर उपलब्ध है।"
+    ],
+    "key_numbers": [
+     {
+      "value": "6",
+      "label": "परीक्षा अवधि (दिन)"
+     },
+     {
+      "value": "7",
+      "label": "एडमिट कार्ड जारी तिथि (दिसंबर)"
+     }
+    ],
+    "_photo": {
+     "id": "PDRFeeDniCk",
+     "url": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8ZXhhbSUyMGhhbGx8ZW58MXwwfHx8MTc5NTQ0Nzc3OHww&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8ZXhhbSUyMGhhbGx8ZW58MXwwfHx8MTc5NTQ0Nzc3OHww&ixlib=rb-4.1.0",
+     "credit_name": "Ivan Aleksic",
+     "credit_url": "https://unsplash.com/@ivalex?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "भारत",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@ff8e86d93ab08da13657966f7cb340a6bb718a80/images/2026/11/ugc-net-schedule-announcement-2058.jpg",
    "date": "2026-11-23"
   }
  }
