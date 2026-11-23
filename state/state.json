@@ -221,7 +221,10 @@
   "जसप्रीत बुमराह": "2026-11-23",
   "today's weather": "2026-11-23",
   "gold price today": "2026-11-23",
-  "sl-w vs pakw": "2026-11-23"
+  "sl-w vs pakw": "2026-11-23",
+  "chicago fire fc vs charlotte fc standings": "2026-11-23",
+  "taiwan index": "2026-11-23",
+  "itbp": "2026-11-23"
  },
  "posts": [
   {
@@ -1275,6 +1278,25 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/gold-price-rebound-india.html",
    "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "itbp",
+   "title": "ITBP और सेना ने अरुणाचल सीमा गांवों के सहकारी से कृषि उत्पाद खरीदे",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/itbp-army-cooperative-purchases.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "taiwan index",
+   "title": "ताइवान वित्तीय पर्यवेक्षण आयोग ने शॉर्ट-सेलिंग प्रतिबंध कड़ा किया",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -1382,9 +1404,11 @@
   "xl7675LXTO0",
   "0eqcfjZlVKQ",
   "GvJBboqOebI",
-  "fvoxs8eVE_U"
+  "fvoxs8eVE_U",
+  "O5s2SBSRJJA",
+  "3r8rcSy0Ffg"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -1998,6 +2022,34 @@
    },
    "section": "खेल",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@b50d205e2133646d1fdb155d13953afbdcf827a5/images/2026/11/bumrah-dismisses-latham-ducks-0757.jpg",
+   "date": "2026-11-23"
+  },
+  "1610067528688875464": {
+   "article": {
+    "title_hi": "ताइवान वित्तीय पर्यवेक्षण आयोग ने शॉर्ट-सेलिंग प्रतिबंध कड़ा किया",
+    "slug_en": "taiwan-short-selling-ban",
+    "summary": [],
+    "key_numbers": [
+     {
+      "value": "3.5%",
+      "label": "गिरावट प्रतिशत"
+     },
+     {
+      "value": "2015",
+      "label": "पिछला व्यापक बैन वर्ष"
+     }
+    ],
+    "_photo": {
+     "id": "3r8rcSy0Ffg",
+     "url": "https://images.unsplash.com/photo-1649003515353-c58a239cf662?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8N3x8c3RvY2slMjBtYXJrZXQlMjBjaGFydHxlbnwxfDB8fHwxNzk1NDE1NTg5fDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1649003515353-c58a239cf662?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8N3x8c3RvY2slMjBtYXJrZXQlMjBjaGFydHxlbnwxfDB8fHwxNzk1NDE1NTg5fDA&ixlib=rb-4.1.0",
+     "credit_name": "Tötös Ádám",
+     "credit_url": "https://unsplash.com/@toti1996?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "शेयर बाजार",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@fa06674c218f387f92d1abbce9acf062aebc31ae/images/2026/11/taiwan-short-selling-ban-1200.jpg",
    "date": "2026-11-23"
   }
  }
