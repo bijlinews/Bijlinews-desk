@@ -230,7 +230,15 @@
   "রেখা পাত্র": "2026-11-23",
   "womens emerging nations trophy": "2026-11-23",
   "today lottery sambad": "2026-11-23",
-  "the hunger games sunrise on the reaping": "2026-11-23"
+  "the hunger games sunrise on the reaping": "2026-11-23",
+  "bangladesh a vs sri lanka a": "2026-11-23",
+  "ಟೆಸ್ಟ್ ಕ್ರಿಕೆಟ್": "2026-11-23",
+  "वेलिंगटन क्रिकेट टीम": "2026-11-23",
+  "alexandr wang": "2026-11-23",
+  "মুখ্যমন্ত্রী": "2026-11-23",
+  "up super tet exam city": "2026-11-23",
+  "क्रिकेट पिच": "2026-11-23",
+  "सनी देओल": "2026-11-23"
  },
  "posts": [
   {
@@ -1319,6 +1327,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/sri-lanka-qualifies-womens-emerging.html",
    "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "bangladesh a vs sri lanka a",
+   "title": "स्रीलंका A बनाम बांग्लादेश A का एशिया कप राइजिंग स्टार्स 2026 का 10वां मैच",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sri-lanka-bangladesh-asia-cup-2026.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "वेलिंगटन क्रिकेट टीम",
+   "title": "वेलिंगटन में पहला टेस्ट ड्रॉ, भारत की WTC पॉइंट टेबल में गिरावट",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/wellington-test-draw-india-nz.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1429,9 +1453,10 @@
   "fvoxs8eVE_U",
   "O5s2SBSRJJA",
   "3r8rcSy0Ffg",
-  "wB2_lYjauVI"
+  "wB2_lYjauVI",
+  "XYgTTbXCJ0M"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
