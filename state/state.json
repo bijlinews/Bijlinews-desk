@@ -252,7 +252,12 @@
   "avengers doomsday": "2026-11-23",
   "ugc net": "2026-11-23",
   "al-shamal vs al-ahli": "2026-11-23",
-  "intel share price": "2026-11-23"
+  "intel share price": "2026-11-23",
+  "gta6 update": "2026-11-23",
+  "inter miami football": "2026-11-23",
+  "bigg boss 10 telugu voting": "2026-11-23",
+  "dark": "2026-11-23",
+  "qazi touqeer": "2026-11-23"
  },
  "posts": [
   {
@@ -1400,6 +1405,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/avengers-doomsday-final-trailer-release.html",
    "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "qazi touqeer",
+   "title": "सलमान खान ने बिग्ग बॉस 20 के काज़ी तौकीर को गाना देने का वादा किया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/salman-qazi-song-promise.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-23",
+   "trend": "gta6 update",
+   "title": "GTA 6 का पहला पोस्ट-लॉन्च अपडेट 23 नवंबर को जारी, क्रैश और मौसम सुधारे",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/gta-6-first-post-launch-update.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1515,9 +1536,11 @@
   "zcLsFdzR5MI",
   "C-TNT-R0cho",
   "PDRFeeDniCk",
-  "4VDRCoNuvE0"
+  "4VDRCoNuvE0",
+  "63sI4HO30tw",
+  "eCktzGjC-iU"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
