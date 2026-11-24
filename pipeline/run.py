@@ -7,7 +7,7 @@ import subprocess
 import time
 import traceback
 
-from . import blogger, brand, compose, config, editorial, glossary, image, llm, notify, search, sources, stories, topics
+from . import blogger, brand, compose, config, descriptions, editorial, glossary, image, llm, notify, search, sources, stories, topics
 
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 NOW = dt.datetime.now(IST)
@@ -331,6 +331,9 @@ def main():
                 post = {"url": "", "edit_url": f"out/{slug}.html"}
             else:
                 post = bl.create(slug.replace("-", " "), article["title_hi"], html, labels, publish)
+                descs = descriptions.add(descriptions.load(), post.get("id"), article["title_hi"],
+                                         post.get("url", ""), post.get("edit_url", ""), article.get("search_description"))
+                descriptions.save(descs)
                 if publish and post.get("url"):
                     make_story(st, story_data, post["url"], post.get("id", ""))
                 elif post.get("id"):
@@ -351,7 +354,8 @@ def main():
             notify.run_failed(f"Topic: {trend['title']}\n\n{err}")
 
     save_state(st)
-    git_push([config.STATE_FILE], f"state: {NOW:%Y-%m-%d %H:%M} IST")
+    git_push([config.STATE_FILE] + ([descriptions.PATH] if os.path.exists(descriptions.PATH) else []),
+             f"state: {NOW:%Y-%m-%d %H:%M} IST")
 
 
 if __name__ == "__main__":

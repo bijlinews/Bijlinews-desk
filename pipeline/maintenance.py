@@ -18,7 +18,7 @@ import sys
 
 import requests
 
-from . import blogger, brand, compose, config, image, llm
+from . import blogger, brand, compose, config, descriptions, image, llm
 
 DIR = "maintenance"
 ACTIONS = os.path.join(DIR, "actions.txt")
@@ -356,6 +356,83 @@ def rebrand_all(push):
     return [RESULTS]
 
 
+LEAD_RE = re.compile(r'<p class="bn-lead"')
+SUMMARY_RE = re.compile(r'<div class="bn-summary">')
+NUM_RE = re.compile(r"\d[\d,.]*\d|\d")
+
+
+def _nums(t):
+    return {n.replace(",", "") for n in NUM_RE.findall(t or "")}
+
+
+def _describe(post, text):
+    """One Hindi sentence (110-155 chars) from the post's own text. Every number must be in the post."""
+    try:
+        res, _ = llm.ask(
+            "Write the Google/WhatsApp search description for this Hindi news article: ONE complete Hindi sentence, "
+            "110-155 characters, with the single most important fact (who/what/how much). Use only facts from the "
+            "text. No question, no 'जानें', no 'पूरी खबर', no emoji. Return ONLY JSON: {\"description\": \"...\"}\n\n"
+            f"TITLE: {post.get('title', '')}\nTEXT: {text[:3000]}", temperature=0.2, max_tokens=1500)
+        desc = descriptions.clean((res or {}).get("description", ""))
+    except llm.AIUnavailable:
+        return ""
+    if len(desc) < 60 or not _nums(desc) <= _nums(post.get("title", "") + " " + text):
+        return ""
+    return desc
+
+
+def describe_all(preview, push):
+    """Every live post gets a ready-made Search description in state/descriptions.json.
+    Bot posts (with the '30 सेकंड में समझें' box) also get it as their visible opening line, so the theme's
+    fallback description is unique per post."""
+    bl = blogger.Blogger()
+    items = descriptions.load()
+    have = {str(i.get("post_id")) for i in items}
+    posts = [p for p in all_posts(bl) if p["_status"] == "live"]
+    log, changed = [], 0
+    for post in posts:
+        pid, body = post["id"], post.get("content", "")
+        bot = bool(SUMMARY_RE.search(body))
+        if pid in have and (not bot or LEAD_RE.search(body)):
+            continue
+        text = _text(body)
+        desc = _describe(post, text)
+        if not desc and bot:   # fall back to the first '30 सेकंड' point
+            m = re.search(r'<div class="bn-summary">.*?<li>(.*?)</li>', body, flags=re.S)
+            desc = descriptions.clean(html.unescape(_text(m.group(1)))) if m else ""
+        if not desc:
+            log.append(f"- describe {pid}: no description (skipped) {post.get('title', '')[:50]}")
+            continue
+        edit = f"https://www.blogger.com/blog/post/edit/{config.BLOG_ID}/{pid}"
+        items = descriptions.add(items, pid, post.get("title", ""), post.get("url", ""), edit, desc)
+        what = "listed"
+        if bot and not LEAD_RE.search(body):
+            lead = compose._lead({"search_description": desc})
+            k = SUMMARY_RE.search(body).start()
+            new = body[:k] + lead + body[k:]
+            if not preview:
+                try:
+                    requests.patch(f"{bl.base}/{pid}", headers=bl.h, timeout=60,
+                                   json={"content": new}).raise_for_status()
+                    changed += 1
+                    what = "listed + opening line added"
+                except Exception as ex:  # noqa: BLE001
+                    what = f"listed, opening line FAILED: {str(ex)[:120]}"
+            else:
+                what = "would add opening line"
+        log.append(f"- describe {pid}: {what}: {desc}")
+        print(log[-1], flush=True)
+    stamp = dt.datetime.now(IST).strftime("%Y-%m-%d %H:%M")
+    os.makedirs(DIR, exist_ok=True)
+    with open(RESULTS, "a", encoding="utf-8") as f:
+        f.write(f"\n## {stamp} IST (describe{' preview' if preview else ''})\n" + "\n".join(log or ["- nothing to do"]) + "\n")
+    print(f"{len(log)} post(s) handled, {changed} opening line(s) added")
+    if preview:
+        return [RESULTS]
+    descriptions.save(items)
+    return [RESULTS, descriptions.PATH]
+
+
 def main():
     mode = (sys.argv[1] if len(sys.argv) > 1 else "audit").strip().lower()
     from .run import git_push, NOW
@@ -369,6 +446,9 @@ def main():
     elif mode == "rebrand":
         paths = rebrand_all(push=git_push)
         git_push(paths, f"maintenance: rebrand {NOW:%Y-%m-%d %H:%M}")
+    elif mode in ("describe", "describe-preview"):
+        paths = describe_all(preview=(mode == "describe-preview"), push=git_push)
+        git_push(paths, f"maintenance: {mode} {NOW:%Y-%m-%d %H:%M}")
     elif mode in ("apply", "preview"):
         paths, _ = apply(preview=(mode == "preview"), push=git_push)
         if paths:

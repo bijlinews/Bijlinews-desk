@@ -36,7 +36,7 @@ def _numbers(text):
 
 def unsupported_numbers(article, sources, facts):
     """Every number (2+ digits) in the headline, summary and body must appear in the sources."""
-    extras = [str(article.get("why_it_matters") or "")]
+    extras = [str(article.get("why_it_matters") or ""), str(article.get("search_description") or "")]
     for key in ("key_numbers", "timeline", "faq"):
         for item in article.get(key) or []:
             if isinstance(item, dict):
@@ -57,7 +57,7 @@ def unsupported_numbers(article, sources, facts):
 
 def _article_text(article):
     parts = [article.get("title_hi", ""), " ".join(article.get("summary", [])), article.get("body_html", ""),
-             str(article.get("why_it_matters") or "")]
+             str(article.get("why_it_matters") or ""), str(article.get("search_description") or "")]
     for key in ("key_numbers", "timeline", "faq"):
         for item in article.get(key) or []:
             if isinstance(item, dict):

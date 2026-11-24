@@ -104,7 +104,7 @@ def build_post(article, card_url, sources, section=""):
         share = ""
         figure = f'<div class="separator bn-cardimg"><img src="{e(card_url)}" alt="{alt}" width="1200" height="675" /></div>'
     return f"""<!--bn-slug:{slug(article.get("slug_en") or "")}-->
-{share}<div class="bn-summary"><b class="t">⚡ 30 सेकंड में समझें</b><ul>{bullets}</ul></div>
+{_lead(article)}{share}<div class="bn-summary"><b class="t">⚡ 30 सेकंड में समझें</b><ul>{bullets}</ul></div>
 <!--more-->
 {figure}
 {_numbers(article)}
@@ -114,6 +114,15 @@ def build_post(article, card_url, sources, section=""):
 {_faq(article)}
 <div class="bn-source"><strong>स्रोत:</strong> {' '.join(links[:5])}</div>
 {_sensitive_note(article)}<p class="bn-ai"><strong>बिजली न्यूज़ डेस्क</strong> · कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>, हम तुरंत सुधारेंगे।</p>"""
+
+
+def _lead(article):
+    """Opening line = the search description. Blogger's snippet starts here, so the theme can use it
+    as the meta/WhatsApp description when a post has no Search description set."""
+    text = re.sub(r"\s+", " ", str(article.get("search_description") or "")).strip()
+    if len(text) < 40:
+        return ""
+    return f'<p class="bn-lead" style="font-size:18px;line-height:1.6;font-weight:600;margin:0 0 14px">{html.escape(text)}</p>\n'
 
 
 def slug(s):
