@@ -55,6 +55,7 @@ MIN_OUTLETS = int(env("MIN_OUTLETS", "3"))    # independent news outlets needed 
 MIN_FULLTEXT = int(env("MIN_FULLTEXT", "2"))  # articles we could actually read in full
 MIN_FACTS = int(env("MIN_FACTS", "6"))        # verified facts needed before writing
 REPO = env("GITHUB_REPOSITORY", "")           # owner/repo, set automatically by GitHub Actions
+STORIES_URL = env("STORIES_URL", "https://stories.bijlinews.com")  # Web Stories address (GitHub Pages custom domain)
 
 # Labels the live theme reads. The writer must pick exactly one of these.
 SECTIONS = ["भारत", "दुनिया", "बिजनेस", "शेयर बाजार", "टेक्नोलॉजी", "खेल", "मनोरंजन", "हेल्थ"]

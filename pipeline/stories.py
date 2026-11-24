@@ -19,6 +19,8 @@ ACCENT = {k: "#%02x%02x%02x" % v for k, v in brand.ACCENT.items()}
 
 
 def base_url():
+    if config.STORIES_URL:
+        return config.STORIES_URL.rstrip("/")
     owner, _, repo = (config.REPO or "bijlinews/Bijlinews-desk").partition("/")
     return f"https://{owner.lower()}.github.io/{repo}"
 
