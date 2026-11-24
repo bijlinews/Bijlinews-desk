@@ -36,7 +36,7 @@ def _numbers(text):
 
 def unsupported_numbers(article, sources, facts):
     """Every number (2+ digits) in the headline, summary and body must appear in the sources."""
-    extras = []
+    extras = [str(article.get("why_it_matters") or "")]
     for key in ("key_numbers", "timeline", "faq"):
         for item in article.get(key) or []:
             if isinstance(item, dict):
@@ -53,3 +53,64 @@ def unsupported_numbers(article, sources, facts):
             continue
         missing.append(n)
     return missing
+
+
+def _article_text(article):
+    parts = [article.get("title_hi", ""), " ".join(article.get("summary", [])), article.get("body_html", ""),
+             str(article.get("why_it_matters") or "")]
+    for key in ("key_numbers", "timeline", "faq"):
+        for item in article.get(key) or []:
+            if isinstance(item, dict):
+                parts += [str(v) for v in item.values()]
+    return re.sub(r"<[^>]+>", " ", " ".join(parts))
+
+
+def _source_text(sources, facts):
+    return " ".join([" ".join([s.get("source", ""), s.get("title", ""), s.get("snippet", ""), s.get("text", "")])
+                     for s in sources] +
+                    [f.get("quote", "") for f in facts])
+
+
+# Latin words that are not names (units, common English words the writer may use in Hindi text)
+_COMMON_LATIN = {"the", "and", "for", "with", "from", "ipo", "gdp", "ceo", "cfo", "pm", "cm", "mp", "mla", "ipl",
+                 "odi", "t20", "t20i", "test", "news", "app", "online", "live", "km", "kg", "rs", "inr", "usd",
+                 "ist", "gmt", "utc", "am", "pm", "bjp", "aap", "nda", "rbi", "sebi", "bse", "nse", "isro", "bcci", "icc"}
+# abbreviations that are never "expanded" (times, units)
+_NOT_EXPANSIONS = {"IST", "GMT", "UTC", "AM", "PM", "KM", "KG"}
+
+
+def unsupported_names(article, sources, facts):
+    """Names, abbreviations and other Latin-script words in the article that no source contains.
+    Catches invented or wrongly spelled English names (e.g. a team or company the reports never mention)."""
+    pool = norm(_source_text(sources, facts))
+    missing = []
+    for w in sorted(set(re.findall(r"[A-Za-z][A-Za-z0-9&.\-]{1,}", _article_text(article)))):
+        key = w.strip(".-").lower()
+        if len(key) < 3 or key in _COMMON_LATIN or key.isdigit():
+            continue
+        if key not in pool:
+            missing.append(w.strip(".-"))
+    return missing
+
+
+def expanded_abbreviations(article, sources, facts):
+    """Hindi words written just before '(ABC)' when no source spells ABC out.
+    Example: '... ट्रांसजेंडर सेंटर (TRC) ग्राउंड' — the reports only said 'TRC', so the writer guessed
+    what it stands for. Returns short strings like 'ट्रांसजेंडर सेंटर (TRC)' for the fact-check."""
+    text = _article_text(article)
+    src = _source_text(sources, facts)
+    bad = []
+    for m in re.finditer(r"\(\s*([A-Z][A-Z0-9]{1,7})\s*\)", text):
+        abbr = m.group(1)
+        if abbr in _NOT_EXPANSIONS:
+            continue
+        before = re.findall(r"[\u0900-\u097F]+", text[max(0, m.start() - 60):m.start()].split("।")[-1])
+        if not before or not text[:m.start()].rstrip().endswith(before[-1]):
+            continue                      # "(TRC)" not directly after Hindi words: nothing was expanded
+        phrase = " ".join(before[-3:])
+        spelled = re.search(r"[A-Za-z][A-Za-z .&'-]{3,80}\(\s*" + re.escape(abbr) + r"\s*\)", src) or \
+            re.search(re.escape(abbr) + r"\s*\(\s*[A-Za-z][A-Za-z .&'-]{3,80}\)", src) or \
+            re.search(r"[\u0900-\u097F][\u0900-\u097F ]{3,60}\(\s*" + re.escape(abbr) + r"\s*\)", src)
+        if not spelled:
+            bad.append(f"{phrase} ({abbr})")
+    return sorted(set(bad))

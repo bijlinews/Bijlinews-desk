@@ -48,9 +48,9 @@ NOTIFY_TO = env("NOTIFY_TO")
 # "draft": never publish; always save drafts (safe mode / testing).
 PUBLISH_MODE = env("PUBLISH_MODE", "auto")
 DRY_RUN = env("DRY_RUN", "0") == "1"          # do everything except touch Blogger / send email
-MAX_PER_RUN = int(env("MAX_PER_RUN", "2"))
-MAX_PER_DAY = int(env("MAX_PER_DAY", "8"))
-MIN_TRAFFIC = int(env("MIN_TRAFFIC", "500"))  # Google Trends "approx traffic" threshold
+MAX_PER_RUN = int(env("MAX_PER_RUN", "1"))
+MAX_PER_DAY = int(env("MAX_PER_DAY", "6"))
+MIN_TRAFFIC = int(env("MIN_TRAFFIC", "2000"))  # Google Trends "approx traffic" threshold
 MIN_OUTLETS = int(env("MIN_OUTLETS", "3"))    # independent news outlets needed before writing
 MIN_FULLTEXT = int(env("MIN_FULLTEXT", "2"))  # articles we could actually read in full
 MIN_FACTS = int(env("MIN_FACTS", "6"))        # verified facts needed before writing
@@ -59,6 +59,15 @@ REPO = env("GITHUB_REPOSITORY", "")           # owner/repo, set automatically by
 # Labels the live theme reads. The writer must pick exactly one of these.
 SECTIONS = ["भारत", "दुनिया", "बिजनेस", "शेयर बाजार", "टेक्नोलॉजी", "खेल", "मनोरंजन", "हेल्थ"]
 TREND_LABEL = "ट्रेंडिंग"
+
+# Focus: the bot writes only in these sections (a site that covers a few beats well earns Google's
+# trust faster than one that covers everything). Comma-separated; must be names from SECTIONS.
+ALLOWED_SECTIONS = [s.strip() for s in env("ALLOWED_SECTIONS", "भारत,बिजनेस,शेयर बाजार,खेल").split(",")
+                    if s.strip() in SECTIONS] or SECTIONS
+
+# FAQ box + FAQPage schema under each post. Google no longer shows FAQ rich results, and the identical
+# box on every post makes the site look templated, so it is off unless SHOW_FAQ=1.
+SHOW_FAQ = env("SHOW_FAQ", "0") == "1"
 
 STATE_FILE = "state/state.json"
 IMAGE_DIR = "images"

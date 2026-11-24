@@ -7,7 +7,7 @@ import subprocess
 import time
 import traceback
 
-from . import blogger, brand, compose, config, editorial, image, llm, notify, search, sources, stories
+from . import blogger, brand, compose, config, editorial, glossary, image, llm, notify, search, sources, stories, topics
 
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 NOW = dt.datetime.now(IST)
@@ -215,7 +215,16 @@ def main():
 
     trends = [t for t in sources.fetch_trends()
               if t["traffic"] >= config.MIN_TRAFFIC and norm(t["title"]) not in st["seen"]]
-    print(f"{len(trends)} fresh trends above {config.MIN_TRAFFIC}+ searches")
+    kept = []
+    for t in trends:   # cheap Python filter first: trends a new Hindi site can't win (see topics.py)
+        why = topics.skip_reason(t["title"])
+        if why:
+            print(f"  skip trend '{t['title']}': {why}")
+            st["seen"][norm(t["title"])] = TODAY
+        else:
+            kept.append(t)
+    trends = kept
+    print(f"{len(trends)} fresh trends above {config.MIN_TRAFFIC}+ searches after filtering")
     if not trends:
         return
     trends = sorted(trends, key=lambda t: -t["traffic"])[:15]
@@ -230,7 +239,7 @@ def main():
         i = p.get("index")
         if isinstance(i, int) and 0 <= i < len(trends):
             st["seen"][norm(trends[i]["title"])] = TODAY
-    picks = [p for p in picks if p.get("relevant") and p.get("section") in config.SECTIONS]
+    picks = [p for p in picks if p.get("relevant") and p.get("section") in config.ALLOWED_SECTIONS]
     picks.sort(key=lambda p: -int(p.get("priority", 0)))
     print("Picked:", [(trends[p["index"]]["title"], p.get("priority"), p.get("sensitive")) for p in picks])
 
@@ -253,14 +262,14 @@ def main():
                 print(f"  skip: only {len(facts)} verified facts")
                 continue
 
-            article = editorial.write(trend["title"], p["section"], facts, event_en)
+            article = glossary.apply(editorial.write(trend["title"], p["section"], facts, event_en, srcs))
             if similar_exists(article["title_hi"], recent):
                 print("  skip: we already have a similar post")
                 continue
 
             check = editorial.fact_check(article, facts, srcs)
             if check.get("verdict") == "FIX":
-                article = editorial.revise(article, check, facts)
+                article = glossary.apply(editorial.revise(article, check, facts))
                 check = editorial.fact_check(article, facts, srcs)
             print(f"  fact-check: {check.get('verdict')} | {check.get('notes','')[:160]}")
             check["facts_rejected"] = len(rejected)
@@ -279,6 +288,8 @@ def main():
                 reasons.append("कुछ दावे पुष्ट नहीं हुए")
             if check.get("numbers_not_in_sources"):
                 reasons.append("कुछ संख्याएँ स्रोतों में नहीं मिलीं")
+            if check.get("names_not_in_sources") or check.get("guessed_expansions"):
+                reasons.append("कुछ नाम/संक्षिप्त रूप स्रोतों से मेल नहीं खाते")
             publish = not reasons
 
             # ---- images: our branded card (thumbnail + social preview, committed to the repo)
