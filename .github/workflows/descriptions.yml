@@ -1,0 +1,46 @@
+name: Add Search descriptions
+
+# Prepares ready-made Search descriptions for older live posts (newest first) and adds them to
+# state/descriptions.json. The Description Filler Chrome extension then types them into Blogger.
+# Started from the extension's "Ask the robot to prepare them" button, or by hand here.
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "How many older posts to prepare descriptions for (1-500)"
+        default: "50"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bijli-trends      # never at the same time as the hourly bot (both save state/)
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - name: Git identity
+        run: |
+          git config user.name "bijli-bot"
+          git config user.email "bijli-bot@users.noreply.github.com"
+      - name: Prepare descriptions
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_API_KEY_FRIEND1: ${{ secrets.GROQ_API_KEY_FRIEND1 }}
+          GROQ_API_KEY_FRIEND2: ${{ secrets.GROQ_API_KEY_FRIEND2 }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL || 'openai/gpt-oss-120b' }}
+          GROQ_ALT_MODEL: ${{ vars.GROQ_ALT_MODEL || 'llama-3.3-70b-versatile' }}
+          DESC_COUNT: ${{ inputs.count }}
+        run: python -m pipeline.maintenance describe
