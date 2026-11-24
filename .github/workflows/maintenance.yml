@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "audit = read-only report | preview = show what apply would do | apply = run un-commented lines in maintenance/actions.txt | rebrand = brand all Unsplash photos"
+        description: "audit = read-only report | preview = show what apply would do | apply = run un-commented lines in maintenance/actions.txt | rebrand = brand all Unsplash photos | describe = search descriptions for all live posts (+ opening line on bot posts) | describe-preview = same, changes nothing on the blog"
         type: choice
-        options: [audit, preview, apply, rebrand]
+        options: [audit, preview, apply, rebrand, describe-preview, describe]
         default: audit
 
 permissions:
