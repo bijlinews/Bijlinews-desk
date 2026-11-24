@@ -1,43 +1,5 @@
 {
  "seen": {
-  "விடுமுறை": "2026-11-19",
-  "gold mcx": "2026-11-19",
-  "javokhir sindarov": "2026-11-19",
-  "today": "2026-11-19",
-  "investing com": "2026-11-19",
-  "why gold price is going down": "2026-11-19",
-  "today gold rate chennai": "2026-11-19",
-  "pnb share price": "2026-11-19",
-  "ireda share price": "2026-11-19",
-  "सागरिका घाटगे": "2026-11-19",
-  "जनसंख्या": "2026-11-19",
-  "மு க ஸ்டாலின்": "2026-11-19",
-  "एकादशी": "2026-11-19",
-  "kospi": "2026-11-19",
-  "kospi moneycontrol": "2026-11-19",
-  "msme": "2026-11-19",
-  "cyclone": "2026-11-19",
-  "paytm shares": "2026-11-19",
-  "nasa voyager 1": "2026-11-19",
-  "why is gold dropping?": "2026-11-19",
-  "dempo sc vs shillong lajong": "2026-11-19",
-  "ராஜ்மோகன்": "2026-11-19",
-  "deepinder goyal": "2026-11-19",
-  "మలేషియా": "2026-11-19",
-  "सोना": "2026-11-19",
-  "क्रिकेट अंपायर": "2026-11-19",
-  "chitwan rhinos vs kathmandu gurkhas": "2026-11-19",
-  "jee mains": "2026-11-19",
-  "ben shelton": "2026-11-19",
-  "weather ranchi": "2026-11-19",
-  "एनडीटीवी": "2026-11-19",
-  "गुंतवणूकदार": "2026-11-19",
-  "abhishek sharma": "2026-11-19",
-  "marvel avengers doomsday trailer": "2026-11-19",
-  "loan": "2026-11-19",
-  "पदोन्नति": "2026-11-19",
-  "गोरखपुर": "2026-11-19",
-  "sooraj barjatya": "2026-11-19",
   "kl rahul": "2026-11-20",
   "gold rate today": "2026-11-20",
   "gold rate": "2026-11-20",
@@ -257,7 +219,10 @@
   "inter miami football": "2026-11-23",
   "bigg boss 10 telugu voting": "2026-11-23",
   "dark": "2026-11-23",
-  "qazi touqeer": "2026-11-23"
+  "qazi touqeer": "2026-11-23",
+  "sone ka bhav aaj ka": "2026-11-24",
+  "om movie collection worldwide": "2026-11-24",
+  "kerala lottery results": "2026-11-24"
  },
  "posts": [
   {
@@ -1421,6 +1386,28 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/gta-6-first-post-launch-update.html",
    "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "om movie collection worldwide",
+   "title": "ओम: ओपरेशन मोल ने 23 नवंबर को विश्व स्तर पर 93.40 करोड़ रुपये की कमाई की",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "kerala lottery results",
+   "title": "केरल लॉटरी परिणाम: भाग्यधारा बीटी‑81 और धनालक्ष्मी डीएल‑78 के विजेता टिकट",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -1538,9 +1525,11 @@
   "PDRFeeDniCk",
   "4VDRCoNuvE0",
   "63sI4HO30tw",
-  "eCktzGjC-iU"
+  "eCktzGjC-iU",
+  "KWOcA8_Vu10",
+  "A_dJOYpxEVU"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -2215,6 +2204,78 @@
    "section": "भारत",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@ff8e86d93ab08da13657966f7cb340a6bb718a80/images/2026/11/ugc-net-schedule-announcement-2058.jpg",
    "date": "2026-11-23"
+  },
+  "5929129777091064006": {
+   "article": {
+    "title_hi": "ओम: ओपरेशन मोल ने 23 नवंबर को विश्व स्तर पर 93.40 करोड़ रुपये की कमाई की",
+    "slug_en": "om-operation-mole-worldwide-collection",
+    "summary": [
+     "फ़िल्म ने 23 नवंबर को विश्व स्तर पर 93.40 करोड़ रुपये की कमाई की।",
+     "पहले सप्ताहांत में 85.30 करोड़ की कमाई ने धानुश का पिछला रिकॉर्ड तोड़ा।",
+     "चार दिनों में भारत में शुद्ध 50 करोड़ रुपये का आंकड़ा पार किया।"
+    ],
+    "key_numbers": [
+     {
+      "value": "93.40 करोड़ रुपये",
+      "label": "23 नवंबर विश्व कमाई"
+     },
+     {
+      "value": "85.30 करोड़ रुपये",
+      "label": "पहले सप्ताहांत विश्व कमाई"
+     },
+     {
+      "value": "50 करोड़ रुपये",
+      "label": "चार दिन भारत शुद्ध"
+     }
+    ],
+    "_photo": {
+     "id": "KWOcA8_Vu10",
+     "url": "https://images.unsplash.com/photo-1561722798-9a732d141027?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8Y2luZW1hJTIwaGFsbCUyMHNjcmVlbnxlbnwxfDB8fHwxNzk1NDg3NDk2fDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1561722798-9a732d141027?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8Mnx8Y2luZW1hJTIwaGFsbCUyMHNjcmVlbnxlbnwxfDB8fHwxNzk1NDg3NDk2fDA&ixlib=rb-4.1.0",
+     "credit_name": "Augusto Oazi",
+     "credit_url": "https://unsplash.com/@augustooazi?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "मनोरंजन",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@5c96f85b375c2b8e118174ba21ad4555d1910aee/images/2026/11/om-operation-mole-worldwide-collection-0800.jpg",
+   "date": "2026-11-24"
+  },
+  "5395718701693739097": {
+   "article": {
+    "title_hi": "केरल लॉटरी परिणाम: भाग्यधारा बीटी‑81 और धनालक्ष्मी डीएल‑78 के विजेता टिकट",
+    "slug_en": "kerala-lottery-results",
+    "summary": [
+     "23 नवंबर को भाग्यधारा बीटी‑81 और 18 नवंबर को धनालक्ष्मी डीएल‑78 के ड्रॉ हुए।",
+     "दोनों लॉटरी में पहला इनाम ₹1 करोड़ का विजेता टिकट घोषित हुआ।",
+     "पहले इनाम पर 30% कर कटौती लागू है, जिससे शुद्ध राशि प्रभावित होगी।"
+    ],
+    "key_numbers": [
+     {
+      "value": "₹1 करोड़",
+      "label": "पहला इनाम राशि"
+     },
+     {
+      "value": "₹30 लाख",
+      "label": "दूसरा इनाम राशि"
+     },
+     {
+      "value": "₹5,000",
+      "label": "कंसोलिडेशन इनाम"
+     }
+    ],
+    "_photo": {
+     "id": "A_dJOYpxEVU",
+     "url": "https://images.unsplash.com/photo-1578575436955-ef29da568c6c?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8bG90dGVyeSUyMHRpY2tldHN8ZW58MXwwfHx8MTc5NTQ4NzY1Nnww&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1578575436955-ef29da568c6c?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8bG90dGVyeSUyMHRpY2tldHN8ZW58MXwwfHx8MTc5NTQ4NzY1Nnww&ixlib=rb-4.1.0",
+     "credit_name": "Andy Li",
+     "credit_url": "https://unsplash.com/@andylid0?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "भारत",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@542b0cac93d05497e0286e69adcc7ad370ba8790/images/2026/11/kerala-lottery-results-0800.jpg",
+   "date": "2026-11-24"
   }
  }
 }
