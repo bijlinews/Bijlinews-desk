@@ -222,7 +222,12 @@
   "qazi touqeer": "2026-11-23",
   "sone ka bhav aaj ka": "2026-11-24",
   "om movie collection worldwide": "2026-11-24",
-  "kerala lottery results": "2026-11-24"
+  "kerala lottery results": "2026-11-24",
+  "today gold rate in bangalore": "2026-11-24",
+  "is stock market open today": "2026-11-24",
+  "sai kishore": "2026-11-24",
+  "is market open today": "2026-11-24",
+  "del vs tn": "2026-11-24"
  },
  "posts": [
   {
@@ -1408,6 +1413,22 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "today gold rate in bangalore",
+   "title": "बेंगलुरु में 24‑कैरेट सोने की कीमत आज ₹1,25,220 प्रति 10 ग्राम",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/bangalore-gold-price-today.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "is market open today",
+   "title": "नवम्बर 23 2026 को अमेरिकी स्टॉक्स खुले, Nvidia की उछाल से बढ़े",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/us-stocks-open-nvidia-rally.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1527,9 +1548,10 @@
   "63sI4HO30tw",
   "eCktzGjC-iU",
   "KWOcA8_Vu10",
-  "A_dJOYpxEVU"
+  "A_dJOYpxEVU",
+  "HpYTYo_jF2Y"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
