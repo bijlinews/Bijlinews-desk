@@ -356,8 +356,6 @@ def rebrand_all(push):
     return [RESULTS]
 
 
-LEAD_RE = re.compile(r'<p class="bn-lead"')
-SUMMARY_RE = re.compile(r'<div class="bn-summary">')
 NUM_RE = re.compile(r"\d[\d,.]*\d|\d")
 
 
@@ -382,51 +380,35 @@ def _describe(post, text):
 
 
 def describe_all(preview, push):
-    """Every live post gets a ready-made Search description in state/descriptions.json.
-    Bot posts (with the '30 सेकंड में समझें' box) also get it as their visible opening line, so the theme's
-    fallback description is unique per post."""
+    """Ready-made Search descriptions for live posts that aren't in state/descriptions.json yet, newest first.
+    The Description Filler extension types them into Blogger. DESC_COUNT limits how many per run (0 = all)."""
+    limit = min(500, max(0, int(os.getenv("DESC_COUNT") or "0")))
     bl = blogger.Blogger()
     items = descriptions.load()
     have = {str(i.get("post_id")) for i in items}
-    posts = [p for p in all_posts(bl) if p["_status"] == "live"]
-    log, changed = [], 0
+    posts = [p for p in all_posts(bl) if p["_status"] == "live" and p["id"] not in have]
+    posts.sort(key=lambda p: p.get("published", ""), reverse=True)
+    if limit > 0:
+        posts = posts[:limit]
+    log = []
     for post in posts:
         pid, body = post["id"], post.get("content", "")
-        bot = bool(SUMMARY_RE.search(body))
-        if pid in have and (not bot or LEAD_RE.search(body)):
-            continue
-        text = _text(body)
-        desc = _describe(post, text)
-        if not desc and bot:   # fall back to the first '30 सेकंड' point
+        desc = _describe(post, _text(body))
+        if not desc:   # fall back to the first '30 सेकंड' point of bot posts
             m = re.search(r'<div class="bn-summary">.*?<li>(.*?)</li>', body, flags=re.S)
             desc = descriptions.clean(html.unescape(_text(m.group(1)))) if m else ""
-        if not desc:
+        if len(desc) < 40:
             log.append(f"- describe {pid}: no description (skipped) {post.get('title', '')[:50]}")
             continue
         edit = f"https://www.blogger.com/blog/post/edit/{config.BLOG_ID}/{pid}"
         items = descriptions.add(items, pid, post.get("title", ""), post.get("url", ""), edit, desc)
-        what = "listed"
-        if bot and not LEAD_RE.search(body):
-            lead = compose._lead({"search_description": desc})
-            k = SUMMARY_RE.search(body).start()
-            new = body[:k] + lead + body[k:]
-            if not preview:
-                try:
-                    requests.patch(f"{bl.base}/{pid}", headers=bl.h, timeout=60,
-                                   json={"content": new}).raise_for_status()
-                    changed += 1
-                    what = "listed + opening line added"
-                except Exception as ex:  # noqa: BLE001
-                    what = f"listed, opening line FAILED: {str(ex)[:120]}"
-            else:
-                what = "would add opening line"
-        log.append(f"- describe {pid}: {what}: {desc}")
+        log.append(f"- describe {pid}: {desc}")
         print(log[-1], flush=True)
     stamp = dt.datetime.now(IST).strftime("%Y-%m-%d %H:%M")
     os.makedirs(DIR, exist_ok=True)
     with open(RESULTS, "a", encoding="utf-8") as f:
         f.write(f"\n## {stamp} IST (describe{' preview' if preview else ''})\n" + "\n".join(log or ["- nothing to do"]) + "\n")
-    print(f"{len(log)} post(s) handled, {changed} opening line(s) added")
+    print(f"{len(log)} post(s) handled")
     if preview:
         return [RESULTS]
     descriptions.save(items)

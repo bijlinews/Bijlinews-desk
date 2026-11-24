@@ -1,8 +1,7 @@
 """List of Blogger 'Search description' texts, for a Chrome extension that types them into the Blogger editor.
 
 Blogger's API cannot set a post's Search description, so the bot keeps the ready-made text in
-state/descriptions.json (same format as the ICC BizNews list). Until a post gets one, the theme uses the
-post's opening line as its description."""
+state/descriptions.json (same format as the ICC BizNews list)."""
 import datetime as dt
 import json
 import os

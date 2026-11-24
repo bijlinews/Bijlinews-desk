@@ -203,8 +203,7 @@ Return JSON:
 - "body_html": 250–500 Hindi words, HTML using only <p>, <h2>, <ul>, <li>, <strong>. An opening paragraph
    (who, what, when, where), then 2–3 sections with <h2> headings that fit the facts.
 - "search_description": ONE complete Hindi sentence, 100–145 characters (never more than 145), with the single most important fact
-   (who/what/how much). It is shown as the article's opening line AND used as the Google/WhatsApp description,
-   so it must make sense on its own. Only from the facts. No question, no "जानें", no "पूरी खबर", no emoji.
+   (who/what/how much). It is the Google/WhatsApp description, so it must make sense on its own. Only from the facts. No question, no "जानें", no "पूरी खबर", no emoji.
 - "image_alt": Hindi alt text for a generic photo about the topic.
 - "image_query_en": 2–4 English words for a GENERIC stock photo search: objects or places only, e.g.
    "gold jewellery", "cricket stadium night", "indian court building", "film camera set".
