@@ -91,6 +91,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - name: Point older stories at stories.bijlinews.com
+        run: grep -rl 'https://bijlinews.github.io/Bijlinews-desk' docs | xargs -r sed -i 's#https://bijlinews.github.io/Bijlinews-desk#https://stories.bijlinews.com#g'
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
