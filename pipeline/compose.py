@@ -44,7 +44,18 @@ def _timeline(article):
     return f'<div class="bn-timeline"><h2>घटनाक्रम</h2><ol>{lis}</ol></div>'
 
 
+def _why(article):
+    w = str(article.get("why_it_matters") or "").strip()
+    if not w:
+        return ""
+    return (f'<div class="bn-why" style="border-left:4px solid #B00014;background:#fff7f0;padding:10px 14px;'
+            f'border-radius:0 8px 8px 0;margin:16px 0"><strong>आपके लिए इसका मतलब:</strong> {html.escape(w)}</div>')
+
+
 def _faq(article):
+    from . import config
+    if not config.SHOW_FAQ:
+        return ""
     e = html.escape
     qa = [f for f in (article.get("faq") or []) if isinstance(f, dict) and f.get("q") and f.get("a")][:3]
     if not qa:
@@ -98,10 +109,11 @@ def build_post(article, card_url, sources, section=""):
 {figure}
 {_numbers(article)}
 {clean_html(article['body_html'])}
+{_why(article)}
 {_timeline(article)}
 {_faq(article)}
 <div class="bn-source"><strong>स्रोत:</strong> {' '.join(links[:5])}</div>
-{_sensitive_note(article)}<p class="bn-ai">इस खबर को हमने कई विश्वसनीय स्रोतों से जाँचा और सत्यापित किया है और प्रकाशन से पहले स्वचालित रूप से जाँचा गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>।</p>"""
+{_sensitive_note(article)}<p class="bn-ai">यह खबर ऊपर दिए गए स्रोतों की रिपोर्टों के आधार पर AI की मदद से लिखी गई है और प्रकाशन से पहले हर तथ्य को इन्हीं स्रोतों से मिलाया गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>, हम तुरंत सुधारेंगे।</p>"""
 
 
 def slug(s):
