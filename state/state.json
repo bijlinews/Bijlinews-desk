@@ -237,7 +237,9 @@
   "lachlan shaw": "2026-11-24",
   "adil rashid": "2026-11-24",
   "निखिल चौधरी": "2026-11-24",
-  "tripura vs maharashtra": "2026-11-24"
+  "tripura vs maharashtra": "2026-11-24",
+  "thiruvannamalai deepam 2026": "2026-11-24",
+  "पहलगाम": "2026-11-24"
  },
  "posts": [
   {
@@ -1487,6 +1489,25 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/lachlan-shaw-debut-catch.html",
    "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "पहलगाम",
+   "title": "पहलगाम में 22 अप्रैल 2025 का आतंकवादी हमला और चीन के सैटेलाइट बदलाव",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/pahalgam-attack-satellite-operations.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "thiruvannamalai deepam 2026",
+   "title": "टिरुवन्नामलई दीपम 2026: पराणी दीपम सुबह 4 बजे, महा दीपम शाम 6 बजे जलाया",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -1611,9 +1632,11 @@
   "3Fdo8Oivza4",
   "gW4y6IPZV2A",
   "akkmYpy40bk",
-  "qG8sIURis4E"
+  "qG8sIURis4E",
+  "MA8Opd__kV0",
+  "Cq0y_cbEAzA"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -2359,6 +2382,37 @@
    },
    "section": "भारत",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@542b0cac93d05497e0286e69adcc7ad370ba8790/images/2026/11/kerala-lottery-results-0800.jpg",
+   "date": "2026-11-24"
+  },
+  "5550089310908907768": {
+   "article": {
+    "title_hi": "टिरुवन्नामलई दीपम 2026: पराणी दीपम सुबह 4 बजे, महा दीपम शाम 6 बजे जलाया",
+    "slug_en": "tiruvannamalai-deepam-festival",
+    "summary": [
+     "पराणी दीपम सुबह 4 बजे और महा दीपम शाम 6 बजे टिरुवन्नामलई पहाड़ी के शीर्ष पर जलाए गए।",
+     "ऑनलाइन टिकट से दूरस्थ भक्तों को भी दर्शन का अवसर मिला, जिससे समारोह का प्रभाव व्यापक हुआ।"
+    ],
+    "key_numbers": [
+     {
+      "value": "3,000",
+      "label": "मुफ्त ऑनलाइन दर्शन टिकट"
+     },
+     {
+      "value": "2,668 फ़ीट",
+      "label": "पहाड़ी की ऊँचाई"
+     }
+    ],
+    "_photo": {
+     "id": "Cq0y_cbEAzA",
+     "url": "https://images.unsplash.com/photo-1565235786510-e5804c7caac0?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8dGVtcGxlJTIwbGFudGVybiUyMG5pZ2h0fGVufDF8MHx8fDE3OTU1MTkxNDV8MA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1565235786510-e5804c7caac0?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8dGVtcGxlJTIwbGFudGVybiUyMG5pZ2h0fGVufDF8MHx8fDE3OTU1MTkxNDV8MA&ixlib=rb-4.1.0",
+     "credit_name": "Jie Li",
+     "credit_url": "https://unsplash.com/@jleemt?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "भारत",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@ed302dfd1801eae8b01bcd507ac23278dae87320/images/2026/11/tiruvannamalai-deepam-festival-1645.jpg",
    "date": "2026-11-24"
   }
  }
