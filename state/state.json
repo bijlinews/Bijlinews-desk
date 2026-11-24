@@ -227,7 +227,10 @@
   "is stock market open today": "2026-11-24",
   "sai kishore": "2026-11-24",
   "is market open today": "2026-11-24",
-  "del vs tn": "2026-11-24"
+  "del vs tn": "2026-11-24",
+  "uae vs india a": "2026-11-24",
+  "ஊதியம்": "2026-11-24",
+  "kallakurichi collector": "2026-11-24"
  },
  "posts": [
   {
@@ -1429,6 +1432,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/us-stocks-open-nvidia-rally.html",
    "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "uae vs india a",
+   "title": "भारत A बनाम यूएई समूह B अंतिम मैच दोहा में 24 नवंबर को",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/india-uae-group-b-match.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "kallakurichi collector",
+   "title": "कलेक्टर ने टीवीके विधायक के खिलाफ उत्पीड़न की शिकायत दर्ज की",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/collector-mla-harassment-complaint.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1549,9 +1568,11 @@
   "eCktzGjC-iU",
   "KWOcA8_Vu10",
   "A_dJOYpxEVU",
-  "HpYTYo_jF2Y"
+  "HpYTYo_jF2Y",
+  "3Fdo8Oivza4",
+  "gW4y6IPZV2A"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
