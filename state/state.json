@@ -230,7 +230,10 @@
   "del vs tn": "2026-11-24",
   "uae vs india a": "2026-11-24",
   "ஊதியம்": "2026-11-24",
-  "kallakurichi collector": "2026-11-24"
+  "kallakurichi collector": "2026-11-24",
+  "harshit rana": "2026-11-24",
+  "goa cricket team vs chhattisgarh cricket team standings": "2026-11-24",
+  "united arab emirates national cricket team vs india a cricket team standings": "2026-11-24"
  },
  "posts": [
   {
@@ -1448,6 +1451,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/collector-mla-harassment-complaint.html",
    "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "harshit rana",
+   "title": "हारीश राणा ने दोहा में पाकिस्तान खिलाड़ियों के साथ गरमागरम शब्दों का आदान‑प्रदान किया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/harish-rana-pakistan-verbal-clash.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "goa cricket team vs chhattisgarh cricket team standings",
+   "title": "छत्तीसगढ़ ने 1 गेंद बची 4 विकेट से गोवा को हराया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/chhattisgarh-goa-cricket-match.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1570,9 +1589,10 @@
   "A_dJOYpxEVU",
   "HpYTYo_jF2Y",
   "3Fdo8Oivza4",
-  "gW4y6IPZV2A"
+  "gW4y6IPZV2A",
+  "akkmYpy40bk"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
