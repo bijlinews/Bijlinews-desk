@@ -233,7 +233,11 @@
   "kallakurichi collector": "2026-11-24",
   "harshit rana": "2026-11-24",
   "goa cricket team vs chhattisgarh cricket team standings": "2026-11-24",
-  "united arab emirates national cricket team vs india a cricket team standings": "2026-11-24"
+  "united arab emirates national cricket team vs india a cricket team standings": "2026-11-24",
+  "lachlan shaw": "2026-11-24",
+  "adil rashid": "2026-11-24",
+  "निखिल चौधरी": "2026-11-24",
+  "tripura vs maharashtra": "2026-11-24"
  },
  "posts": [
   {
@@ -1467,6 +1471,22 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/chhattisgarh-goa-cricket-match.html",
    "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "निखिल चौधरी",
+   "title": "निखिल चौधरी ने MCG में 66 रन बनाकर प्लेयर ऑफ द मैच जीता",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/nikhil-chaudhary-player-of-match.html",
+   "why": []
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "lachlan shaw",
+   "title": "लैचलन शॉ ने पहला टी20आई में टॉम बैंटन को शानदार कैच से आउट किया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/lachlan-shaw-debut-catch.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1590,9 +1610,10 @@
   "HpYTYo_jF2Y",
   "3Fdo8Oivza4",
   "gW4y6IPZV2A",
-  "akkmYpy40bk"
+  "akkmYpy40bk",
+  "qG8sIURis4E"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
