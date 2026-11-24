@@ -391,7 +391,12 @@ def describe_all(preview, push):
     if limit > 0:
         posts = posts[:limit]
     log = []
+    import time
+    stop_at = time.time() + 60 * int(os.getenv("DESC_MINUTES") or "45")   # save before the job's time limit
     for post in posts:
+        if time.time() > stop_at:
+            log.append(f"- stopped for time; {len(posts) - len(log)} post(s) left for the next run")
+            break
         pid, body = post["id"], post.get("content", "")
         desc = _describe(post, _text(body))
         if not desc:   # fall back to the first '30 सेकंड' point of bot posts
