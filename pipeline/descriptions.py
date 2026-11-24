@@ -27,11 +27,12 @@ def save(items):
         json.dump(items[:KEEP], f, ensure_ascii=False, indent=1)
 
 
-def clean(text, limit=160):
+def clean(text, limit=150):   # Blogger's Search description box takes at most 150 characters
     text = re.sub(r"<[^>]+>", " ", str(text or ""))
     text = re.sub(r"\s+", " ", text).strip().strip('"').strip()
     if len(text) > limit:   # cut at the last word that fits, never mid-word
-        text = text[:limit].rsplit(" ", 1)[0].rstrip(",;:-–") + "…"
+        cut = text[:limit - 1]
+        text = (cut.rsplit(" ", 1)[0] if " " in cut else cut).rstrip(",;:-–") + "…"
     return text
 
 

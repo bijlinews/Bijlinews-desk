@@ -370,7 +370,7 @@ def _describe(post, text):
     try:
         res, _ = llm.ask(
             "Write the Google/WhatsApp search description for this Hindi news article: ONE complete Hindi sentence, "
-            "110-155 characters, with the single most important fact (who/what/how much). Use only facts from the "
+            "100-145 characters (never more than 145), with the single most important fact (who/what/how much). Use only facts from the "
             "text. No question, no 'जानें', no 'पूरी खबर', no emoji. Return ONLY JSON: {\"description\": \"...\"}\n\n"
             f"TITLE: {post.get('title', '')}\nTEXT: {text[:3000]}", temperature=0.2, max_tokens=1500)
         desc = descriptions.clean((res or {}).get("description", ""))
