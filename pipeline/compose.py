@@ -113,7 +113,7 @@ def build_post(article, card_url, sources, section=""):
 {_timeline(article)}
 {_faq(article)}
 <div class="bn-source"><strong>स्रोत:</strong> {' '.join(links[:5])}</div>
-{_sensitive_note(article)}<p class="bn-ai">यह खबर ऊपर दिए गए स्रोतों की रिपोर्टों के आधार पर AI की मदद से लिखी गई है और प्रकाशन से पहले हर तथ्य को इन्हीं स्रोतों से मिलाया गया है। कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>, हम तुरंत सुधारेंगे।</p>"""
+{_sensitive_note(article)}<p class="bn-ai"><strong>बिजली न्यूज़ डेस्क</strong> · कोई गलती दिखे तो <a href="/p/corrections.html">हमें बताएँ</a>, हम तुरंत सुधारेंगे।</p>"""
 
 
 def slug(s):
