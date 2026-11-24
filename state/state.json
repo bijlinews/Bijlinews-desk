@@ -239,7 +239,8 @@
   "निखिल चौधरी": "2026-11-24",
   "tripura vs maharashtra": "2026-11-24",
   "thiruvannamalai deepam 2026": "2026-11-24",
-  "पहलगाम": "2026-11-24"
+  "पहलगाम": "2026-11-24",
+  "ind": "2026-11-24"
  },
  "posts": [
   {
@@ -1508,6 +1509,16 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "ind",
+   "title": "UNISOC ने स्मार्ट मीटर उत्पादन शुरू किया, वैभव सोर्यावंशी ने 204 रन से भारत A को जीत दिलाई",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX"
+   ]
   }
  ],
  "photos": [
@@ -1636,7 +1647,7 @@
   "MA8Opd__kV0",
   "Cq0y_cbEAzA"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -2413,6 +2424,35 @@
    },
    "section": "भारत",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@ed302dfd1801eae8b01bcd507ac23278dae87320/images/2026/11/tiruvannamalai-deepam-festival-1645.jpg",
+   "date": "2026-11-24"
+  },
+  "7772539668460304063": {
+   "article": {
+    "title_hi": "UNISOC ने स्मार्ट मीटर उत्पादन शुरू किया, वैभव सोर्यावंशी ने 204 रन से भारत A को जीत दिलाई",
+    "slug_en": "unisoc-smart-meters-cricket-win",
+    "summary": [
+     "UNISOC ने 24 नवंबर को नई दिल्ली में Cat.1 bis स्मार्ट मीटरों का बड़े पैमाने पर उत्पादन और शिपमेंट शुरू किया; वैभव सोर्यावंशी ने 24 नवंबर को यूएई के खिलाफ 204 रन बनाए।",
+     "रिपोर्ट्स के मुताबिक दोनों घटनाओं ने भारत के बुनियादी ढाँचे और खेल में उत्साह बढ़ाया।",
+     "आगे स्मार्ट मीटर भारत के शहरी और ग्रामीण पावर माहौल को संभालेंगे; क्रिकेट में भारत A सेमी‑फ़ाइनल में पहुँचा।"
+    ],
+    "key_numbers": [
+     {
+      "value": "204 रन",
+      "label": "वैभव सोर्यावंशी के रन"
+     },
+     {
+      "value": "53 गेंदों",
+      "label": "दो‑शतक की गेंदें"
+     },
+     {
+      "value": "28 छक्के",
+      "label": "इनिंग में छक्के"
+     }
+    ],
+    "_photo": null
+   },
+   "section": "टेक्नोलॉजी",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@d9648ee5fb792e8127d20d2ce2fa2c645b1026ca/images/2026/11/unisoc-smart-meters-cricket-win-1751.jpg",
    "date": "2026-11-24"
   }
  }
