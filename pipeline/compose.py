@@ -3,6 +3,8 @@ import html
 import json
 import re
 
+from . import explainers
+
 ALLOWED = {"p", "h2", "h3", "ul", "ol", "li", "strong", "em", "b", "i", "br", "blockquote"}
 
 
@@ -108,7 +110,7 @@ def build_post(article, card_url, sources, section=""):
 <!--more-->
 {figure}
 {_numbers(article)}
-{clean_html(article['body_html'])}
+{explainers.link_terms(clean_html(article['body_html']))}
 {_why(article)}
 {_timeline(article)}
 {_faq(article)}
