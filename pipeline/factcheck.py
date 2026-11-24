@@ -66,7 +66,8 @@ def _article_text(article):
 
 
 def _source_text(sources, facts):
-    return " ".join([" ".join([s.get("title", ""), s.get("snippet", ""), s.get("text", "")]) for s in sources] +
+    return " ".join([" ".join([s.get("source", ""), s.get("title", ""), s.get("snippet", ""), s.get("text", "")])
+                     for s in sources] +
                     [f.get("quote", "") for f in facts])
 
 

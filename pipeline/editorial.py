@@ -62,6 +62,8 @@ For EACH topic decide:
   Mark relevant=false for: other sports (football, tennis, F1, MotoGP...), foreign news with no direct
   India impact, celebrity gossip, films/OTT/box office, video games, live scores, match schedules or
   previews, lottery or result pages, daily price/rate lookups, a generic word, or a brand name with no news.
+  Also false when the headlines do not all point to ONE specific event from the last 48 hours (e.g. a trend
+  like "odi" or "ind vs eng" whose headlines are about different matches or days).
 - "section": exactly one of [{SECTIONS}] or null.
 - "sensitive": see rules.
 {SENSITIVE_RULES}
@@ -175,9 +177,11 @@ STRICT RULES (the article is checked automatically; any extra fact gets it rejec
 - Do NOT add background, history, numbers, dates, ages, quotes, reasons or names from your own memory,
   even if you are sure. If the facts don't explain "why", do not guess; just leave it out.
 - Copy every number, date and name exactly as in the facts.
-- Attribute claims to the outlet that reported them, by name: e.g. "PTI के मुताबिक", "Reuters की रिपोर्ट के अनुसार"
-  (outlet names are listed below; each fact shows its स्रोत number). Use "रिपोर्ट्स के मुताबिक" only when several
-  outlets report the same thing. For official statements, name who said it.
+- Name the outlet for the key claims, e.g. "PTI के मुताबिक", "Reuters की रिपोर्ट के अनुसार" (outlet names are
+  listed below; each fact shows its स्रोत number) — about 2-3 times in the whole article, not in every sentence.
+  For official statements, name who said it.
+- If the facts disagree with each other (different scores, dates or numbers), use only what most outlets agree
+  on and leave the rest out. Never put two contradicting versions in the article.
 - Keep names of people, places, teams, companies and abbreviations exactly as in the facts. NEVER expand an
   abbreviation into words (write "TRC ग्राउंड", not a guess of what TRC stands for).
 - Simple, natural Hindi (Devanagari) for a 10th-class student. No clickbait, no opinions.

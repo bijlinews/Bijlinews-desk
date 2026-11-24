@@ -23,6 +23,10 @@ DAILY_LOOKUP = re.compile(
     r"|(\bresult\b.*\b(today|live)\b)|(कल का मौसम|आज का मौसम|weather today|weather tomorrow)", re.I)
 
 GAMES_OTT = re.compile(r"(\bgta\s*(\d|vi\b)|\bbgmi\b|free\s*fire|\bott\b|new\s+releases?|web\s*series)", re.I)
+# one-word / generic trends: no single news event behind them, so research mixes reports from different days
+GENERIC = {"odi", "test", "t20", "t20i", "ipl", "cricket", "news", "weather", "india", "ind", "match", "today",
+           "result", "results", "score", "gold", "sensex", "nifty", "share market", "stock market", "bitcoin",
+           "क्रिकेट", "मौसम", "खबर", "समाचार", "आज", "मैच", "शेयर बाजार", "सोना"}
 EXPLAINER = re.compile(r"^(why|how|what|क्यों|कैसे|क्या)\b", re.I)
 
 
@@ -31,6 +35,8 @@ def skip_reason(title):
     t = (title or "").strip()
     if not t:
         return "empty"
+    if t.lower() in GENERIC or len(t) <= 3:
+        return "generic trend word (no single news event)"
     if OTHER_SCRIPTS.search(t):
         return "regional-language trend"
     if LIVE_MATCH.search(t):
