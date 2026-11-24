@@ -63,7 +63,7 @@ jobs:
           NOTIFY_TO: ${{ secrets.NOTIFY_TO }}
           PUBLISH_MODE: ${{ vars.PUBLISH_MODE || 'draft' }}
           MAX_PER_RUN: ${{ vars.MAX_PER_RUN || '1' }}
-          MAX_PER_DAY: ${{ vars.MAX_PER_DAY || '6' }}
+          MAX_PER_DAY: '50'
           MIN_TRAFFIC: ${{ vars.MIN_TRAFFIC || '100' }}
           ALLOWED_SECTIONS: ${{ vars.ALLOWED_SECTIONS || 'भारत,बिजनेस,शेयर बाजार,खेल' }}
           SHOW_FAQ: ${{ vars.SHOW_FAQ || '0' }}
