@@ -201,7 +201,9 @@
   "hasan nawaz bowling figures asia cup": "2026-11-25",
   "aneurin donald cricket": "2026-11-25",
   "नीलम देवी": "2026-11-25",
-  "flipkart ceo kalyan krishnamurthy": "2026-11-25"
+  "flipkart ceo kalyan krishnamurthy": "2026-11-25",
+  "शरजील इमाम": "2026-11-25",
+  "super league kerala": "2026-11-25"
  },
  "posts": [
   {
@@ -1515,6 +1517,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/flipkart-ceo-stepdown-interim-balayaji.html",
    "why": []
+  },
+  {
+   "date": "2026-11-25",
+   "trend": "शरजील इमाम",
+   "title": "सुप्रीम कोर्ट ने 25 नवंबर को शरजील इमाम को अंतरिम जमानत नहीं दी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sharjeel-imam-interim-bail-refused.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1647,7 +1657,7 @@
   "3GSZx_czpGQ",
   "yWwob8kwOCk"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
