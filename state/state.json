@@ -196,7 +196,11 @@
   "today gold rate mumbai": "2026-11-25",
   "रॉबर्ट कियोसाकी": "2026-11-25",
   "anant singh": "2026-11-25",
-  "mahfijul islam": "2026-11-25"
+  "mahfijul islam": "2026-11-25",
+  "రేషన్ కార్డు": "2026-11-25",
+  "hasan nawaz bowling figures asia cup": "2026-11-25",
+  "aneurin donald cricket": "2026-11-25",
+  "नीलम देवी": "2026-11-25"
  },
  "posts": [
   {
@@ -1494,6 +1498,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/robert-kiyosaki-buy-gold-silver-bitcoin.html",
    "why": []
+  },
+  {
+   "date": "2026-11-25",
+   "trend": "hasan nawaz bowling figures asia cup",
+   "title": "पाकिस्तान ए ने 48 रन से भारत ए को हराया, हसन नवाज़ को प्लेयर ऑफ द मैच",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/pakistan-beats-india-48-runs.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1622,9 +1634,10 @@
   "MA8Opd__kV0",
   "Cq0y_cbEAzA",
   "lmV3gJSAgbo",
-  "rhm7H8X5J98"
+  "rhm7H8X5J98",
+  "3GSZx_czpGQ"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
