@@ -200,7 +200,8 @@
   "రేషన్ కార్డు": "2026-11-25",
   "hasan nawaz bowling figures asia cup": "2026-11-25",
   "aneurin donald cricket": "2026-11-25",
-  "नीलम देवी": "2026-11-25"
+  "नीलम देवी": "2026-11-25",
+  "flipkart ceo kalyan krishnamurthy": "2026-11-25"
  },
  "posts": [
   {
@@ -1506,6 +1507,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/pakistan-beats-india-48-runs.html",
    "why": []
+  },
+  {
+   "date": "2026-11-25",
+   "trend": "flipkart ceo kalyan krishnamurthy",
+   "title": "Flipkart के CEO कल्याण कृष्णमूर्ति 11 साल बाद पद से हटेंगे, बैलाजी थियागरजन् अंतरिम CEO",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/flipkart-ceo-stepdown-interim-balayaji.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1635,9 +1644,10 @@
   "Cq0y_cbEAzA",
   "lmV3gJSAgbo",
   "rhm7H8X5J98",
-  "3GSZx_czpGQ"
+  "3GSZx_czpGQ",
+  "yWwob8kwOCk"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
