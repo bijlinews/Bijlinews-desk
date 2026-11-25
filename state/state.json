@@ -194,7 +194,9 @@
   "tcs share price": "2026-11-25",
   "hdfc bank share price": "2026-11-25",
   "today gold rate mumbai": "2026-11-25",
-  "रॉबर्ट कियोसाकी": "2026-11-25"
+  "रॉबर्ट कियोसाकी": "2026-11-25",
+  "anant singh": "2026-11-25",
+  "mahfijul islam": "2026-11-25"
  },
  "posts": [
   {
@@ -1622,7 +1624,7 @@
   "lmV3gJSAgbo",
   "rhm7H8X5J98"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
