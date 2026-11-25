@@ -203,7 +203,9 @@
   "नीलम देवी": "2026-11-25",
   "flipkart ceo kalyan krishnamurthy": "2026-11-25",
   "शरजील इमाम": "2026-11-25",
-  "super league kerala": "2026-11-25"
+  "super league kerala": "2026-11-25",
+  "बांग्लादेश क्रिकेट टीम": "2026-11-25",
+  "उद्याचे हवामान": "2026-11-25"
  },
  "posts": [
   {
@@ -1525,6 +1527,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/sharjeel-imam-interim-bail-refused.html",
    "why": []
+  },
+  {
+   "date": "2026-11-25",
+   "trend": "उद्याचे हवामान",
+   "title": "IMD के अनुसार अगले चार दिनों में तापमान 2°C‑4°C गिरेगा, भारत में ठंड की लहर तेज़",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/cold-wave-india-november-2026.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1655,9 +1665,10 @@
   "lmV3gJSAgbo",
   "rhm7H8X5J98",
   "3GSZx_czpGQ",
-  "yWwob8kwOCk"
+  "yWwob8kwOCk",
+  "kbKEuU-YEIw"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
