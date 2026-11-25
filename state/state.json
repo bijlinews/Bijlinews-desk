@@ -192,7 +192,9 @@
   "nifty 50": "2026-11-25",
   "suzlon share price": "2026-11-25",
   "tcs share price": "2026-11-25",
-  "hdfc bank share price": "2026-11-25"
+  "hdfc bank share price": "2026-11-25",
+  "today gold rate mumbai": "2026-11-25",
+  "रॉबर्ट कियोसाकी": "2026-11-25"
  },
  "posts": [
   {
@@ -1482,6 +1484,14 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-25",
+   "trend": "रॉबर्ट कियोसाकी",
+   "title": "रॉबर्ट कियोसाकी ने 20 नवंबर को X पर गिरते बाजार में 'फॉलिंग नाइफ़' पकड़ने से बचने और नीचे इंतजार करने की सलाह दी",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/robert-kiyosaki-buy-gold-silver-bitcoin.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1609,9 +1619,10 @@
   "qG8sIURis4E",
   "MA8Opd__kV0",
   "Cq0y_cbEAzA",
-  "lmV3gJSAgbo"
+  "lmV3gJSAgbo",
+  "rhm7H8X5J98"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
