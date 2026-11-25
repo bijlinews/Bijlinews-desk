@@ -1,58 +1,5 @@
 {
  "seen": {
-  "kl rahul": "2026-11-20",
-  "gold rate today": "2026-11-20",
-  "gold rate": "2026-11-20",
-  "gold rate today 22 carat": "2026-11-20",
-  "eci": "2026-11-20",
-  "world air forces directory india rafale": "2026-11-20",
-  "scotland vs netherlands": "2026-11-20",
-  "maharashtra cricket team": "2026-11-20",
-  "nifty bank": "2026-11-20",
-  "आज का राशिफल मेष": "2026-11-20",
-  "rakshitha sree santhosh ramraj": "2026-11-20",
-  "ಕರ್ನಾಟಕ": "2026-11-20",
-  "punjab vs tamil nadu": "2026-11-20",
-  "shahrukh khan": "2026-11-20",
-  "न्यायालय": "2026-11-20",
-  "आदित्य धर": "2026-11-20",
-  "samantha": "2026-11-20",
-  "pakw vs irew": "2026-11-20",
-  "om": "2026-11-20",
-  "इंडिया ए बनाम नेपाल": "2026-11-20",
-  "east bengal vs sc delhi": "2026-11-20",
-  "doha": "2026-11-20",
-  "hong kong badminton": "2026-11-20",
-  "sk78": "2026-11-20",
-  "ಚಿನ್ನ": "2026-11-20",
-  "रॉबर्ट कियोसाकी": "2026-11-20",
-  "apec": "2026-11-20",
-  "மு. க. ஸ்டாலின்": "2026-11-20",
-  "அமைச்சர்": "2026-11-20",
-  "సమంత రుత్ ప్రభు": "2026-11-20",
-  "isl": "2026-11-20",
-  "gta6 game": "2026-11-20",
-  "bengaluru vs mumbai city": "2026-11-20",
-  "rhenium": "2026-11-20",
-  "bob": "2026-11-20",
-  "deepak chahar": "2026-11-20",
-  "மம்மூட்டி": "2026-11-20",
-  "భారత అంధుల క్రికెట్ జట్టు": "2026-11-20",
-  "मुकदमा": "2026-11-20",
-  "उठो देव बैठो देव": "2026-11-20",
-  "gta gta6": "2026-11-20",
-  "riemann hypothesis": "2026-11-20",
-  "t10 league": "2026-11-20",
-  "sandisk share price": "2026-11-20",
-  "al-ahli vs al-nassr": "2026-11-20",
-  "mohammedan sc vs gokulam kerala fc standings": "2026-11-20",
-  "bitcoin price usd": "2026-11-20",
-  "तुलसी विवाह आरती": "2026-11-20",
-  "new ott releases movies": "2026-11-20",
-  "விமர்சனம்": "2026-11-20",
-  "usman khawaja": "2026-11-20",
-  "tulip siddiq": "2026-11-20",
-  "নবান্ন": "2026-11-20",
   "shubman gill": "2026-11-21",
   "अनंत कुमार सिंह": "2026-11-21",
   "lakers vs kings": "2026-11-21",
@@ -240,7 +187,12 @@
   "tripura vs maharashtra": "2026-11-24",
   "thiruvannamalai deepam 2026": "2026-11-24",
   "पहलगाम": "2026-11-24",
-  "ind": "2026-11-24"
+  "ind": "2026-11-24",
+  "sensex": "2026-11-25",
+  "nifty 50": "2026-11-25",
+  "suzlon share price": "2026-11-25",
+  "tcs share price": "2026-11-25",
+  "hdfc bank share price": "2026-11-25"
  },
  "posts": [
   {
@@ -1519,6 +1471,17 @@
    "why": [
     "fact-check FIX"
    ]
+  },
+  {
+   "date": "2026-11-25",
+   "trend": "nifty 50",
+   "title": "निफ्टी 50 ने 25,740.70 पर गैप‑अप के साथ खुला",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -1645,9 +1608,10 @@
   "akkmYpy40bk",
   "qG8sIURis4E",
   "MA8Opd__kV0",
-  "Cq0y_cbEAzA"
+  "Cq0y_cbEAzA",
+  "lmV3gJSAgbo"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -2454,6 +2418,37 @@
    "section": "टेक्नोलॉजी",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@d9648ee5fb792e8127d20d2ce2fa2c645b1026ca/images/2026/11/unisoc-smart-meters-cricket-win-1751.jpg",
    "date": "2026-11-24"
+  },
+  "5206684456735252162": {
+   "article": {
+    "title_hi": "निफ्टी 50 ने 25,740.70 पर गैप‑अप के साथ खुला",
+    "slug_en": "nifty-50-gap-up-nov-2026",
+    "summary": [
+     "गिफ्ट निफ्टी 25,728‑25,742 पर ट्रेड कर गैप‑अप की संभावना दर्शा रहा है।",
+     "विदेशी संस्थागत निवेशकों की खरीद जारी रहने से सत्र सकारात्मक रह सकता है।"
+    ],
+    "key_numbers": [
+     {
+      "value": "25,740.70",
+      "label": "निफ्टी 50 का ट्रेडिंग स्तर"
+     },
+     {
+      "value": "25,728",
+      "label": "गिफ्ट निफ्टी का स्तर"
+     }
+    ],
+    "_photo": {
+     "id": "lmV3gJSAgbo",
+     "url": "https://images.unsplash.com/photo-1648275913341-7973ae7bc9b3?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8OHx8c3RvY2slMjBtYXJrZXQlMjBjaGFydHxlbnwxfDB8fHwxNzk1NTgxMTc4fDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1648275913341-7973ae7bc9b3?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8OHx8c3RvY2slMjBtYXJrZXQlMjBjaGFydHxlbnwxfDB8fHwxNzk1NTgxMTc4fDA&ixlib=rb-4.1.0",
+     "credit_name": "Tyler Prahm",
+     "credit_url": "https://unsplash.com/@tprahm?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "शेयर बाजार",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@4d246cdbf9e884682cda27f5cd0e26ef1dec7f17/images/2026/11/nifty-50-gap-up-nov-2026-1001.jpg",
+   "date": "2026-11-25"
   }
  }
 }
