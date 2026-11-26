@@ -146,7 +146,10 @@
   "super league kerala": "2026-11-25",
   "बांग्लादेश क्रिकेट टीम": "2026-11-25",
   "उद्याचे हवामान": "2026-11-25",
-  "श्रीलंका ए क्रिकेट टीम": "2026-11-26"
+  "श्रीलंका ए क्रिकेट टीम": "2026-11-26",
+  "baroda cricket team vs karnataka cricket team standings": "2026-11-26",
+  "gold silver prices november 26": "2026-11-26",
+  "saurav das": "2026-11-26"
  },
  "posts": [
   {
@@ -1476,6 +1479,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/cold-wave-india-november-2026.html",
    "why": []
+  },
+  {
+   "date": "2026-11-26",
+   "trend": "saurav das",
+   "title": "सौरव दास की यूके यात्रा पर रोक, पासपोर्ट विसंगति से लुकआउट सर्कुलर",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/saurav-das-uk-travel-stop.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1607,9 +1618,10 @@
   "rhm7H8X5J98",
   "3GSZx_czpGQ",
   "yWwob8kwOCk",
-  "kbKEuU-YEIw"
+  "kbKEuU-YEIw",
+  "8zrdubH_ERA"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
