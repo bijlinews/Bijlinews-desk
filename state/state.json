@@ -149,7 +149,8 @@
   "श्रीलंका ए क्रिकेट टीम": "2026-11-26",
   "baroda cricket team vs karnataka cricket team standings": "2026-11-26",
   "gold silver prices november 26": "2026-11-26",
-  "saurav das": "2026-11-26"
+  "saurav das": "2026-11-26",
+  "sbi clerk mains exam analysis": "2026-11-26"
  },
  "posts": [
   {
@@ -1487,6 +1488,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/saurav-das-uk-travel-stop.html",
    "why": []
+  },
+  {
+   "date": "2026-11-26",
+   "trend": "sbi clerk mains exam analysis",
+   "title": "SBI क्लर्क मेन्स परीक्षा 26 नवंबर, शिफ्ट 1 मध्यम, अंक 100‑117",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sbi-clerk-mains-exam-analysis.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1621,7 +1630,7 @@
   "kbKEuU-YEIw",
   "8zrdubH_ERA"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
