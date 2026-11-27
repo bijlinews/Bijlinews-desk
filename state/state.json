@@ -89,7 +89,9 @@
   "zee5": "2026-11-26",
   "કેરેટ": "2026-11-27",
   "west bengal hs result 3rd semester": "2026-11-27",
-  "mitchell marsh": "2026-11-27"
+  "mitchell marsh": "2026-11-27",
+  "bse sensex": "2026-11-27",
+  "ali raza": "2026-11-27"
  },
  "posts": [
   {
@@ -1443,6 +1445,14 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/wbchse-hs-semester3-results.html",
    "why": []
+  },
+  {
+   "date": "2026-11-27",
+   "trend": "bse sensex",
+   "title": "Sensex ने 989.33 अंक गिरकर 83,339.26 पर बंद किया",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/sensex-falls-sharply.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1576,9 +1586,10 @@
   "yWwob8kwOCk",
   "kbKEuU-YEIw",
   "8zrdubH_ERA",
-  "EnZDVYAV5hA"
+  "EnZDVYAV5hA",
+  "W7wEqy01K3s"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
