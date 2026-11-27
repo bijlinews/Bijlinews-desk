@@ -91,7 +91,8 @@
   "west bengal hs result 3rd semester": "2026-11-27",
   "mitchell marsh": "2026-11-27",
   "bse sensex": "2026-11-27",
-  "ali raza": "2026-11-27"
+  "ali raza": "2026-11-27",
+  "mumbai indians": "2026-11-27"
  },
  "posts": [
   {
@@ -1453,6 +1454,17 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/sensex-falls-sharply.html",
    "why": []
+  },
+  {
+   "date": "2026-11-27",
+   "trend": "mumbai indians",
+   "title": "MI ने 26 नवंबर को टीज़र पोस्ट किया, नई कप्तानी पर अटकलें बढ़ीं",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FIX",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -1589,7 +1601,7 @@
   "EnZDVYAV5hA",
   "W7wEqy01K3s"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -2427,6 +2439,31 @@
    "section": "शेयर बाजार",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@4d246cdbf9e884682cda27f5cd0e26ef1dec7f17/images/2026/11/nifty-50-gap-up-nov-2026-1001.jpg",
    "date": "2026-11-25"
+  },
+  "1044363537434251754": {
+   "article": {
+    "title_hi": "MI ने 26 नवंबर को टीज़र पोस्ट किया, नई कप्तानी पर अटकलें बढ़ीं",
+    "slug_en": "mumbai-indians-teaser-captaincy",
+    "summary": [
+     "MI ने 26 नवंबर 2026 को शाम 5:45 IST पर टीज़र पोस्ट किया",
+     "टीज़र ने नई कप्तानी के बारे में अटकलें बढ़ा दीं",
+     "फैंस ने एनिमेटेड तस्वीर को पिछले रोहित के जश्न से जोड़ा"
+    ],
+    "key_numbers": [
+     {
+      "value": "5:45 IST",
+      "label": "पोस्ट का समय"
+     },
+     {
+      "value": "26 नवंबर 2026",
+      "label": "टीज़र की तिथि"
+     }
+    ],
+    "_photo": null
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@59bb53a051909a7272d07d2a973c10e520b6d036/images/2026/11/mumbai-indians-teaser-captaincy-1749.jpg",
+   "date": "2026-11-27"
   }
  }
 }
