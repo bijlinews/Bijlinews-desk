@@ -58,7 +58,8 @@
   "movie review yeh prem mol liya": "2026-11-27",
   "shamyl hussain": "2026-11-27",
   "yashasvi jaiswal": "2026-11-28",
-  "चाँदी": "2026-11-28"
+  "चाँदी": "2026-11-28",
+  "new zealand national cricket team vs india national cricket team": "2026-11-28"
  },
  "posts": [
   {
@@ -1450,6 +1451,17 @@
     "fact-check FAIL",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-28",
+   "trend": "new zealand national cricket team vs india national cricket team",
+   "title": "न्यूज़ीलैंड ने पहले दिन 246 रन बनाकर 5 विकेट खोले",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FAIL",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -1587,7 +1599,7 @@
   "W7wEqy01K3s",
   "xN4QdAn4aJw"
  ],
- "groq_turn": 1,
+ "groq_turn": 2,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -2485,6 +2497,35 @@
    },
    "section": "बिजनेस",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@614d7656913f156c6f49dfa2a20fa2778ee64423/images/2026/11/silver-price-drop-2026-0952.jpg",
+   "date": "2026-11-28"
+  },
+  "8414425500107370120": {
+   "article": {
+    "title_hi": "न्यूज़ीलैंड ने पहले दिन 246 रन बनाकर 5 विकेट खोले",
+    "slug_en": "nz-india-second-test-christchurch",
+    "summary": [
+     "न्यूज़ीलैंड ने पहले दिन 246 रन बनाकर 5 विकेट खोले।",
+     "भारत ने दोपहर के चाय के बाद 59 रन पर 3 विकेट खो दिए।",
+     "जैकब डफ़ी ने केएल राहुल को 25 रन पर आउट किया।"
+    ],
+    "key_numbers": [
+     {
+      "value": "246",
+      "label": "न्यूज़ीलैंड के रन"
+     },
+     {
+      "value": "59",
+      "label": "भारत के रन"
+     },
+     {
+      "value": "13",
+      "label": "ओवरों की संख्या"
+     }
+    ],
+    "_photo": null
+   },
+   "section": "खेल",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@9ecf470fac113227caba3ca29272d62063a63f90/images/2026/11/nz-india-second-test-christchurch-1055.jpg",
    "date": "2026-11-28"
   }
  }
