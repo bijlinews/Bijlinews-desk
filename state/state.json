@@ -57,7 +57,8 @@
   "suvarna keralam lottery results": "2026-11-27",
   "movie review yeh prem mol liya": "2026-11-27",
   "shamyl hussain": "2026-11-27",
-  "yashasvi jaiswal": "2026-11-28"
+  "yashasvi jaiswal": "2026-11-28",
+  "चाँदी": "2026-11-28"
  },
  "posts": [
   {
@@ -1438,6 +1439,17 @@
    "status": "published",
    "url": "https://www.bijlinews.com/2026/11/yashasvi-jaiswal-33-venues-record.html",
    "why": []
+  },
+  {
+   "date": "2026-11-28",
+   "trend": "चाँदी",
+   "title": "सिल्वर फ्यूचर्स 16.2% गिरकर ₹1,47,758/kg, 2026 में निचला स्तर",
+   "status": "draft",
+   "url": "https://www.bijlinews.com/",
+   "why": [
+    "fact-check FAIL",
+    "कुछ दावे पुष्ट नहीं हुए"
+   ]
   }
  ],
  "photos": [
@@ -1572,9 +1584,10 @@
   "kbKEuU-YEIw",
   "8zrdubH_ERA",
   "EnZDVYAV5hA",
-  "W7wEqy01K3s"
+  "W7wEqy01K3s",
+  "xN4QdAn4aJw"
  ],
- "groq_turn": 3,
+ "groq_turn": 1,
  "pending": {
   "641795208175815405": {
    "article": {
@@ -2437,6 +2450,42 @@
    "section": "खेल",
    "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@59bb53a051909a7272d07d2a973c10e520b6d036/images/2026/11/mumbai-indians-teaser-captaincy-1749.jpg",
    "date": "2026-11-27"
+  },
+  "7058630012104802917": {
+   "article": {
+    "title_hi": "सिल्वर फ्यूचर्स 16.2% गिरकर ₹1,47,758/kg, 2026 में निचला स्तर",
+    "slug_en": "silver-price-drop-2026",
+    "summary": [
+     "सिल्वर फ्यूचर्स 16.2% गिरकर ₹1,47,758 प्रति किलोग्राम हो गए।",
+     "कीमत में गिरावट धातु बाजार में व्यापक गिरावट दर्शाती है।",
+     "गोल्ड फ्यूचर्स भी 11% गिरकर ₹1,21,702 प्रति 10 ग्राम हो गए, जिससे बाजार में गिरावट स्पष्ट हुई।"
+    ],
+    "key_numbers": [
+     {
+      "value": "₹1,47,758",
+      "label": "सिल्वर फ्यूचर्स कीमत"
+     },
+     {
+      "value": "16.2%",
+      "label": "गिरावट प्रतिशत"
+     },
+     {
+      "value": "₹1,51,000",
+      "label": "पहले की कीमत"
+     }
+    ],
+    "_photo": {
+     "id": "xN4QdAn4aJw",
+     "url": "https://images.unsplash.com/photo-1616536368667-99f53a750fb8?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8c2lsdmVyJTIwcHJpY2UlMjBjaGFydHxlbnwxfDB8fHwxNzk1ODM5ODMwfDA&ixlib=rb-4.1.0&w=1200&h=675&fit=crop&crop=entropy&q=80&fm=jpg",
+     "raw": "https://images.unsplash.com/photo-1616536368667-99f53a750fb8?ixid=M3wxMTM2NTI4fDB8MXxzZWFyY2h8MXx8c2lsdmVyJTIwcHJpY2UlMjBjaGFydHxlbnwxfDB8fHwxNzk1ODM5ODMwfDA&ixlib=rb-4.1.0",
+     "credit_name": "Scottsdale Mint",
+     "credit_url": "https://unsplash.com/@scottsdalemint?utm_source=bijlinews&utm_medium=referral",
+     "unsplash_url": "https://unsplash.com/?utm_source=bijlinews&utm_medium=referral"
+    }
+   },
+   "section": "बिजनेस",
+   "card_url": "https://cdn.jsdelivr.net/gh/bijlinews/Bijlinews-desk@614d7656913f156c6f49dfa2a20fa2778ee64423/images/2026/11/silver-price-drop-2026-0952.jpg",
+   "date": "2026-11-28"
   }
  }
 }
