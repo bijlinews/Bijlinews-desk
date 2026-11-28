@@ -1,45 +1,5 @@
 {
  "seen": {
-  "जसप्रीत बुमराह": "2026-11-23",
-  "today's weather": "2026-11-23",
-  "gold price today": "2026-11-23",
-  "sl-w vs pakw": "2026-11-23",
-  "chicago fire fc vs charlotte fc standings": "2026-11-23",
-  "taiwan index": "2026-11-23",
-  "itbp": "2026-11-23",
-  "ടെസ്റ്റ് ക്രിക്കറ്റ്": "2026-11-23",
-  "hang seng index": "2026-11-23",
-  "রেখা পাত্র": "2026-11-23",
-  "womens emerging nations trophy": "2026-11-23",
-  "today lottery sambad": "2026-11-23",
-  "the hunger games sunrise on the reaping": "2026-11-23",
-  "bangladesh a vs sri lanka a": "2026-11-23",
-  "ಟೆಸ್ಟ್ ಕ್ರಿಕೆಟ್": "2026-11-23",
-  "वेलिंगटन क्रिकेट टीम": "2026-11-23",
-  "alexandr wang": "2026-11-23",
-  "মুখ্যমন্ত্রী": "2026-11-23",
-  "up super tet exam city": "2026-11-23",
-  "क्रिकेट पिच": "2026-11-23",
-  "सनी देओल": "2026-11-23",
-  "bangladesh national cricket team vs south africa national cricket team match scorecard": "2026-11-23",
-  "ban vs sa": "2026-11-23",
-  "gta vi game": "2026-11-23",
-  "bhel recruitment 2026 engineer trainee": "2026-11-23",
-  "khaled ahmed": "2026-11-23",
-  "సౌరవ్ గంగూలీ": "2026-11-23",
-  "एशिया": "2026-11-23",
-  "neftchi fergana vs al-hilal": "2026-11-23",
-  "leonida": "2026-11-23",
-  "real kashmir vs dempo sc": "2026-11-23",
-  "avengers doomsday": "2026-11-23",
-  "ugc net": "2026-11-23",
-  "al-shamal vs al-ahli": "2026-11-23",
-  "intel share price": "2026-11-23",
-  "gta6 update": "2026-11-23",
-  "inter miami football": "2026-11-23",
-  "bigg boss 10 telugu voting": "2026-11-23",
-  "dark": "2026-11-23",
-  "qazi touqeer": "2026-11-23",
   "sone ka bhav aaj ka": "2026-11-24",
   "om movie collection worldwide": "2026-11-24",
   "kerala lottery results": "2026-11-24",
@@ -96,7 +56,8 @@
   "inter kashi vs churchill brothers": "2026-11-27",
   "suvarna keralam lottery results": "2026-11-27",
   "movie review yeh prem mol liya": "2026-11-27",
-  "shamyl hussain": "2026-11-27"
+  "shamyl hussain": "2026-11-27",
+  "yashasvi jaiswal": "2026-11-28"
  },
  "posts": [
   {
@@ -1469,6 +1430,14 @@
     "fact-check FIX",
     "कुछ दावे पुष्ट नहीं हुए"
    ]
+  },
+  {
+   "date": "2026-11-28",
+   "trend": "yashasvi jaiswal",
+   "title": "यशस्वी जैसवाल ने 33 अलग-अलग मैदानों में टेस्ट रिकॉर्ड तोड़ा",
+   "status": "published",
+   "url": "https://www.bijlinews.com/2026/11/yashasvi-jaiswal-33-venues-record.html",
+   "why": []
   }
  ],
  "photos": [
@@ -1605,7 +1574,7 @@
   "EnZDVYAV5hA",
   "W7wEqy01K3s"
  ],
- "groq_turn": 2,
+ "groq_turn": 3,
  "pending": {
   "641795208175815405": {
    "article": {
